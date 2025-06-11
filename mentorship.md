@@ -3,4 +3,5 @@ layout: default
 title: Mentorship
 ---
 
-Mentored 3+ dozen students and taught photography at MIT.
+# Mentorship
+Mentored 3+ dozen students. Taught Digital Photography at MIT.

@@ -4,4 +4,4 @@ title: Home
 ---
 
 # Welcome
-View [Resume](resume.md)
+View my [Resume](resume.md) or learn more [About Me](about.md).
