@@ -1,117 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{ page.title }} | Manohar Srikanth</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #121212;
-      --link: #0047ab;
-      --light: #f8f9fa;
-      --accent: #0050b3;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #111;
-        --fg: #eee;
-        --link: #58a6ff;
-        --light: #1e1e1e;
-        --accent: #58a6ff;
-      }
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--fg);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      margin: 0 auto;
-      max-width: 860px;
-      padding: 2rem;
-      line-height: 1.8;
-      font-size: 18px;
-    }
-
-    header { margin-bottom: 2rem; }
-    h1, h2, h3, h4 {
-      font-weight: 600;
-      color: var(--accent);
-      margin-top: 2.2rem;
-      line-height: 1.4;
-    }
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.5rem; border-bottom: 1px solid #ccc; padding-bottom: 0.3rem; }
-    h3 { font-size: 1.2rem; }
-    h4 { font-size: 1rem; color: var(--fg); font-weight: 500; }
-
-    a { color: var(--link); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    nav a {
-      margin-right: 1rem;
-      padding-bottom: 0.2rem;
-      border-bottom: 2px solid transparent;
-    }
-    nav a:hover, nav a:focus {
-      border-color: var(--accent);
-    }
-
-    section { margin-top: 2rem; }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    blockquote {
-      margin-left: 0;
-      padding-left: 1rem;
-      border-left: 3px solid var(--accent);
-      color: #555;
-    }
-
-    footer {
-      margin-top: 4rem;
-      padding-top: 1rem;
-      font-size: 0.9em;
-      text-align: center;
-      border-top: 1px solid #ccc;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 2rem 0;
-    }
-
-    code {
-      background: #eee;
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
-      font-size: 0.95em;
-    }
-
-    .date { font-weight: 400; color: #888; font-size: 0.95em; }
-  </style>
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1><a href="/index.html">Manohar Srikanth</a></h1>
-    <nav>
-      <a href="/about.html">About</a>
-      <a href="/resume.html">Resume</a>
-      <a href="/portfolio.html">Portfolio</a>
-      <a href="/publications.html">Publications</a>
-      <a href="/mentorship.html">Mentorship</a>
-    </nav>
-    <hr>
+<body class="bg-white text-gray-900">
+  <header class="bg-white shadow mb-8">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Manohar Srikanth</h1>
+      <nav class="space-x-6">
+        <a href="index.html" class="text-gray-700 hover:text-blue-700">Home</a>
+        <a href="resume.html" class="text-gray-700 hover:text-blue-700">Resume</a>
+        <a href="publications.html" class="text-blue-700 font-semibold">Publications/Patents</a>
+      </nav>
+    </div>
   </header>
+
   <main>
     {{ content }}
   </main>
-  <footer>
-    © {{ 'now' | date: "%Y" }} Manohar Srikanth · <a href="https://github.com/manoharsrikanth">GitHub</a> · <a href="https://mit.smugmug.com">Photography</a>
-  </footer>
 </body>
 </html>
