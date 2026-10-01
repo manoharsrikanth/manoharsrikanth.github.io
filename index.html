@@ -5,22 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
   <meta name="description" content="Invention of the Disappearing Camera. September 2026 — the iPhone Duo and iPhone 18 Pro Max shipped with the camera hidden beneath the display. The inventor: Manohar Srikanth." />
-  <link rel="icon" href="data:," />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F7F2E9'/%3E%3Ccircle cx='32' cy='32' r='19' fill='%232B2118'/%3E%3C/svg%3E" />
   <title>Invention of the Disappearing Camera · Manohar Srikanth</title>
   <style>
     :root{
       color-scheme:light dark;
       --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
-      --bg:#ffffff; --soft:#f5f5f7; --ink:#1d1d1f; --muted:#6e6e73; --line:#d2d2d7;
-      --black:#000000; --ink-dark:#f5f5f7; --muted-dark:#a1a1a6;
-      --link:#0066cc; --btn:#0071e3; --btn-hover:#0077ed; --btn-text:#ffffff;
+      --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+      --bg:#F7F2E9; --soft:#ECE3D2; --ink:#2B2118; --muted:#7A6A5A; --line:#D9CEB9;
+      --burgundy:#6E1423; --deepred:#A31621; --sienna:#8C4A32; --teal:#0E6B6B;
+      --black:#000000; --ink-dark:#F5F5F7; --muted-dark:#a1a1a6;
+      --link:#0E6B6B; --btn:#6E1423; --btn-hover:#A31621; --btn-text:#F7F2E9;
       --col:880px; --wide:1180px;
     }
     @media(prefers-color-scheme:dark){
       :root{
-        --bg:#000000; --soft:#161617; --ink:#f5f5f7; --muted:#a1a1a6; --line:#38383a;
-        --ink-dark:#f5f5f7; --muted-dark:#a1a1a6;
-        --link:#2997ff; --btn:#0071e3; --btn-hover:#2997ff;
+        --bg:#191009; --soft:#251A12; --ink:#F2E9D8; --muted:#AB987F; --line:#3A2B20;
+        --burgundy:#C96474; --deepred:#D44A52; --sienna:#C98A5E; --teal:#5BB8B0;
+        --ink-dark:#F2E9D8; --muted-dark:#AB987F;
+        --link:#5BB8B0; --btn:#93304A; --btn-hover:#A31621;
       }
     }
     *{box-sizing:border-box}
@@ -65,12 +68,21 @@
     .proof-strip{max-width:var(--wide);margin:56px auto 0}
     .proof-line{font-size:clamp(17px,2vw,21px);color:var(--muted);text-align:center;
       margin:0 0 28px;line-height:1.6}
-    .proof-line strong{color:var(--ink);font-weight:700}
+    .proof-line strong{color:var(--burgundy);font-weight:700}
     .proof-single{max-width:860px;margin:0 auto;background:var(--soft);
       border:1px solid var(--line);border-radius:14px;overflow:hidden}
     .proof-single img{display:block;width:100%;height:auto}
     .proof-single figcaption{padding:16px 18px;font-size:14.5px;line-height:1.6;color:var(--muted)}
     .proof-single figcaption strong{color:var(--ink);font-weight:600}
+    .figtag{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.16em;
+      color:var(--teal);margin-bottom:8px}
+
+    /* ---------- Numbers strip: the scale of the achievement, as type ---------- */
+    .numbers{max-width:var(--wide);margin:76px auto 0;display:grid;
+      grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
+    .numbers .n{display:block;font-size:clamp(52px,7vw,88px);font-weight:800;
+      letter-spacing:-.03em;line-height:1;color:var(--burgundy)}
+    .numbers .l{display:block;margin-top:10px;font-size:14px;color:var(--muted);letter-spacing:.02em}
 
     /* ---------- Apple-style panels ---------- */
     .panel{padding:112px 24px}
@@ -81,7 +93,7 @@
     .center{text-align:center}
     .kicker{font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
       color:var(--link);margin:0 0 18px}
-    .panel-dark .kicker{color:#2997ff}
+    .panel-dark .kicker{color:#5BB8B0}
     .title{font-size:clamp(36px,6vw,64px);margin-bottom:22px}
     .lede{font-size:clamp(16.5px,2vw,21px);color:var(--muted);max-width:700px;margin:0 auto 8px;line-height:1.65}
     .panel-dark .lede{color:var(--muted-dark)}
@@ -205,6 +217,7 @@
       .hero{padding:64px 20px 56px}
       .hero-frame{margin-top:40px}
       .proof-strip{margin-top:40px}
+      .numbers{margin-top:56px;gap:12px}
       .topbar{padding:0 16px;height:54px}
       .topbar .brand{font-size:15px}
       .topnav{gap:16px}
@@ -245,8 +258,13 @@
         <p class="proof-line">I didn't write about this invention. <strong>I invented it.</strong></p>
         <figure class="proof-single">
           <img src="assets/img/patent-udc.jpg" alt="Front page of US Patent 12,124,291, 'Electronic device including a camera disposed behind a display,' inventors Srikanth et al., with the iPhone notch shrinking from 2017 to 2022" loading="lazy">
-          <figcaption><strong>US 12,124,291 — &ldquo;Srikanth et al.&rdquo;</strong><br>My under-display camera architecture. Granted 2024; priority 2018.</figcaption>
+          <figcaption><span class="figtag">FIG. 1 — THE RECEIPT</span><strong>US 12,124,291 — &ldquo;Srikanth et al.&rdquo;</strong><br>My under-display camera architecture. Granted 2024; priority 2018.</figcaption>
         </figure>
+      </div>
+      <div class="numbers reveal" data-delay="120">
+        <div><span class="n">11</span><span class="l">years, idea to product</span></div>
+        <div><span class="n">4</span><span class="l">patents granted</span></div>
+        <div><span class="n">1</span><span class="l">invisible camera</span></div>
       </div>
     </header>
 
