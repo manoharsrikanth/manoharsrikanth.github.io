@@ -163,6 +163,8 @@
     .chapter p{font-size:clamp(16px,1.9vw,18.5px);color:var(--muted);margin:0 0 18px;max-width:680px;line-height:1.7}
     .chapter p strong{color:var(--ink);font-weight:600}
     .chapter .narrow-lead{max-width:680px;color:var(--muted)}
+    .chapter .coda{margin-top:36px;font-size:clamp(20px,2.6vw,26px);font-weight:650;
+      letter-spacing:-.015em;color:var(--ink)}
     figure.teardown{margin:36px 0;max-width:720px}
     figure.teardown img{width:100%;border-radius:12px}
     figure.teardown figcaption{margin:12px 0 0;font-size:15px;color:var(--muted)}
@@ -238,8 +240,51 @@
     </nav>
     <header class="story-head">
       <h1 class="reveal">The full story.</h1>
-      <p class="lede reveal" data-delay="90">What iFixit found. How the invisible camera took shape. And the man behind it.</p>
+      <p class="lede reveal" data-delay="90">How the invisible camera took shape. What iFixit found. And the person behind it.</p>
     </header>
+
+    <section class="chapter" aria-labelledby="ch-false-title">
+      <p class="kicker reveal">Invention of the Disappearing Camera</p>
+      <h2 id="ch-false-title" class="reveal">The False Compromise</h2>
+      <p class="reveal" data-delay="80">For a decade, mobile hardware was trapped by a false compromise. We spend 99% of our time looking at our screens, and less than 1% of our time looking into the front-facing camera. Yet, that 1% dictated the entire hardware architecture. It demanded a bezel. Then a notch. Then a cutout. We were permanently breaking the primary consumer experience to accommodate a secondary use case.</p>
+      <p class="reveal" data-delay="140">Incremental engineering shrinks the cutout. Zero-to-one architecture removes it entirely.</p>
+      <p class="reveal" data-delay="200">In 2015, I stopped asking how to hide the camera around the screen, and started asking how to make the display unbroken. The answer was counterintuitive: force the display and the sensor to occupy the exact same physical space.</p>
+    </section>
+
+    <section class="chapter" aria-labelledby="ch-physics-title">
+      <h2 id="ch-physics-title" class="reveal">Orchestrating the Physics</h2>
+      <p class="reveal" data-delay="80">To achieve an edge-to-edge canvas, the OLED matrix had to sit directly over the lens. But when you place a camera behind an active display, diffraction is inevitable. The light breaks.</p>
+      <p class="reveal" data-delay="140">Standard engineering tries to fight this physical reality, attempting to force the display to be perfectly transparent. System architecture dictates a different approach: if you cannot eliminate the distortion, you control it.</p>
+      <p class="reveal" data-delay="200">We didn't just build a lens and write a software filter. We co-designed the physical optical stack and the algorithmic restoration pipeline simultaneously. We engineered the display&rsquo;s pixel matrix to yield and degrade the incoming light in a highly specific, mathematically predictable pattern. By intentionally shaping this distortion, we ensured the system&rsquo;s point spread function (PSF) maintained optimal numerical conditioning.</p>
+      <p class="reveal" data-delay="260">We designed the hardware to hand the software a puzzle it was mathematically guaranteed to solve.</p>
+    </section>
+
+    <section class="chapter" aria-labelledby="ch-photo-title">
+      <h2 id="ch-photo-title" class="reveal">The Photographic Standard</h2>
+      <p class="reveal" data-delay="80">A mathematically recovered image, however, is not the same as a beautiful photograph. The ultimate metric for this architecture was never just signal preservation &mdash; it was human perception.</p>
+      <p class="reveal" data-delay="140">Every layer of the pipeline was tuned against the rigorous standards of photographic aesthetics. We weren't just inverting a matrix; we were protecting skin tones, preserving natural micro-contrast, and maintaining the emotional resonance of the image. The technology solves the physics, but the architecture serves the art.</p>
+    </section>
+
+    <section class="chapter" aria-labelledby="ch-cost-title">
+      <h2 id="ch-cost-title" class="reveal">The Cost of Zero-to-One</h2>
+      <p class="reveal" data-delay="80">When I first proposed this architecture, I was explicitly told it was impossible. The industry consensus was that you cannot defy the physical behavior of light. But zero-to-one invention is rarely just a battle against physics; it is a battle against consensus.</p>
+      <p class="reveal" data-delay="140">For the first year, I carried it largely alone &mdash; the consensus was that it couldn't be done. Then one person, <strong>Lynn Youngs</strong>, believed it could, and asked me to develop it further.</p>
+      <p class="reveal" data-delay="200">To win that battle, I didn't rely on industry trends &mdash; I went back to first principles. I cannot count the thousands of times I returned to my notes from MIT&rsquo;s 2.710 Optics class. The proof that we could control the distortion was hiding in the fundamental math of diffraction, deconvolution, and lens behavior.</p>
+      <p class="reveal" data-delay="260">Pushing this from a heavily doubted whiteboard concept to a shipping reality was an exercise in extreme friction. It demanded a decade of unyielding perseverance, quiet hard work, and an absolute refusal to accept consensus over physics. I took the challenge personally. Today, it ships.</p>
+    </section>
+
+    <section class="chapter" aria-labelledby="ch-timeline-title">
+      <h2 id="ch-timeline-title" class="reveal">The Timeline of Inevitability</h2>
+      <p class="reveal" data-delay="80">True system architecture doesn't chase the market; it dictates where the market will be a decade later.</p>
+      <ul class="timeline reveal" data-delay="160">
+        <li><span class="when">2015</span><span class="what">June&ndash;July &mdash; I invent the under-display camera: notes and a first prototype, carried largely alone.</span></li>
+        <li><span class="when">2016</span><span class="what">First working system &mdash; true eye-contact FaceTime through an active display.</span></li>
+        <li><span class="when">2018</span><span class="what">Provisional patent filed, September 27 &mdash; two years before the first commercial under-display-camera phone.</span></li>
+        <li><span class="when">2022</span><span class="what">U.S. Patent 11,294,422 B1 granted &mdash; first-listed inventor.</span></li>
+        <li><span class="when">2026</span><span class="what">Shipped &mdash; in the iPhone Duo&rsquo;s hidden FaceTime camera and the iPhone 18 Pro Max&rsquo;s under-display Face ID camera.</span></li>
+      </ul>
+      <p class="coda reveal" data-delay="220">The screen is whole.</p>
+    </section>
 
     <section class="chapter" aria-labelledby="ch-proof-title">
       <h2 id="ch-proof-title" class="reveal">You cannot see it.</h2>
@@ -266,7 +311,7 @@
 
     <section class="chapter" aria-labelledby="ch-vpg-title">
       <h2 id="ch-vpg-title" class="reveal">Not a one-off.</h2>
-      <p class="reveal" data-delay="80">In June 2015, Manohar became a <strong>founding member of Apple’s Vision Products Group</strong> — the team that incubated the Apple Vision Pro — and went on to co-invent the foundational passthrough system (PCT/US2024/029534).</p>
+      <p class="reveal" data-delay="80">In June 2015, I became a <strong>founding member of Apple’s Vision Products Group</strong> — the team that incubated the Apple Vision Pro — and went on to co-invent the foundational passthrough system (PCT/US2024/029534).</p>
       <p class="reveal" data-delay="140">The invisible camera wasn’t luck. It was pattern.</p>
       <figure class="teardown reveal" data-delay="60">
         <img src="assets/img/patent-vision-pro.jpg" alt="Front page of US patent application 2024/0385454, 'Head mountable display,' listing Manohar B. Srikanth among the inventors, with Vision Pro sensor diagrams" loading="lazy">
@@ -280,7 +325,7 @@
       <ul class="stack reveal" data-delay="140">
         <li><span class="place">Mysore</span><span class="what">Electrical engineering undergrad, fourth of the year. Signal processing.</span></li>
         <li><span class="place">IISc Bangalore</span><span class="what">MS in computer science. Graphics &amp; visualization.</span></li>
-        <li><span class="place">MIT</span><span class="what">PhD, mechanical engineering, 2012. Aerial robotics — and a drone-lighting cinematography project with Best Paper honors.</span></li>
+        <li><span class="place">MIT</span><span class="what">PhD, mechanical engineering, 2013. Aerial robotics — and a drone-lighting cinematography project with Best Paper honors.</span></li>
         <li><span class="place">CSAIL</span><span class="what">Postdoc with Frédo Durand. Computational cameras.</span></li>
       </ul>
     </section>
@@ -291,12 +336,12 @@
         <img src="assets/img/portrait-manohar.jpg" alt="Portrait of Manohar Srikanth" loading="lazy">
         <figcaption>Manohar Srikanth</figcaption>
       </figure>
-      <p class="reveal" data-delay="140">Photographer with solo and group exhibitions at MIT, who taught photography there too. His guiding lens: <strong>“Art + Science + Product + human-centric products.”</strong></p>
+      <p class="reveal" data-delay="140">I’m a photographer with solo and group exhibitions at MIT, where I also taught photography. My guiding lens: <strong>“Art + Science + Product + human-centric products.”</strong></p>
     </section>
 
     <section class="chapter close" aria-labelledby="ch-close-title">
       <h2 id="ch-close-title" class="reveal">What are you building?</h2>
-      <p class="reveal" data-delay="80">Manohar is open to thoughtful conversations, collaborations, and advisory roles.</p>
+      <p class="reveal" data-delay="80">I’m open to thoughtful conversations, collaborations, and advisory roles.</p>
       <p class="reveal" data-delay="130">If you’re working on something the world doesn’t know is possible yet — start with hello.</p>
       <a class="button reveal" data-delay="190" href="https://www.linkedin.com/in/srimano" target="_blank" rel="noopener">Connect on LinkedIn <span class="arr" aria-hidden="true">→</span></a>
       <p class="again reveal" data-delay="240"><a class="back-link" href="index.html"><span aria-hidden="true">←</span> Back</a></p>
