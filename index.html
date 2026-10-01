@@ -135,6 +135,12 @@
     .timeline .what{font-size:16.5px;color:var(--muted)}
     .timeline .what strong{color:var(--ink);font-weight:600}
     .sidenote{max-width:760px;margin:26px auto 0;font-size:14.5px;color:var(--muted);text-align:left;line-height:1.7}
+    .narrative{max-width:680px;margin:34px auto 0;padding:0 24px;text-align:left}
+    .narrative p{font-size:clamp(16.5px,2vw,19px);color:var(--muted);line-height:1.7;margin:0 0 18px}
+    .narrative p strong{color:var(--ink);font-weight:600}
+    .narr-title{font-size:clamp(24px,3.4vw,34px);letter-spacing:-.02em;margin:0 0 22px;color:var(--ink)}
+    .coda{max-width:680px;margin:34px auto 0;padding:0 24px;text-align:center;
+      font-size:clamp(20px,2.6vw,26px);font-weight:650;letter-spacing:-.015em;color:var(--ink)}
     .sidenote a{color:var(--link)}
 
     /* S4 — patent receipts */
@@ -323,12 +329,32 @@
       </div>
     </section>
 
+    <!-- (2b) THE FALSE COMPROMISE — narrative -->
+    <section class="panel panel-soft" aria-labelledby="n1-title">
+      <div class="wrap center">
+        <p class="kicker reveal">Invention of the Disappearing Camera</p>
+        <h2 class="title reveal" id="n1-title" data-delay="80">The False Compromise</h2>
+      </div>
+      <div class="narrative">
+        <p class="reveal" data-delay="120">For a decade, mobile hardware was trapped by a false compromise. We spend 99% of our time looking at our screens, and less than 1% of our time looking into the front-facing camera. Yet, that 1% dictated the entire hardware architecture. It demanded a bezel. Then a notch. Then a cutout. We were permanently breaking the primary consumer experience to accommodate a secondary use case.</p>
+        <p class="reveal" data-delay="160">Incremental engineering shrinks the cutout. Zero-to-one architecture removes it entirely.</p>
+        <p class="reveal" data-delay="200">In 2015, I stopped asking how to hide the camera around the screen, and started asking how to make the display unbroken. The answer was counterintuitive: force the display and the sensor to occupy the exact same physical space.</p>
+      </div>
+    </section>
+
     <!-- (3) THE INVENTION — long vision, foresaw it before others -->
     <section class="panel" aria-labelledby="s3-title">
       <div class="wrap center">
         <p class="kicker reveal">The invention</p>
         <h2 class="title reveal" id="s3-title" data-delay="80">Eleven years in the making.</h2>
         <p class="lede reveal" data-delay="160">The foundational under-display-camera patent was conceived by Manohar Srikanth, first-listed of six inventors — an 11-year arc from invention in the summer of 2015 to the technology shipping in flagships. The family claims priority to September 27, 2018 — two years before the first commercial under-display-camera phone — and was filed September 24, 2019.</p>
+      </div>
+      <div class="narrative">
+        <h3 class="narr-title reveal">The Cost of Zero-to-One</h3>
+        <p class="reveal" data-delay="80">When I first proposed this architecture, I was explicitly told it was impossible. The industry consensus was that you cannot defy the physical behavior of light. But zero-to-one invention is rarely just a battle against physics; it is a battle against consensus.</p>
+        <p class="reveal" data-delay="120">For the first year, I carried it largely alone &mdash; the consensus was that it couldn't be done. Then a select few individuals believed in me and supported me in carrying it forward.</p>
+        <p class="reveal" data-delay="160">To win that battle, I didn't rely on industry trends &mdash; I went back to first principles. I cannot count the thousands of times I returned to my notes from MIT&rsquo;s 2.710 Optics class. The proof that we could control the distortion was hiding in the fundamental math of diffraction, deconvolution, and lens behavior.</p>
+        <p class="reveal" data-delay="200">Pushing this from a heavily doubted whiteboard concept to a shipping reality was an exercise in extreme friction. It demanded a decade of unyielding perseverance, quiet hard work, and an absolute refusal to accept consensus over physics. I took the challenge personally. Today, it ships.</p>
       </div>
       <ul class="timeline reveal" data-delay="200">
         <li><span class="when">2015</span><span class="what">June&ndash;July 2015 &mdash; Manohar invents the under-display camera: notes and a first prototype of a camera hidden entirely behind the display.</span></li>
@@ -337,6 +363,7 @@
         <li><span class="when">2022</span><span class="what">Patent granted, April 5: “Electronic device including a camera disposed behind a display.”</span></li>
         <li><span class="when">2026</span><span class="what">Shipped — in the iPhone Duo’s hidden FaceTime camera and the iPhone 18 Pro Max’s under-display Face ID camera.</span></li>
       </ul>
+      <p class="coda reveal" data-delay="240">The screen is whole.</p>
       <p class="sidenote reveal" data-delay="260">Foresight is pattern, not luck: in 2014, as a Senior Researcher at Nokia, he co-invented a multi-camera bokeh architecture (<strong>WO2016097470A1</strong>, priority December 15, 2014, with Ting-Chun Wang) — two years before Portrait mode arrived on the iPhone 7 Plus. At Pelican Imaging, he was first-listed inventor on the depth-regularization patent (<strong>WO2015134996A1</strong>, priority March 7, 2014).</p>
     </section>
 
