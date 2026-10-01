@@ -140,6 +140,11 @@
     .patent-row .num a{color:var(--link)}
     .patent-row .det{font-size:14.5px;color:var(--muted);margin:0;line-height:1.65}
     .patent-row .hedge{font-size:13px;color:var(--muted);margin:6px 0 0;font-style:italic}
+    .citelist{list-style:none;margin:16px 0 4px;padding:0;display:grid;
+      grid-template-columns:1fr 1fr;gap:10px 28px}
+    .citelist li{font-size:13.5px;line-height:1.55;color:var(--muted)}
+    .citelist li strong{display:block;color:var(--ink);font-weight:600;font-size:14px}
+    .citelist li .n{font-variant-numeric:tabular-nums}
     .fine{max-width:760px;margin:24px auto 0;font-size:12.5px;color:var(--muted);text-align:left;line-height:1.7}
 
     /* ---------- CTA ---------- */
@@ -230,6 +235,7 @@
       .topbar .brand .role{font-size:11.5px}
       .topnav{gap:18px}
       .ribbon{margin:12px -16px 0}
+      .citelist{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -346,8 +352,23 @@
         </div>
         <div class="patent-row reveal" data-delay="90">
           <p class="num">Cited by the field</p>
-          <p class="det">Later filings from Samsung Display, Samsung Electronics, Google, Sony, Qualcomm, LG Display, Leica, Microsoft, and Fraunhofer cite patents in this family.</p>
-          <p class="hedge">Citations indicate relevance, not commercial dependence.</p>
+          <p class="det"><strong>27</strong> later publications — 21 U.S., 6 international — from <strong>13</strong> companies and research institutions cite this family as prior art:</p>
+          <ul class="citelist">
+            <li><strong>Samsung Display · 6</strong><span class="n">US 11,893,944 B2 · US 11,672,143 B2 · US 12,008,967 B2 · US 11,670,243 B2 · US 2021/0056913 A1 · US 2021/0143371 A1</span></li>
+            <li><strong>Google · 4</strong><span class="n">US 11,687,126 B2 · US 11,994,920 B2 · US 2022/0187878 A1 · US 2023/0341908 A1</span></li>
+            <li><strong>AUMOVIO Germany · 3</strong><span class="n">EP 4,571,405 B1 · EP 4,571,403 B1 · EP 4,571,404 B1</span></li>
+            <li><strong>Samsung Electronics · 2</strong><span class="n">US 11,460,894 B2 · US 2022/0206545 A1</span></li>
+            <li><strong>Sony Semiconductor Solutions · 2</strong><span class="n">US 12,069,875 B2 · US 2023/0026442 A1</span></li>
+            <li><strong>Microsoft · 2</strong><span class="n">US 12,165,063 B2 · US 2024/0160922 A1</span></li>
+            <li><strong>Himax Technologies · 2</strong><span class="n">US 12,131,510 B2 · US 2023/0098230 A1</span></li>
+            <li><strong>Qualcomm · 1</strong><span class="n">WO 2021/092887 A1</span></li>
+            <li><strong>LG Display · 1</strong><span class="n">KR 2022/0090859 A</span></li>
+            <li><strong>Leica Camera · 1</strong><span class="n">US 2024/0087198 A1</span></li>
+            <li><strong>Fraunhofer-Gesellschaft · 1</strong><span class="n">US 12,380,665 B2</span></li>
+            <li><strong>Megvii · 1</strong><span class="n">US 2023/0230204 A1</span></li>
+            <li><strong>Continental Automotive · 1</strong><span class="n">EP 4,571,406 A1</span></li>
+          </ul>
+          <p class="hedge">Citations are prior-art references recorded by patent offices — not licenses or endorsements.</p>
         </div>
       </div>
       <p class="fine reveal">Precision: on the iPhone 18 Pro Max, only the Face ID infrared camera moved beneath the OLED — the selfie camera and IR dot projector stayed in the central opening. The iPhone Duo’s hidden FaceTime camera sits beneath the inner display.</p>
