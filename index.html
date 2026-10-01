@@ -46,17 +46,16 @@
     .slot-media{display:block;width:100%;height:auto}
     .slot-media[hidden]{display:none}
 
-    /* ---------- Proof strip: the patents, side by side, right under the hero video ---------- */
+    /* ---------- Proof strip: the patent, right under the hero video ---------- */
     .proof-strip{max-width:var(--wide);margin:56px auto 0}
     .proof-line{font-size:clamp(17px,2vw,21px);color:var(--muted);text-align:center;
       margin:0 0 28px;line-height:1.6}
     .proof-line strong{color:var(--ink);font-weight:700}
-    .proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-    .proof-grid figure{margin:0;background:var(--soft);border:1px solid var(--line);
-      border-radius:14px;overflow:hidden}
-    .proof-grid img{display:block;width:100%;height:auto}
-    .proof-grid figcaption{padding:16px 18px;font-size:14.5px;line-height:1.6;color:var(--muted)}
-    .proof-grid figcaption strong{color:var(--ink);font-weight:600}
+    .proof-single{max-width:860px;margin:0 auto;background:var(--soft);
+      border:1px solid var(--line);border-radius:14px;overflow:hidden}
+    .proof-single img{display:block;width:100%;height:auto}
+    .proof-single figcaption{padding:16px 18px;font-size:14.5px;line-height:1.6;color:var(--muted)}
+    .proof-single figcaption strong{color:var(--ink);font-weight:600}
 
     /* ---------- Apple-style panels ---------- */
     .panel{padding:112px 24px}
@@ -191,7 +190,6 @@
       .hero{padding:64px 20px 56px}
       .hero-frame{margin-top:40px}
       .proof-strip{margin-top:40px}
-      .proof-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -217,16 +215,10 @@
       </div>
       <div class="proof-strip reveal" data-delay="280">
         <p class="proof-line">I didn't write about this invention. <strong>I invented it.</strong></p>
-        <div class="proof-grid">
-          <figure>
-            <img src="assets/img/patent-udc.jpg" alt="Front page of US Patent 12,124,291, 'Electronic device including a camera disposed behind a display,' inventors Srikanth et al., with the iPhone notch shrinking from 2017 to 2022" loading="lazy">
-            <figcaption><strong>US 12,124,291 — &ldquo;Srikanth et al.&rdquo;</strong><br>My under-display camera architecture. Granted 2024; priority 2018.</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/img/patent-vision-pro.jpg" alt="Front page of US patent application 2024/0385454, 'Head mountable display,' listing Manohar B. Srikanth among the inventors, with Vision Pro sensor diagrams" loading="lazy">
-            <figcaption><strong>US 2024/0385454</strong><br>The Vision Pro passthrough system I co-invented.</figcaption>
-          </figure>
-        </div>
+        <figure class="proof-single">
+          <img src="assets/img/patent-udc.jpg" alt="Front page of US Patent 12,124,291, 'Electronic device including a camera disposed behind a display,' inventors Srikanth et al., with the iPhone notch shrinking from 2017 to 2022" loading="lazy">
+          <figcaption><strong>US 12,124,291 — &ldquo;Srikanth et al.&rdquo;</strong><br>My under-display camera architecture. Granted 2024; priority 2018.</figcaption>
+        </figure>
       </div>
     </header>
 
