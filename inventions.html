@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="The inventions of Manohar Srikanth — patents and research papers, from the disappearing camera to aerial robotics." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F7F2E9'/%3E%3Ccircle cx='32' cy='32' r='19' fill='%232B2118'/%3E%3C/svg%3E" />
+  <title>Inventions · Manohar Srikanth</title>
+  <style>
+    :root{
+      color-scheme:light dark;
+      --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
+      --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+      --bg:#F7F2E9; --soft:#ECE3D2; --ink:#2B2118; --muted:#7A6A5A; --line:#D9CEB9;
+      --burgundy:#6E1423; --deepred:#A31621; --sienna:#8C4A32; --teal:#0E6B6B;
+      --black:#000000; --ink-dark:#F5F5F7; --muted-dark:#a1a1a6;
+      --link:#0E6B6B; --btn:#6E1423; --btn-hover:#A31621; --btn-text:#F7F2E9;
+      --col:880px; --wide:1180px;
+    }
+    @media(prefers-color-scheme:dark){
+      :root{
+        --bg:#191009; --soft:#251A12; --ink:#F2E9D8; --muted:#AB987F; --line:#3A2B20;
+        --burgundy:#C96474; --deepred:#D44A52; --sienna:#C98A5E; --teal:#5BB8B0;
+        --ink-dark:#F2E9D8; --muted-dark:#AB987F;
+        --link:#5BB8B0; --btn:#93304A; --btn-hover:#A31621;
+      }
+      body{background:linear-gradient(180deg,#1E140C 0%,#181008 55%,#110B06 100%)}
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);font-family:var(--font);
+      background:linear-gradient(180deg,#F4EDDB 0%,#EBDDC0 55%,#E0CCA0 100%);
+      line-height:1.6;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+    main,article{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%;height:auto}
+    ::selection{background:var(--btn);color:var(--btn-text)}
+    h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.022em;line-height:1.08;text-wrap:balance}
+    @font-face{font-family:'Archivo';font-weight:700;
+      font-display:swap;src:url('assets/fonts/archivo-latin.woff2') format('woff2')}
+
+    /* ---------- Sticky top bar: centered brand masthead (shared with landing) ---------- */
+    .topbar{position:sticky;top:0;z-index:50;text-align:center;padding:14px 24px 0;
+      background:color-mix(in srgb, var(--bg) 84%, transparent);
+      -webkit-backdrop-filter:saturate(180%) blur(20px);
+      backdrop-filter:saturate(180%) blur(20px)}
+    .topnav{display:flex;gap:24px;justify-content:center;overflow-x:auto;scrollbar-width:none}
+    .topnav::-webkit-scrollbar{display:none}
+    .topnav a{font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+      color:color-mix(in srgb, var(--muted) 70%, transparent);text-decoration:none;white-space:nowrap}
+    .topnav a:hover{color:var(--ink)}
+    .topnav a[aria-current="page"]{color:var(--ink)}
+    .topbar .brand{display:block;margin-top:10px;line-height:1.25;
+      color:var(--ink);text-decoration:none}
+    .topbar .brand .name{display:block;font-family:'Archivo',-apple-system,BlinkMacSystemFont,
+      'Helvetica Neue',Helvetica,Arial,sans-serif;
+      font-size:32px;font-weight:700;font-stretch:125%;letter-spacing:.02em}
+    .topbar .brand .role{display:block;margin-top:6px;font-size:13px;font-weight:600;
+      letter-spacing:.06em;color:var(--burgundy)}
+    .topbar .brand .role2{margin-top:3px;font-size:12px;font-weight:500;letter-spacing:.08em}
+    .ribbon{height:4px;margin:14px -24px 0;
+      background:linear-gradient(90deg,var(--burgundy) 0%,var(--deepred) 38%,var(--sienna) 68%,var(--teal) 100%)}
+
+    .wrap{max-width:var(--col);margin:0 auto}
+    .wrap-wide{max-width:var(--wide);margin:0 auto}
+    .center{text-align:center}
+    .kicker{font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+      color:var(--teal);margin:0 0 18px}
+
+    /* ---------- Page hero ---------- */
+    .inv-hero{padding:88px 24px 72px;text-align:center}
+    .inv-hero h1{font-size:clamp(42px,7vw,72px)}
+    .inv-hero .lede{margin:22px auto 0;max-width:640px;font-size:clamp(16.5px,2vw,20px);
+      color:var(--muted);line-height:1.65}
+
+    /* ---------- Sections ---------- */
+    .inv-sec{padding:72px 24px}
+    .inv-sec + .inv-sec{border-top:1px solid var(--line)}
+    .sec-head{max-width:var(--col);margin:0 auto;text-align:center}
+    .sec-head h2{font-size:clamp(32px,5vw,52px);margin-bottom:16px}
+    .sec-head .lede{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:660px;
+      margin:0 auto;line-height:1.65}
+
+    /* ---------- Patent cards ---------- */
+    .pat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px;
+      max-width:var(--wide);margin:48px auto 0}
+    .pat-card{background:color-mix(in srgb, var(--bg) 55%, #fff 45%);
+      border:1px solid var(--line);border-radius:16px;padding:26px 24px;
+      display:flex;flex-direction:column;gap:10px;
+      box-shadow:0 10px 30px -18px rgba(60,30,10,.25)}
+    @media(prefers-color-scheme:dark){
+      .pat-card{background:color-mix(in srgb, var(--soft) 55%, transparent)}
+    }
+    .pat-icon{width:58px;height:58px;border-radius:15px;background:var(--soft);
+      display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+    .pat-icon svg{width:38px;height:38px}
+    .pat-num{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--teal);
+      letter-spacing:.02em;line-height:1.7}
+    .pat-num a{color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal)}
+    .pat-num a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+    .pat-card h3{font-size:19px;line-height:1.25}
+    .pat-meta{font-size:13px;color:var(--muted)}
+    .pat-meta .role-tag{display:inline-block;margin-top:6px;padding:3px 10px;border:1px solid var(--line);
+      border-radius:999px;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+      color:var(--burgundy)}
+    .pat-val{font-size:14.5px;color:var(--muted);line-height:1.65;margin:4px 0 0}
+    .pat-val strong{color:var(--ink);font-weight:600}
+    .pat-card.featured{grid-column:1/-1;display:grid;grid-template-columns:64px 1fr;gap:8px 22px;
+      align-items:start;padding:30px 28px}
+    .pat-card.featured .pat-icon{width:64px;height:64px}
+    .pat-card.featured .pat-body{min-width:0}
+    .pat-card.featured h3{font-size:clamp(22px,3vw,30px)}
+    .pat-card.featured .pat-val{font-size:16px;max-width:70ch}
+
+    /* ---------- Paper rows ---------- */
+    .paper-list{max-width:var(--col);margin:48px auto 0;display:flex;flex-direction:column;gap:14px}
+    .paper-row{display:flex;gap:20px;align-items:flex-start;
+      background:color-mix(in srgb, var(--bg) 55%, #fff 45%);
+      border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+    @media(prefers-color-scheme:dark){
+      .paper-row{background:color-mix(in srgb, var(--soft) 55%, transparent)}
+    }
+    .paper-icon{flex:0 0 64px;width:64px;height:64px;border-radius:14px;background:var(--soft);
+      display:flex;align-items:center;justify-content:center}
+    .paper-icon svg{width:44px;height:44px}
+    .paper-body{min-width:0;flex:1}
+    .paper-body h3{font-size:17.5px;line-height:1.3;font-weight:650}
+    .paper-meta{font-size:13px;color:var(--muted);margin-top:6px}
+    .paper-why{font-size:14.5px;color:var(--muted);line-height:1.6;margin:8px 0 0}
+    .paper-why strong{color:var(--ink);font-weight:600}
+    .cite-pill{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;
+      background:var(--soft);font-size:11.5px;font-weight:600;color:var(--muted);white-space:nowrap}
+
+    .scholar-note{max-width:var(--col);margin:56px auto 0;text-align:center;
+      font-size:15px;color:var(--muted);line-height:1.7}
+    .scholar-note a{color:var(--link);font-weight:600;border-bottom:1px dotted var(--link)}
+    .scholar-note a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+
+    /* ---------- Footer ---------- */
+    .foot{border-top:1px solid var(--line);padding:26px 24px 34px;color:var(--muted);
+      font-size:12.5px;letter-spacing:.02em}
+    .foot-in{max-width:var(--wide);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .foot a{color:var(--link);font-weight:600}
+    .foot p{margin:0}
+    .foot-nav{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+    .foot-nav a{color:var(--muted);font-weight:400}
+    .foot-nav a:hover{color:var(--ink);text-decoration:underline}
+
+    /* ---------- Reveal ---------- */
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1)}
+    .reveal.visible{opacity:1;transform:none}
+    html:not(.js) .reveal{opacity:1;transform:none}
+
+    @media(max-width:640px){
+      .inv-hero{padding:64px 20px 52px}
+      .inv-sec{padding:56px 20px}
+      .pat-card.featured{grid-template-columns:1fr}
+      .paper-row{gap:14px;padding:16px}
+      .paper-icon{flex-basis:52px;width:52px;height:52px}
+      .paper-icon svg{width:36px;height:36px}
+      .topbar{padding:12px 16px 0}
+      .topbar .brand .name{font-size:28px}
+      .ribbon{margin:12px -16px 0}
+    }
+  </style>
+</head>
+<body>
+<nav class="topbar" aria-label="Site">
+  <div class="topnav">
+    <a href="story.html">Story</a>
+    <a href="inventions.html" aria-current="page">Inventions</a>
+    <a href="art.html">Art</a>
+    <a href="projects.html">Projects</a>
+    <a href="publications.html">Publications</a>
+    <a href="resume.html">Resume</a>
+  </div>
+  <a class="brand" href="index.html">
+    <span class="name">Manohar Srikanth</span>
+    <span class="role">System &amp; Experience Architect, Apple Inc.</span>
+    <span class="role role2">PhD from MIT, 2013 | Computational Camera &amp; Robotics</span>
+  </a>
+  <div class="ribbon" aria-hidden="true"></div>
+</nav>
+<main>
+  <header class="inv-hero">
+    <div class="wrap center">
+      <p class="kicker reveal">Inventions</p>
+      <h1 class="reveal" data-delay="80">The paper trail of an inventor.</h1>
+      <p class="lede reveal" data-delay="160">Every patent below is a bet placed years before the industry caught up. Every paper is the math that made the bet safe.</p>
+    </div>
+  </header>
+
+  <!-- ============ PATENTS ============ -->
+  <section class="inv-sec" aria-labelledby="patents-title">
+    <div class="sec-head">
+      <p class="kicker reveal">Patents</p>
+      <h2 id="patents-title" class="reveal" data-delay="60">Granted. Cited. Shipping.</h2>
+      <p class="lede reveal" data-delay="120">The complete patent record, grouped by invention — each with the one-line reason it matters. Numbers link to the full text on Google Patents.</p>
+    </div>
+    <div class="pat-grid">
+
+      <article class="pat-card featured reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <rect x="8" y="6" width="32" height="36" rx="3"/>
+            <circle cx="24" cy="24" r="6"/>
+            <circle cx="24" cy="24" r="2" fill="currentColor" stroke="none"/>
+            <path d="M24 12v5M24 31v5M13 24h5M30 24h5" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <div class="pat-body">
+          <p class="pat-num"><a href="https://patents.google.com/patent/US11294422B1/en" target="_blank" rel="noopener">US 11,294,422 B1</a> · US 11,592,864 · US 11,853,117 · US 12,124,291</p>
+          <h3>Electronic device including a camera disposed behind a display</h3>
+          <p class="pat-meta">Apple Inc. · Granted 2022–2024 · Priority September 27, 2018<br><span class="role-tag">First-listed inventor</span></p>
+          <p class="pat-val"><strong>The disappearing camera.</strong> The 0-to-1 architecture — apertured display, behind-display sensor, computational restoration — that shipped in the iPhone Duo&rsquo;s hidden FaceTime camera and the iPhone 18 Pro Max&rsquo;s under-display Face ID camera. Cited as prior art by 27 later publications across the industry.</p>
+        </div>
+      </article>
+
+      <article class="pat-card reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="10" y="20" width="28" height="12" rx="6"/>
+            <path d="M24 20v-6M21 17l3-3 3 3" stroke="var(--teal)"/>
+            <path d="M24 32v6M21 35l3 3 3-3" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <p class="pat-num"><a href="https://patents.google.com/patent/US20180082482A1/en" target="_blank" rel="noopener">US 2018/0082482 A1</a> · EP 3,488,315 B1 (granted 2021)</p>
+        <h3>Display system having world and user sensors</h3>
+        <p class="pat-meta">Apple Inc. · Published March 22, 2018 · with Ricardo Motta, Brett Miller, Tobias Rick</p>
+        <p class="pat-val"><strong>The sensing behind passthrough AR.</strong> World-facing and user-facing sensors unified in one display system — the architecture that lets a headset see the room and the wearer at once.</p>
+      </article>
+
+      <article class="pat-card reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <rect x="8" y="10" width="32" height="22" rx="2"/>
+            <path d="M18 38h12M24 32v6"/>
+            <circle cx="17" cy="19" r="2" stroke="var(--teal)"/>
+            <circle cx="31" cy="19" r="2" stroke="var(--teal)"/>
+            <circle cx="24" cy="26" r="1.6" fill="var(--teal)" stroke="none"/>
+          </svg>
+        </div>
+        <p class="pat-num"><a href="https://patents.google.com/patent/US20190221044A1/en" target="_blank" rel="noopener">US 2019/0221044 A1</a></p>
+        <h3>Display system having sensors</h3>
+        <p class="pat-meta">Apple Inc. · Published July 18, 2019</p>
+        <p class="pat-val"><strong>Sensors living inside the screen.</strong> Integrating cameras and sensors into the display stack itself — the display stops being just an output and becomes an input.</p>
+      </article>
+
+      <article class="pat-card reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <rect x="16" y="8" width="16" height="32" rx="8"/>
+            <circle cx="24" cy="24" r="4"/>
+            <circle cx="24" cy="24" r="1.4" fill="var(--teal)" stroke="none"/>
+            <path d="M16 15H9M16 33H9M32 15h7M32 33h7" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <p class="pat-num"><a href="https://patents.google.com/patent/US10817594B2/en" target="_blank" rel="noopener">US 10,817,594 B2</a></p>
+        <h3>Wearable electronic device having a light field camera usable to perform bioauthentication from a dorsal side of a forearm near a wrist</h3>
+        <p class="pat-meta">Apple Inc. · Granted October 27, 2020 · 51 Scholar citations</p>
+        <p class="pat-val"><strong>Your wrist is the password.</strong> A light-field camera on a wearable that authenticates from the dorsal forearm — biometrics with no fingerprint sensor and nothing to touch.</p>
+      </article>
+
+      <article class="pat-card reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <circle cx="12" cy="14" r="2.5"/>
+            <circle cx="24" cy="14" r="2.5"/>
+            <circle cx="36" cy="14" r="2.5"/>
+            <path d="M12 18v8M24 18v8M36 18v8" stroke="var(--teal)"/>
+            <path d="M8 34h32" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <p class="pat-num"><a href="https://patents.google.com/patent/US10659757B2/en" target="_blank" rel="noopener">US 10,657,957 B2</a></p>
+        <h3>Light field capture</h3>
+        <p class="pat-meta">Apple Inc. · Granted May 19, 2020</p>
+        <p class="pat-val"><strong>The whole light field, in one shot.</strong> Captures ray direction as well as intensity — the raw material for refocus-after-capture and single-shot depth.</p>
+      </article>
+
+      <article class="pat-card reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 36L30 18l6 6-18 18-8 2z"/>
+            <circle cx="35" cy="11" r="2.4" stroke="var(--deepred)"/>
+            <circle cx="41" cy="17" r="2.4" stroke="var(--teal)"/>
+            <circle cx="37" cy="24" r="2.4" stroke="var(--sienna)"/>
+          </svg>
+        </div>
+        <p class="pat-num"><a href="https://patents.google.com/patent/US11550408B1/en" target="_blank" rel="noopener">US 11,550,408 B1</a></p>
+        <h3>Electronic device with optical sensor for sampling surfaces</h3>
+        <p class="pat-meta">Apple Inc. · Granted January 10, 2023</p>
+        <p class="pat-val"><strong>A stylus that truly sees color.</strong> Multi-channel optical sensing samples real-world surfaces — point at anything and capture its exact color, not an approximation.</p>
+      </article>
+
+      <article class="pat-card reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M8 24a16 12 0 0 1 32 0"/>
+            <rect x="10" y="22" width="28" height="12" rx="6"/>
+            <path d="M20 28h8" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <p class="pat-num"><a href="https://patents.google.com/patent/WO2024238704A1/en" target="_blank" rel="noopener">WO 2024/238704 A1</a> · <a href="https://patents.google.com/patent/US20240385454A1/en" target="_blank" rel="noopener">US 2024/0385454 A1</a></p>
+        <h3>Head mountable display</h3>
+        <p class="pat-meta">Apple Inc. · Published November 21, 2024 · Vision Products Group era</p>
+        <p class="pat-val"><strong>Building the headset, piece by piece.</strong> Head-mounted display systems from the founding years of the Vision Products Group.</p>
+      </article>
+
+      <article class="pat-card reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M6 24q9-10 18-10t18 10q-9 10-18 10T6 24z"/>
+            <circle cx="24" cy="24" r="4"/>
+            <path d="M31 17l8-7M33 24h9" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <p class="pat-num"><a href="https://patents.google.com/patent/US20250181155A1/en" target="_blank" rel="noopener">US 2025/0181155 A1</a></p>
+        <h3>Camera-less eye tracking system</h3>
+        <p class="pat-meta">Apple Inc. · Published June 5, 2025</p>
+        <p class="pat-val"><strong>Gaze tracking with no camera.</strong> The sensor disappears entirely — eye tracking that leaves only the signal.</p>
+      </article>
+
+      <article class="pat-card reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M6 24q9-10 18-10t18 10q-9 10-18 10T6 24z"/>
+            <circle cx="18" cy="24" r="1.8" fill="var(--teal)" stroke="none"/>
+            <circle cx="24" cy="21.5" r="1.8" fill="var(--teal)" stroke="none"/>
+            <circle cx="30" cy="24" r="1.8" fill="var(--teal)" stroke="none"/>
+            <circle cx="24" cy="26.5" r="1.8" fill="var(--teal)" stroke="none"/>
+          </svg>
+        </div>
+        <p class="pat-num"><a href="https://patents.google.com/patent/WO2026072497A1/en" target="_blank" rel="noopener">WO 2026/072497 A1</a></p>
+        <h3>Efficient eye imaging system for near-eye displays with integrated photodiodes</h3>
+        <p class="pat-meta">Apple Inc. · Published April 2, 2026</p>
+        <p class="pat-val"><strong>The display becomes the sensor.</strong> Photodiodes woven into the screen image the eye from inside it — sensing without a visible sensor.</p>
+      </article>
+
+      <article class="pat-card reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <circle cx="18" cy="24" r="9"/>
+            <circle cx="18" cy="24" r="3" fill="currentColor" stroke="none"/>
+            <circle cx="36" cy="15" r="5"/>
+            <circle cx="36" cy="33" r="5"/>
+            <path d="M28 24h3" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <p class="pat-num"><a href="https://patents.google.com/patent/WO2016097470A1/en" target="_blank" rel="noopener">WO 2016/097470 A1</a> · <a href="https://patents.google.com/patent/US20160173869A1/en" target="_blank" rel="noopener">US 2016/0173869 A1</a></p>
+        <h3>Multi-camera system consisting of variably calibrated cameras</h3>
+        <p class="pat-meta">Nokia Technologies Oy · Priority December 15, 2014 · with Ting-Chun Wang</p>
+        <p class="pat-val"><strong>Bokeh before Portrait mode.</strong> A main high-quality camera paired with auxiliary stereo cameras producing depth for defocus effects — filed two years before the iPhone 7 Plus made computational bokeh mainstream.</p>
+      </article>
+
+      <article class="pat-card reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M10 38V24M19 38V15M28 38V28M37 38V19"/>
+            <path d="M6 38h36"/>
+            <circle cx="19" cy="15" r="2.2" fill="var(--teal)" stroke="none"/>
+          </svg>
+        </div>
+        <p class="pat-num"><a href="https://patents.google.com/patent/US10574905B2/en" target="_blank" rel="noopener">US 10,574,905 B2</a> · US 10,089,740 · <a href="https://patents.google.com/patent/WO2015134996A1/en" target="_blank" rel="noopener">WO 2015/134996 A1</a></p>
+        <h3>System and methods for depth regularization and semiautomatic interactive matting using RGB-D images</h3>
+        <p class="pat-meta">Pelican Imaging / Fotonation · US granted 2018 &amp; 2020<br><span class="role-tag">First-listed inventor</span></p>
+        <p class="pat-val"><strong>Making light-field depth trustworthy.</strong> Depth regularization that cleaned up noisy light-field depth — the foundation of the startup&rsquo;s product demos (shown to Apple and Amazon, in Manohar&rsquo;s account).</p>
+      </article>
+
+      <article class="pat-card reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 14h13l-2.5 20H8z"/>
+            <path d="M21 24h7M25 20l4 4-4 4" stroke="var(--teal)"/>
+            <rect x="32" y="14" width="10" height="20"/>
+          </svg>
+        </div>
+        <p class="pat-num">US 9,898,856 (2018) · <a href="https://patents.google.com/patent/US10540806B2/en" target="_blank" rel="noopener">US 10,540,806 B2</a> · <a href="https://patents.google.com/patent/WO2015048694A2/en" target="_blank" rel="noopener">WO 2015/048694 A2</a></p>
+        <h3>Systems and methods for depth-assisted perspective distortion correction</h3>
+        <p class="pat-meta">Pelican Imaging / Fotonation · US granted 2018 &amp; 2020 · 183 Scholar citations</p>
+        <p class="pat-val"><strong>His most-cited work.</strong> Uses depth to undo wide-angle perspective distortion — the reason faces stop looking warped at the edge of the frame.</p>
+      </article>
+
+      <article class="pat-card reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M8 37C15 37 13 11 24 11s9 26 16 26"/>
+            <circle cx="8" cy="37" r="2.5"/>
+            <circle cx="24" cy="11" r="2.5"/>
+            <circle cx="40" cy="37" r="2.5" fill="var(--teal)" stroke="none"/>
+          </svg>
+        </div>
+        <p class="pat-num"><a href="https://patents.google.com/patent/US9170580B2/en" target="_blank" rel="noopener">US 9,170,580 B2</a></p>
+        <h3>Determining trajectories of redundant actuators jointly tracking reference trajectory</h3>
+        <p class="pat-meta">Mitsubishi Electric Research Laboratories · Granted October 27, 2015</p>
+        <p class="pat-val"><strong>The control theory under the drones.</strong> Optimal trajectories for redundant actuators — from his Mitsubishi research-lab years, feeding the aerial-robotics work.</p>
+      </article>
+
+      <article class="pat-card reveal">
+        <div class="pat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <circle cx="24" cy="24" r="9"/>
+            <circle cx="24" cy="24" r="2.5" fill="currentColor" stroke="none"/>
+            <path d="M24 6a18 18 0 0 1 15 8" stroke="var(--teal)"/>
+            <path d="M24 42a18 18 0 0 1-15-8" stroke="var(--teal)"/>
+            <path d="M8 14a18 18 0 0 1 8-6" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <p class="pat-num"><a href="https://patents.google.com/patent/US20120068927A1/en" target="_blank" rel="noopener">US 2012/0068927 A1</a> · <a href="https://patents.google.com/patent/GB2434227B/en" target="_blank" rel="noopener">GB 2,434,227 B</a> (granted 2010)</p>
+        <h3>Computer input device enabling three degrees of freedom and related input and feedback methods</h3>
+        <p class="pat-meta">With T. Poston · US filed 2007 · UK granted December 15, 2010 · 162 Scholar citations</p>
+        <p class="pat-val"><strong>His earliest invention on record.</strong> Three degrees of freedom in a single input device — and his second most-cited invention.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH PAPERS ============ -->
+  <section class="inv-sec" aria-labelledby="papers-title">
+    <div class="sec-head">
+      <p class="kicker reveal">Research papers</p>
+      <h2 id="papers-title" class="reveal" data-delay="60">The math behind the bets.</h2>
+      <p class="lede reveal" data-delay="120">From MIT aerial robotics to computational cameras — each paper with the key idea it contributed and why it mattered.</p>
+    </div>
+    <div class="paper-list">
+
+      <article class="paper-row reveal">
+        <div class="paper-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <circle cx="17" cy="19" r="7"/><circle cx="31" cy="19" r="7"/>
+            <path d="M8 36h9M21 36h6M31 36h9" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <div class="paper-body">
+          <h3>Depth from semi-calibrated stereo and defocus</h3>
+          <p class="paper-meta">2016<span class="cite-pill">25 citations</span></p>
+          <p class="paper-why"><strong>Two depth cues are better than one.</strong> Fuses stereo disparity with defocus blur — depth that holds up exactly where each cue alone fails.</p>
+        </div>
+      </article>
+
+      <article class="paper-row reveal">
+        <div class="paper-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M14 12l20 20M34 12L14 32"/>
+            <circle cx="14" cy="12" r="3"/><circle cx="34" cy="12" r="3"/>
+            <circle cx="14" cy="32" r="3"/><circle cx="34" cy="32" r="3"/>
+            <circle cx="24" cy="22" r="2.4" fill="currentColor" stroke="none"/>
+            <path d="M18 38l6-9 6 9" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <div class="paper-body">
+          <h3>Computational rim illumination with aerial robots</h3>
+          <p class="paper-meta">2014<span class="cite-pill">24 citations</span></p>
+          <p class="paper-why"><strong>Drones as studio lights.</strong> Autonomous quadrotors that position themselves around a subject for perfect photographic rim lighting — robotics in service of the image.</p>
+        </div>
+      </article>
+
+      <article class="paper-row reveal">
+        <div class="paper-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M8 10l10 10M18 10L8 20M30 10l10 10M40 10l-10 10"/>
+            <path d="M13 28v5M35 28v5M7 38h34" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <div class="paper-body">
+          <h3>Controlled manipulation with multiple quadrotors</h3>
+          <p class="paper-meta">2011<span class="cite-pill">25 citations</span></p>
+          <p class="paper-why"><strong>Aerial robotics as a crew, not a solo act.</strong> Teams of quadrotors cooperating to carry and manipulate objects — coordination as a control problem.</p>
+        </div>
+      </article>
+
+      <article class="paper-row reveal">
+        <div class="paper-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <rect x="8" y="7" width="32" height="22" rx="2"/>
+            <path d="M18 38h12M24 29v9"/>
+            <path d="M17 14l14 8M31 14l-14 8" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <div class="paper-body">
+          <h3>A robust environment for simulation and testing of adaptive control for mini-UAVs</h3>
+          <p class="paper-meta">2009<span class="cite-pill">25 citations</span></p>
+          <p class="paper-why"><strong>The flight simulator the lab trusted.</strong> A testbed for proving adaptive controllers in simulation before risking real hardware — infrastructure as research.</p>
+        </div>
+      </article>
+
+      <article class="paper-row reveal">
+        <div class="paper-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <circle cx="24" cy="19" r="9"/>
+            <circle cx="24" cy="19" r="2.5" fill="currentColor" stroke="none"/>
+            <path d="M9 40q4-7 8 0t8 0 8 0" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <div class="paper-body">
+          <h3>DC motor damping: a strategy to increase passive stiffness of haptic devices</h3>
+          <p class="paper-meta">2008<span class="cite-pill">26 citations</span></p>
+          <p class="paper-why"><strong>Stiffer virtual walls, calmer motors.</strong> Damping the motor instead of fighting it — haptic devices that feel more solid with less energy.</p>
+        </div>
+      </article>
+
+      <article class="paper-row reveal">
+        <div class="paper-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M31 5v38"/>
+            <path d="M31 24L15 30"/>
+            <circle cx="31" cy="24" r="2.2" fill="var(--teal)" stroke="none"/>
+          </svg>
+        </div>
+        <div class="paper-body">
+          <h3>Rendering stiffer walls: a hybrid haptic system using continuous and discrete time feedback</h3>
+          <p class="paper-meta">2007<span class="cite-pill">11 citations</span></p>
+          <p class="paper-why"><strong>Touch you can believe.</strong> Hybrid continuous–discrete control that renders a virtual wall as genuinely solid — the haptics behind believable contact.</p>
+        </div>
+      </article>
+
+      <article class="paper-row reveal">
+        <div class="paper-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round">
+            <path d="M14 30V14l10-5 10 5v16l-10 5z"/>
+            <path d="M14 14l10 5 10-5M24 19v16"/>
+            <path d="M8 42c6-1 8-6 14-6" stroke="var(--teal)" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="paper-body">
+          <h3>Visibility volumes for interactive path optimization</h3>
+          <p class="paper-meta">2008<span class="cite-pill">11 citations</span></p>
+          <p class="paper-why"><strong>Planning through what can be seen.</strong> Treats visibility as a first-class citizen in motion planning — paths optimized inside the volume of the observable.</p>
+        </div>
+      </article>
+
+      <article class="paper-row reveal">
+        <div class="paper-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M14 18l20 14M34 18L14 32"/>
+            <circle cx="14" cy="18" r="3"/><circle cx="34" cy="18" r="3"/>
+            <circle cx="14" cy="32" r="3"/><circle cx="34" cy="32" r="3"/>
+            <path d="M24 8q7 5 0 10" stroke="var(--teal)"/>
+          </svg>
+        </div>
+        <div class="paper-body">
+          <h3>Dynamic modeling and control of a flexible four-rotor UAV</h3>
+          <p class="paper-meta">2010<span class="cite-pill">7 citations</span></p>
+          <p class="paper-why"><strong>A bending drone doesn&rsquo;t fly like a rigid one.</strong> Models flexibility in the airframe itself — control that accounts for the wobble instead of ignoring it.</p>
+        </div>
+      </article>
+
+    </div>
+    <p class="scholar-note reveal">Full citation record — 1,100+ citations, h-index 16 — lives on the <a href="https://scholar.google.com/citations?user=doL8ArEAAAAJ" target="_blank" rel="noopener">Google Scholar profile</a>, mirrored on the <a href="publications.html">Publications page</a>.</p>
+  </section>
+</main>
+
+    <footer class="foot">
+      <div class="foot-in">
+        <p>Manohar Srikanth</p>
+        <nav class="foot-nav" aria-label="Site">
+          <a href="index.html">Home</a>
+          <a href="art.html">Art</a>
+          <a href="projects.html">Projects</a>
+          <a href="inventions.html">Inventions</a>
+          <a href="publications.html">Publications &amp; Patents</a>
+          <a href="resume.html">Resume</a>
+          <a href="https://www.linkedin.com/in/srimano" target="_blank" rel="noopener">LinkedIn →</a>
+        </nav>
+      </div>
+    </footer>
+
+  <script>
+  (function(){
+    document.documentElement.classList.add('js');
+    var items = document.querySelectorAll('.reveal');
+    items.forEach(function(el){
+      var d = el.getAttribute('data-delay');
+      if(d){ el.style.transitionDelay = d + 'ms'; }
+    });
+    if(!('IntersectionObserver' in window)){
+      items.forEach(function(el){ el.classList.add('visible'); });
+    } else {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.1, rootMargin:'0px 0px -6% 0px'});
+      items.forEach(function(el){ io.observe(el); });
+    }
+  })();
+  </script>
+</body>
+</html>
