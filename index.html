@@ -69,6 +69,8 @@
     .hero-text h1{font-size:clamp(34px,5vw,54px)}
     .hero-sub{margin:24px auto 0;max-width:620px;font-size:clamp(16px,2vw,20px);
       color:var(--muted);line-height:1.6}
+    .hero-precision{margin:14px auto 0;max-width:620px;font-size:13.5px;
+      color:var(--muted);line-height:1.55}
     .hero-frame{position:relative;max-width:var(--wide);margin:52px auto 0;background:#000;
       border:1px solid var(--line);border-radius:18px;overflow:hidden;
       box-shadow:0 24px 70px -30px rgba(0,0,0,.35)}
@@ -109,6 +111,7 @@
     .title{font-size:clamp(36px,6vw,64px);margin-bottom:22px}
     .lede{font-size:clamp(16.5px,2vw,21px);color:var(--muted);max-width:700px;margin:0 auto 8px;line-height:1.65}
     .panel-dark .lede{color:var(--muted-dark)}
+    .panel-dark .narrative p{color:var(--muted-dark)}
     .lede.center{margin-left:auto;margin-right:auto}
 
     /* S1 — full-bleed visual feature */
@@ -273,6 +276,7 @@
       <div class="hero-text">
         <h1 class="reveal" data-delay="80">I invented the disappearing camera.</h1>
         <p class="hero-sub reveal" data-delay="160">Eleven years in the making &mdash; it shipped in September 2026. The iPhone Duo hides its FaceTime camera completely beneath the display; the iPhone 18 Pro Max moved its Face ID camera under the glass.</p>
+        <p class="hero-precision reveal" data-delay="200">Precision: on the 18 Pro Max, only the Face ID infrared camera went beneath the OLED &mdash; the selfie camera and dot projector stayed in the opening. Only the Duo&rsquo;s inner display hides a camera completely.</p>
       </div>
       <div class="hero-frame reveal" data-delay="220">
         <div class="hero-media" id="heroMedia" aria-hidden="true">
@@ -348,24 +352,24 @@
       <div class="wrap center">
         <p class="kicker reveal">The invention</p>
         <h2 class="title reveal" id="s3-title" data-delay="80">Eleven years in the making.</h2>
-        <p class="lede reveal" data-delay="160">The foundational under-display-camera patent was conceived by Manohar Srikanth, first-listed of six inventors — an 11-year arc from invention in the summer of 2015 to the technology shipping in flagships. The family claims priority to September 27, 2018 — two years before the first commercial under-display-camera phone — and was filed September 24, 2019.</p>
+        <p class="lede reveal" data-delay="160">I conceived the foundational under-display-camera architecture &mdash; first-listed of six inventors on the patent &mdash; an 11-year arc from my notebooks in the summer of 2015 to the technology shipping in flagships. The family claims priority to September 27, 2018 — two years before the first commercial under-display-camera phone — and was filed September 24, 2019.</p>
       </div>
       <div class="narrative">
         <h3 class="narr-title reveal">The Cost of Zero-to-One</h3>
-        <p class="reveal" data-delay="80">When I first proposed this architecture, I was explicitly told it was impossible. The industry consensus was that you cannot defy the physical behavior of light. But zero-to-one invention is rarely just a battle against physics; it is a battle against consensus.</p>
-        <p class="reveal" data-delay="120">For the first year, I carried it largely alone &mdash; the consensus was that it couldn't be done. Then a select few individuals believed in me and supported me in carrying it forward.</p>
+        <p class="reveal" data-delay="80">When I first proposed this architecture, I was told it was impossible. The objection was a reasonable one: an active display exacts a brutal optical penalty, and the consensus held that no computation could repay it. But zero-to-one invention is rarely just a contest with physics &mdash; it is a contest with consensus.</p>
+        <p class="reveal" data-delay="120">For the first year, I carried it largely alone. The resistance was never personal; it was architectural. Then a select few individuals believed in me and supported me in carrying it forward.</p>
         <p class="reveal" data-delay="160">To win that battle, I didn't rely on industry trends &mdash; I went back to first principles. I cannot count the thousands of times I returned to my notes from MIT&rsquo;s 2.710 Optics class. The proof that we could control the distortion was hiding in the fundamental math of diffraction, deconvolution, and lens behavior.</p>
-        <p class="reveal" data-delay="200">Pushing this from a heavily doubted whiteboard concept to a shipping reality was an exercise in extreme friction. It demanded a decade of unyielding perseverance, quiet hard work, and an absolute refusal to accept consensus over physics. I took the challenge personally. Today, it ships.</p>
+        <p class="reveal" data-delay="200">Turning a doubted whiteboard concept into a shipping reality took a decade of unyielding work &mdash; proving, step by step, that silicon and computational deconvolution could stand in for the glass the display couldn&rsquo;t spare. I took that challenge personally. Today, it ships.</p>
       </div>
       <ul class="timeline reveal" data-delay="200">
-        <li><span class="when">2015</span><span class="what">June&ndash;July 2015 &mdash; Manohar invents the under-display camera: notes and a first prototype of a camera hidden entirely behind the display.</span></li>
-        <li><span class="when">2016</span><span class="what">In his words: <strong>“I built a camera that vanished behind the screen — before the world knew it was possible.”</strong></span></li>
+        <li><span class="when">2015</span><span class="what">June&ndash;July 2015 &mdash; my notes and a first prototype: a camera hidden entirely behind the display.</span></li>
+        <li><span class="when">2016</span><span class="what"><strong>&ldquo;I built a camera that vanished behind the screen &mdash; before the world knew it was possible.&rdquo;</strong></span></li>
         <li><span class="when">2018</span><span class="what">Provisional patent filed, September 27 &mdash; protecting the 2015 invention. Two years before the first commercial under-display-camera phone, the ZTE Axon 20 (September 2020).</span></li>
         <li><span class="when">2022</span><span class="what">Patent granted, April 5: “Electronic device including a camera disposed behind a display.”</span></li>
         <li><span class="when">2026</span><span class="what">Shipped — in the iPhone Duo’s hidden FaceTime camera and the iPhone 18 Pro Max’s under-display Face ID camera.</span></li>
       </ul>
       <p class="coda reveal" data-delay="240">The screen is whole.</p>
-      <p class="sidenote reveal" data-delay="260">Foresight is pattern, not luck: in 2014, as a Senior Researcher at Nokia, he co-invented a multi-camera bokeh architecture (<strong>WO2016097470A1</strong>, priority December 15, 2014, with Ting-Chun Wang) — two years before Portrait mode arrived on the iPhone 7 Plus. At Pelican Imaging, he was first-listed inventor on the depth-regularization patent (<strong>WO2015134996A1</strong>, priority March 7, 2014).</p>
+      <p class="sidenote reveal" data-delay="260">Foresight is pattern, not luck: in 2014, as a Senior Researcher at Nokia, I co-invented a multi-camera bokeh architecture (<strong>WO2016097470A1</strong>, priority December 15, 2014, with Ting-Chun Wang) — two years before Portrait mode arrived on the iPhone 7 Plus. At Pelican Imaging, I was first-listed inventor on the depth-regularization patent (<strong>WO2015134996A1</strong>, priority March 7, 2014).</p>
     </section>
 
     <!-- (4) HOW IT WORKS, BRIEFLY — with patent citations -->
@@ -407,6 +411,19 @@
         </div>
       </div>
       <p class="fine reveal">Precision: on the iPhone 18 Pro Max, only the Face ID infrared camera moved beneath the OLED — the selfie camera and IR dot projector stayed in the central opening. The iPhone Duo’s hidden FaceTime camera sits beneath the inner display.</p>
+    </section>
+
+    <!-- (5) THE THESIS — software-defined sensing -->
+    <section class="panel panel-dark" aria-labelledby="s5-title">
+      <div class="wrap center">
+        <p class="kicker reveal">What comes next</p>
+        <h2 class="title reveal" id="s5-title" data-delay="80">Software-defined sensing.</h2>
+        <p class="lede reveal" data-delay="160">The disappearing camera was never the point. It was the first proof of a larger thesis: hardware whose capabilities are written in computation, not etched in glass.</p>
+      </div>
+      <div class="narrative">
+        <p class="reveal" data-delay="200">A camera that sees through a display. Eye tracking with no camera at all. Photodiodes woven into the screen itself &mdash; my recent filings trace exactly this arc, from the under-display camera to camera-less gaze sensing. The next decade of devices won&rsquo;t be defined by the sensors they carry, but by the sensing that software lets them borrow. The screen is whole; the sensor is next.</p>
+        <p class="reveal" data-delay="240"><a href="inventions.html">Follow the patent trail &rarr;</a></p>
+      </div>
     </section>
 
     <section class="cta" aria-labelledby="cta-title">
