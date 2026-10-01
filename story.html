@@ -25,10 +25,12 @@
         --ink-dark:#F2E9D8; --muted-dark:#AB987F;
         --link:#5BB8B0; --btn:#93304A; --btn-hover:#A31621;
       }
+      body{background:linear-gradient(180deg,#1E140C 0%,#181008 55%,#110B06 100%)}
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);
+    body{margin:0;color:var(--ink);font-family:var(--font);
+      background:linear-gradient(180deg,#F4EDDB 0%,#EBDDC0 55%,#E0CCA0 100%);
       line-height:1.6;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
     main,article{overflow:hidden}
     a{color:inherit;text-decoration:none}
@@ -37,7 +39,7 @@
     h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.022em;line-height:1.08;text-wrap:balance}
 
     /* ---------- HERO (contained: title above, video in a rounded frame) ---------- */
-    .hero{padding:104px 24px 96px;background:var(--bg);color:var(--ink)}
+    .hero{padding:104px 24px 96px;background:transparent;color:var(--ink)}
     .hero-text{max-width:880px;margin:0 auto;text-align:center}
     .hero-text h1{font-size:clamp(46px,8vw,80px)}
     .hero-sub{margin:24px auto 0;max-width:620px;font-size:clamp(16px,2vw,20px);
@@ -52,7 +54,7 @@
     /* ---------- Apple-style panels ---------- */
     .panel{padding:112px 24px}
     .panel-dark{background:var(--black);color:var(--ink-dark)}
-    .panel-soft{background:var(--soft)}
+    .panel-soft{background:color-mix(in srgb, var(--soft) 78%, transparent)}
     .wrap{max-width:var(--col);margin:0 auto}
     .wrap-wide{max-width:var(--wide);margin:0 auto}
     .center{text-align:center}
