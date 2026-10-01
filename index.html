@@ -33,6 +33,21 @@
     ::selection{background:var(--btn);color:var(--btn-text)}
     h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.022em;line-height:1.08;text-wrap:balance}
 
+    /* ---------- Sticky top bar ---------- */
+    .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+      justify-content:space-between;gap:16px;height:58px;padding:0 24px;
+      background:color-mix(in srgb, var(--bg) 80%, transparent);
+      -webkit-backdrop-filter:saturate(180%) blur(20px);
+      backdrop-filter:saturate(180%) blur(20px);
+      border-bottom:1px solid var(--line)}
+    .topbar .brand{font-weight:700;font-size:16px;letter-spacing:-.01em;
+      color:var(--ink);text-decoration:none;white-space:nowrap}
+    .topbar .brand span{font-weight:400;color:var(--muted);font-size:13.5px}
+    .topnav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none}
+    .topnav::-webkit-scrollbar{display:none}
+    .topnav a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap}
+    .topnav a:hover{color:var(--ink)}
+
     /* ---------- HERO (contained: title above, video in a rounded frame) ---------- */
     .hero{padding:104px 24px 96px;background:var(--bg);color:var(--ink)}
     .hero-text{max-width:880px;margin:0 auto;text-align:center}
@@ -190,14 +205,27 @@
       .hero{padding:64px 20px 56px}
       .hero-frame{margin-top:40px}
       .proof-strip{margin-top:40px}
+      .topbar{padding:0 16px;height:54px}
+      .topbar .brand{font-size:15px}
+      .topnav{gap:16px}
     }
   </style>
 </head>
 <body>
+<nav class="topbar" aria-label="Site">
+  <a class="brand" href="index.html">Manohar Srikanth<span>, PhD</span></a>
+  <div class="topnav">
+    <a href="story.html">Story</a>
+    <a href="art.html">Art</a>
+    <a href="projects.html">Projects</a>
+    <a href="publications.html">Publications</a>
+    <a href="resume.html">Resume</a>
+  </div>
+</nav>
 <main id="landing">
     <header class="hero">
       <div class="hero-text">
-        <p class="kicker reveal">Manohar Srikanth</p>
+        <p class="kicker reveal">System &amp; Experience Architect, Apple &middot; PhD, MIT</p>
         <h1 class="reveal" data-delay="80">Invention of the Disappearing Camera</h1>
         <p class="hero-sub reveal" data-delay="160">September 2026 — the iPhone Duo and iPhone 18 Pro Max shipped with the camera hidden beneath the display.</p>
       </div>

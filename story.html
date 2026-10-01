@@ -61,6 +61,21 @@
     .panel-dark .lede{color:var(--muted-dark)}
     .lede.center{margin-left:auto;margin-right:auto}
 
+    /* ---------- Sticky top bar (shared with landing) ---------- */
+    .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+      justify-content:space-between;gap:16px;height:58px;padding:0 24px;
+      background:color-mix(in srgb, var(--bg) 80%, transparent);
+      -webkit-backdrop-filter:saturate(180%) blur(20px);
+      backdrop-filter:saturate(180%) blur(20px);
+      border-bottom:1px solid var(--line)}
+    .topbar .brand{font-weight:700;font-size:16px;letter-spacing:-.01em;
+      color:var(--ink);text-decoration:none;white-space:nowrap}
+    .topbar .brand span{font-weight:400;color:var(--muted);font-size:13.5px}
+    .topnav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none}
+    .topnav::-webkit-scrollbar{display:none}
+    .topnav a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap}
+    .topnav a:hover{color:var(--ink)}
+
     /* S1 — full-bleed visual feature */
     .bleed{margin:52px auto 0;max-width:var(--wide)}
     .bleed figure{margin:0}
@@ -178,14 +193,24 @@
       .chapter{padding:60px 20px 6px}
       .hero{padding:64px 20px 56px}
       .hero-frame{margin-top:40px}
+      .topbar{padding:0 16px;height:54px}
+      .topbar .brand{font-size:15px}
+      .topnav{gap:16px}
     }
   </style>
 </head>
 <body>
 
-    <div class="story-top">
-      <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Back</a>
-    </div>
+    <nav class="topbar" aria-label="Site">
+      <a class="brand" href="index.html">Manohar Srikanth<span>, PhD</span></a>
+      <div class="topnav">
+        <a href="story.html">Story</a>
+        <a href="art.html">Art</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="resume.html">Resume</a>
+      </div>
+    </nav>
     <header class="story-head">
       <h1 class="reveal">The full story.</h1>
       <p class="lede reveal" data-delay="90">What iFixit found. How the invisible camera took shape. And the man behind it.</p>
