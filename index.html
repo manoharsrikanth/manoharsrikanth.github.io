@@ -36,17 +36,23 @@
     ::selection{background:var(--btn);color:var(--btn-text)}
     h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.022em;line-height:1.08;text-wrap:balance}
 
-    /* ---------- Sticky top bar ---------- */
-    .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
-      justify-content:space-between;gap:16px;padding:10px 24px;
-      background:color-mix(in srgb, var(--bg) 80%, transparent);
+    /* ---------- Sticky top bar: centered brand masthead ---------- */
+    .topbar{position:sticky;top:0;z-index:50;text-align:center;padding:14px 24px 0;
+      background:color-mix(in srgb, var(--bg) 84%, transparent);
       -webkit-backdrop-filter:saturate(180%) blur(20px);
-      backdrop-filter:saturate(180%) blur(20px);
-      border-bottom:1px solid var(--line)}
-    .topbar .brand{line-height:1.3;color:var(--ink);text-decoration:none;white-space:nowrap}
-    .topbar .brand .name{display:block;font-weight:700;font-size:16px;letter-spacing:-.01em}
-    .topbar .brand .role{display:block;font-weight:400;font-size:12px;color:var(--muted);
-      letter-spacing:.02em;margin-top:1px}
+      backdrop-filter:saturate(180%) blur(20px)}
+    .topnav{display:flex;gap:24px;justify-content:center;overflow-x:auto;scrollbar-width:none}
+    .topnav::-webkit-scrollbar{display:none}
+    .topnav a{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+      color:var(--muted);text-decoration:none;white-space:nowrap}
+    .topnav a:hover{color:var(--ink)}
+    .topbar .brand{display:block;margin-top:10px;line-height:1.25;
+      color:var(--ink);text-decoration:none}
+    .topbar .brand .name{display:block;font-size:32px;font-weight:800;letter-spacing:-.02em}
+    .topbar .brand .role{display:block;margin-top:5px;font-size:13.5px;font-weight:600;
+      letter-spacing:.05em;color:var(--burgundy)}
+    .ribbon{height:4px;margin:14px -24px 0;
+      background:linear-gradient(90deg,var(--burgundy) 0%,var(--deepred) 38%,var(--sienna) 68%,var(--teal) 100%)}
     .topnav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none}
     .topnav::-webkit-scrollbar{display:none}
     .topnav a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap}
@@ -219,19 +225,16 @@
       .hero-frame{margin-top:40px}
       .proof-strip{margin-top:40px}
       .numbers{margin-top:56px;gap:12px}
-      .topbar{padding:8px 16px;height:auto}
-      .topbar .brand .name{font-size:15px}
-      .topbar .brand .role{font-size:11px}
-      .topnav{gap:16px}
+      .topbar{padding:12px 16px 0}
+      .topbar .brand .name{font-size:27px}
+      .topbar .brand .role{font-size:11.5px}
+      .topnav{gap:18px}
+      .ribbon{margin:12px -16px 0}
     }
   </style>
 </head>
 <body>
 <nav class="topbar" aria-label="Site">
-  <a class="brand" href="index.html">
-    <span class="name">Manohar Srikanth</span>
-    <span class="role">System &amp; Experience Architect, Apple Inc. &middot; PhD, MIT</span>
-  </a>
   <div class="topnav">
     <a href="story.html">Story</a>
     <a href="art.html">Art</a>
@@ -239,6 +242,11 @@
     <a href="publications.html">Publications</a>
     <a href="resume.html">Resume</a>
   </div>
+  <a class="brand" href="index.html">
+    <span class="name">Manohar Srikanth</span>
+    <span class="role">System &amp; Experience Architect, Apple Inc. &middot; PhD, MIT</span>
+  </a>
+  <div class="ribbon" aria-hidden="true"></div>
 </nav>
 <main id="landing">
     <header class="hero">
