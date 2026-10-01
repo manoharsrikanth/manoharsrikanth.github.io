@@ -66,14 +66,15 @@
 
     /* ---------- Sticky top bar (shared with landing) ---------- */
     .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
-      justify-content:space-between;gap:16px;height:58px;padding:0 24px;
+      justify-content:space-between;gap:16px;padding:10px 24px;
       background:color-mix(in srgb, var(--bg) 80%, transparent);
       -webkit-backdrop-filter:saturate(180%) blur(20px);
       backdrop-filter:saturate(180%) blur(20px);
       border-bottom:1px solid var(--line)}
-    .topbar .brand{font-weight:700;font-size:16px;letter-spacing:-.01em;
-      color:var(--ink);text-decoration:none;white-space:nowrap}
-    .topbar .brand span{font-weight:400;color:var(--muted);font-size:13.5px}
+    .topbar .brand{line-height:1.3;color:var(--ink);text-decoration:none;white-space:nowrap}
+    .topbar .brand .name{display:block;font-weight:700;font-size:16px;letter-spacing:-.01em}
+    .topbar .brand .role{display:block;font-weight:400;font-size:12px;color:var(--muted);
+      letter-spacing:.02em;margin-top:1px}
     .topnav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none}
     .topnav::-webkit-scrollbar{display:none}
     .topnav a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap}
@@ -196,8 +197,9 @@
       .chapter{padding:60px 20px 6px}
       .hero{padding:64px 20px 56px}
       .hero-frame{margin-top:40px}
-      .topbar{padding:0 16px;height:54px}
-      .topbar .brand{font-size:15px}
+      .topbar{padding:8px 16px;height:auto}
+      .topbar .brand .name{font-size:15px}
+      .topbar .brand .role{font-size:11px}
       .topnav{gap:16px}
     }
   </style>
@@ -205,7 +207,10 @@
 <body>
 
     <nav class="topbar" aria-label="Site">
-      <a class="brand" href="index.html">Manohar Srikanth<span>, PhD</span></a>
+      <a class="brand" href="index.html">
+        <span class="name">Manohar Srikanth</span>
+        <span class="role">System &amp; Experience Architect, Apple Inc. &middot; PhD, MIT</span>
+      </a>
       <div class="topnav">
         <a href="story.html">Story</a>
         <a href="art.html">Art</a>
