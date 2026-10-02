@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="description" content="How the invisible camera works, explained for kids." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F7F2E9'/%3E%3Ccircle cx='32' cy='32' r='19' fill='%232B2118'/%3E%3C/svg%3E" />
+  <title>The Camera That Learned to Hide · Kids · Manohar Srikanth</title>
+  <style>
+    :root{
+      --glass-bar:rgba(247,242,233,.84);--nav-dim:rgba(122,106,90,.7);
+      --card-bg:#FBF8F3;
+      color-scheme:light;
+      --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
+      --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+      --bg:#F7F2E9; --soft:#ECE3D2; --ink:#2B2118; --muted:#7A6A5A; --line:#D9CEB9;
+      --burgundy:#6E1423; --deepred:#A31621; --sienna:#8C4A32; --teal:#0E6B6B;
+      --black:#000000; --ink-dark:#F5F5F7; --muted-dark:#a1a1a6;
+      --link:#0E6B6B; --btn:#6E1423; --btn-hover:#A31621; --btn-text:#F7F2E9;
+      --col:880px; --wide:1180px;
+    }
+    
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);font-family:var(--font);
+      background:linear-gradient(180deg,#F4EDDB 0%,#EBDDC0 55%,#E0CCA0 100%);
+      line-height:1.6;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+    main,article{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%;height:auto}
+    ::selection{background:var(--btn);color:var(--btn-text)}
+    h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.022em;line-height:1.08;text-wrap:balance}
+    @font-face{font-family:'Archivo';font-weight:700;
+      font-display:swap;src:url('assets/fonts/archivo-latin.woff2') format('woff2')}
+
+    /* ---------- Sticky top bar: centered brand masthead (shared with landing) ---------- */
+    .topbar{position:sticky;top:0;z-index:50;text-align:center;padding:14px 24px 0;
+      background:var(--glass-bar);
+      -webkit-backdrop-filter:saturate(180%) blur(20px);
+      backdrop-filter:saturate(180%) blur(20px)}
+    .topnav{display:flex;gap:24px;justify-content:center;overflow-x:auto;scrollbar-width:none}
+    .topnav::-webkit-scrollbar{display:none}
+    .topnav a{font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--nav-dim);text-decoration:none;white-space:nowrap}
+    .topnav a:hover{color:var(--ink)}
+    .topnav a[aria-current="page"]{color:var(--ink)}
+    .topbar .brand{display:block;margin-top:10px;line-height:1.25;
+      color:var(--ink);text-decoration:none}
+    .topbar .brand .name{display:block;font-family:'Archivo',-apple-system,BlinkMacSystemFont,
+      'Helvetica Neue',Helvetica,Arial,sans-serif;
+      font-size:32px;font-weight:700;font-stretch:125%;letter-spacing:.02em}
+    .topbar .brand .role{display:block;margin-top:6px;font-size:13px;font-weight:600;
+      letter-spacing:.06em;color:var(--burgundy)}
+    .topbar .brand .role2{margin-top:3px;font-size:12px;font-weight:500;letter-spacing:.08em}
+    .ribbon{height:4px;margin:14px -24px 0;
+      background:linear-gradient(90deg,var(--burgundy) 0%,var(--deepred) 38%,var(--sienna) 68%,var(--teal) 100%)}
+
+    .wrap{max-width:var(--col);margin:0 auto}
+    .wrap-wide{max-width:var(--wide);margin:0 auto}
+    .center{text-align:center}
+    .kicker{font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+      color:var(--teal);margin:0 0 18px}
+
+    /* ---------- Page hero ---------- */
+    .inv-hero{padding:88px 24px 72px;text-align:center}
+    .inv-hero h1{font-size:clamp(42px,7vw,72px)}
+    .inv-hero .lede{margin:22px auto 0;max-width:640px;font-size:clamp(16.5px,2vw,20px);
+      color:var(--muted);line-height:1.65}
+
+    /* ---------- Sections ---------- */
+    .inv-sec{padding:72px 24px}
+    .inv-sec + .inv-sec{border-top:1px solid var(--line)}
+    .sec-head{max-width:var(--col);margin:0 auto;text-align:center}
+    .sec-head h2{font-size:clamp(32px,5vw,52px);margin-bottom:16px}
+    .sec-head .lede{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:660px;
+      margin:0 auto;line-height:1.65}
+
+    /* ---------- Patent cards ---------- */
+    .pat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px;
+      max-width:var(--wide);margin:48px auto 0}
+    .pat-card{background:var(--card-bg);
+      border:1px solid var(--line);border-radius:16px;padding:26px 24px;
+      display:flex;flex-direction:column;gap:10px;
+      box-shadow:0 10px 30px -18px rgba(60,30,10,.25)}
+    
+    .pat-icon{width:58px;height:58px;border-radius:15px;background:var(--soft);
+      display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+    .pat-icon svg{width:38px;height:38px}
+    .pat-num{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--teal);
+      letter-spacing:.02em;line-height:1.7}
+    .pat-num a{color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal)}
+    .pat-num a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+    .pat-card h3{font-size:19px;line-height:1.25}
+    .pat-meta{font-size:13px;color:var(--muted)}
+    .pat-meta .role-tag{display:inline-block;margin-top:6px;padding:3px 10px;border:1px solid var(--line);
+      border-radius:999px;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+      color:var(--burgundy)}
+    .pat-val{font-size:14.5px;color:var(--muted);line-height:1.65;margin:4px 0 0}
+    .pat-val strong{color:var(--ink);font-weight:600}
+    .pat-card.featured{grid-column:1/-1;display:grid;grid-template-columns:64px 1fr;gap:8px 22px;
+      align-items:start;padding:30px 28px}
+    .pat-card.featured .pat-icon{width:64px;height:64px}
+    .pat-card.featured .pat-body{min-width:0}
+    .pat-card.featured h3{font-size:clamp(22px,3vw,30px)}
+    .pat-card.featured .pat-val{font-size:16px;max-width:70ch}
+
+    /* ---------- Paper rows ---------- */
+    .paper-list{max-width:var(--col);margin:48px auto 0;display:flex;flex-direction:column;gap:14px}
+    .paper-row{display:flex;gap:20px;align-items:flex-start;
+      background:var(--card-bg);
+      border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+    
+    .paper-icon{flex:0 0 64px;width:64px;height:64px;border-radius:14px;background:var(--soft);
+      display:flex;align-items:center;justify-content:center}
+    .paper-icon svg{width:44px;height:44px}
+    .paper-body{min-width:0;flex:1}
+    .paper-body h3{font-size:17.5px;line-height:1.3;font-weight:650}
+    .paper-meta{font-size:13px;color:var(--muted);margin-top:6px}
+    .paper-why{font-size:14.5px;color:var(--muted);line-height:1.6;margin:8px 0 0}
+    .paper-why strong{color:var(--ink);font-weight:600}
+    .cite-pill{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;
+      background:var(--soft);font-size:11.5px;font-weight:600;color:var(--muted);white-space:nowrap}
+
+    .scholar-note{max-width:var(--col);margin:56px auto 0;text-align:center;
+      font-size:15px;color:var(--muted);line-height:1.7}
+    .scholar-note a{color:var(--link);font-weight:600;border-bottom:1px dotted var(--link)}
+    .scholar-note a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+
+    /* ---------- Footer ---------- */
+    .foot{border-top:1px solid var(--line);padding:26px 24px 34px;color:var(--muted);
+      font-size:12.5px;letter-spacing:.02em}
+    .foot-in{max-width:var(--wide);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .foot a{color:var(--link);font-weight:600}
+    .foot p{margin:0}
+    .foot-nav{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+    .foot-nav a{color:var(--muted);font-weight:400}
+    .foot-nav a:hover{color:var(--ink);text-decoration:underline}
+
+    /* ---------- Reveal ---------- */
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1)}
+    .reveal.visible{opacity:1;transform:none}
+    html:not(.js) .reveal{opacity:1;transform:none}
+
+    @media(max-width:640px){
+      .inv-hero{padding:64px 20px 52px}
+      .inv-sec{padding:56px 20px}
+      .pat-card.featured{grid-template-columns:1fr}
+      .paper-row{gap:14px;padding:16px}
+      .paper-icon{flex-basis:52px;width:52px;height:52px}
+      .paper-icon svg{width:36px;height:36px}
+      .topbar{padding:12px 16px 0}
+      .topbar .brand .name{font-size:28px}
+      .ribbon{margin:12px -16px 0}
+    }
+  </style>
+</head>
+<body>
+<nav class="topbar" aria-label="Site">
+  <div class="topnav">
+    <a href="index.html" aria-current="page">Kids Home</a>
+    <a href="inventions.html">Inventions</a>
+    <a href="../index.html">Grown-up site &rarr;</a>
+  </div>
+  <a class="brand" href="index.html">
+    <span class="name">Manohar Srikanth</span>
+    <span class="role">The Kids&rsquo; Corner</span>
+    <span class="role role2">Inventions explained like you&rsquo;re ten</span>
+  </a>
+  <div class="ribbon" aria-hidden="true"></div>
+</nav>
+<main>
+  <header class="inv-hero">
+    <div class="wrap center">
+      <p class="kicker reveal">For curious minds · ages 10 and up</p>
+      <h1 class="reveal" data-delay="80">The camera that learned to hide.</h1>
+      <p class="lede reveal" data-delay="160">Your phone has a camera for selfies. But cameras need a hole to peek through — and holes ruin the screen. One inventor spent <strong>11 years</strong> teaching a camera to hide <em>behind</em> the glass. This is that story.</p>
+    </div>
+  </header>
+
+  <section class="inv-sec" aria-labelledby="k1">
+    <div class="sec-head">
+      <p class="kicker reveal">Chapter 1</p>
+      <h2 id="k1" class="reveal" data-delay="60">Why is there a notch in your screen?</h2>
+      <p class="lede reveal" data-delay="120">Pick up a phone and look at the top of the screen. See the little cutout? That&rsquo;s the camera&rsquo;s peephole. Here&rsquo;s the problem: <strong>screens can&rsquo;t see through themselves.</strong> They&rsquo;re not windows — they&rsquo;re walls of tiny lights. So phone makers had to cut a hole for the camera to peek through. That hole is called a notch. It eats into your videos, your games, everything you watch.</p>
+    </div>
+  </section>
+
+  <section class="inv-sec" aria-labelledby="k2">
+    <div class="sec-head">
+      <p class="kicker reveal">Chapter 2</p>
+      <h2 id="k2" class="reveal" data-delay="60">The hiding trick</h2>
+      <p class="lede reveal" data-delay="120">In 2015, an inventor named Manohar asked a different question. Instead of <em>&ldquo;where do we cut the hole?&rdquo;</em> he asked <em>&ldquo;what if there&rsquo;s no hole at all?&rdquo;</em></p>
+      <p class="lede reveal" data-delay="180">His idea: hide the camera <strong>behind</strong> the screen — like hiding behind a beaded curtain. You can peek through the gaps between the beads, right? A phone screen is like that curtain. It&rsquo;s made of millions of microscopic lights called pixels. Above the camera, the screen thins out, leaving tiny gaps. Light from your face squeezes through those gaps and reaches the hidden camera. No notch. No hole. Just glass.</p>
+    </div>
+  </section>
+
+  <section class="inv-sec" aria-labelledby="k3">
+    <div class="sec-head">
+      <p class="kicker reveal">Chapter 3</p>
+      <h2 id="k3" class="reveal" data-delay="60">The blurry problem (and the math that fixed it)</h2>
+      <p class="lede reveal" data-delay="120">There was a catch. When light squeezes through tiny gaps, it goes fuzzy — like trying to look through a screen door. The first hidden-camera photos came out blurry.</p>
+      <p class="lede reveal" data-delay="180">So Manohar taught the phone to <strong>un-blur</strong> the picture with math. The phone knows exactly how the screen smudges the light — so it runs the smudge in reverse, pixel by pixel. Blurry in, sharp out. It&rsquo;s like knowing exactly how a funhouse mirror warps your face, and using that knowledge to un-warp it.</p>
+    </div>
+  </section>
+
+  <section class="inv-sec" aria-labelledby="k4">
+    <div class="sec-head">
+      <p class="kicker reveal">Chapter 4</p>
+      <h2 id="k4" class="reveal" data-delay="60">Eleven years, in five steps</h2>
+      <p class="lede reveal" data-delay="120">Big inventions don&rsquo;t happen in a weekend. Here&rsquo;s how long this one took:</p>
+    </div>
+    <div class="paper-list">
+      <article class="paper-row reveal">
+        <div class="paper-body">
+          <h3>2015 · The notebook sketches</h3>
+          <p class="paper-why"><strong>&ldquo;What if the camera hides behind the screen?&rdquo;</strong> The idea is born, in handwritten notes and a first rough prototype.</p>
+        </div>
+      </article>
+      <article class="paper-row reveal">
+        <div class="paper-body">
+          <h3>2016 · The first hidden camera</h3>
+          <p class="paper-why"><strong>It actually took pictures!</strong> A working camera, vanished behind the display — before the world knew it was possible.</p>
+        </div>
+      </article>
+      <article class="paper-row reveal">
+        <div class="paper-body">
+          <h3>2018 · Calling dibs</h3>
+          <p class="paper-why"><strong>The patent.</strong> A patent is how inventors call dibs: you write down exactly how your invention works, and the government agrees the idea was yours. Manohar&rsquo;s name is first on this one.</p>
+        </div>
+      </article>
+      <article class="paper-row reveal">
+        <div class="paper-body">
+          <h3>2022 · Patent granted</h3>
+          <p class="paper-why"><strong>It&rsquo;s official.</strong> &ldquo;Electronic device including a camera disposed behind a display&rdquo; — try saying that three times fast.</p>
+        </div>
+      </article>
+      <article class="paper-row reveal">
+        <div class="paper-body">
+          <h3>2026 · It ships!</h3>
+          <p class="paper-why"><strong>Eleven years later, it&rsquo;s in your pocket.</strong> The iPhone Duo hides its selfie camera completely beneath the screen. The iPhone 18 Pro Max hides its Face ID camera under the glass.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="inv-sec" aria-labelledby="k5">
+    <div class="sec-head">
+      <p class="kicker reveal">Chapter 5</p>
+      <h2 id="k5" class="reveal" data-delay="60">What&rsquo;s next?</h2>
+      <p class="lede reveal" data-delay="120">The screen is whole now — no more holes. But why stop at cameras? Manohar&rsquo;s next idea is <strong>software-defined sensing</strong>: gadgets whose superpowers come from software, not just hardware. Eye-tracking with <em>no camera at all</em>. Screens that can see. If a camera can learn to hide, what else can disappear?</p>
+    </div>
+  </section>
+
+  <section class="inv-sec" aria-labelledby="k6">
+    <div class="sec-head">
+      <p class="kicker reveal">The inventor</p>
+      <h2 id="k6" class="reveal" data-delay="60">Meet Manohar</h2>
+      <p class="lede reveal" data-delay="120">Manohar Srikanth has a PhD from MIT — that&rsquo;s a super-advanced degree for inventors and scientists. He works at Apple, building things that don&rsquo;t exist yet. He&rsquo;s also an artist and a photography teacher. His recipe: <strong>curiosity plus math</strong>. He believes the best technology feels like magic — but it&rsquo;s really just someone refusing to accept &ldquo;impossible.&rdquo;</p>
+      <p class="lede reveal" data-delay="180"><a href="inventions.html" style="color:var(--link);font-weight:600">See all 14 of his inventions &rarr;</a><br><a href="../index.html" style="color:var(--link);font-weight:600">Read the grown-up version &rarr;</a></p>
+    </div>
+  </section>
+</main>
+
+    <footer class="foot">
+      <div class="foot-in">
+        <p>Manohar Srikanth</p>
+        <nav class="foot-nav" aria-label="Site">
+          <a href="index.html">Kids Home</a>
+          <a href="inventions.html">Inventions</a>
+          <a href="../index.html">Grown-up site &rarr;</a>
+          <a href="https://www.linkedin.com/in/srimano" target="_blank" rel="noopener">LinkedIn →</a>
+        </nav>
+      </div>
+    </footer>
+
+  <script>
+  (function(){
+    document.documentElement.classList.add('js');
+    var items = document.querySelectorAll('.reveal');
+    items.forEach(function(el){
+      var d = el.getAttribute('data-delay');
+      if(d){ el.style.transitionDelay = d + 'ms'; }
+    });
+    if(!('IntersectionObserver' in window)){
+      items.forEach(function(el){ el.classList.add('visible'); });
+    } else {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.1, rootMargin:'0px 0px -6% 0px'});
+      items.forEach(function(el){ io.observe(el); });
+    }
+  })();
+  </script>
+</body>
+</html>
