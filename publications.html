@@ -160,7 +160,8 @@
       .inv-hero{padding:64px 20px 52px}
       .inv-sec{padding:56px 20px}
       .pat-card.featured{grid-template-columns:1fr}
-      .paper-row{gap:14px;padding:16px}
+      .paper-row{gap:14px;padding:16px;flex-direction:column}
+      .paper-fig{flex:0 0 auto;width:100%;max-width:360px}
       .paper-icon{flex-basis:52px;width:52px;height:52px}
       .paper-icon svg{width:36px;height:36px}
       .topbar{padding:12px 16px 0}
@@ -177,6 +178,16 @@
     @media(prefers-color-scheme:dark){
       .topic-index a{background:var(--card-bg)}
     }
+
+    /* ---------- Paper figures ---------- */
+    .paper-fig{flex:0 0 250px;width:250px;margin:0}
+    .paper-fig img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line)}
+    .paper-fig svg{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line);background:var(--card-bg)}
+    .paper-fig figcaption{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+    .paper-plain{font-size:14.5px;color:var(--ink);line-height:1.65;margin:10px 0 0}
+    .paper-plain strong{font-weight:650}
+    .paper-body h3 a{border-bottom:1px dotted var(--teal)}
+    .paper-body h3 a:hover{color:var(--teal);border-bottom-color:var(--teal)}
   </style>
 </head>
 <body>
@@ -427,18 +438,17 @@
     <div class="paper-list">
 
       <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                  <circle cx="17" cy="19" r="7"/><circle cx="31" cy="19" r="7"/>
-                  <path d="M8 36h9M21 36h6M31 36h9" stroke="var(--teal)"/>
-                </svg>
-              </div>
-              <div class="paper-body">
-                <h3>Depth from semi-calibrated stereo and defocus</h3>
-                <p class="paper-meta">2016 · CVPR<span class="cite-pill">25 citations</span></p>
-                <p class="paper-why"><strong>Two depth cues are better than one.</strong> Fuses stereo disparity with defocus blur — depth that holds up exactly where each cue alone fails.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <img src="assets/pubfig/fig-stereo.jpg" alt="Teaser: camera rig, inputs and full-resolution depth output" loading="lazy">
+          <figcaption>Teaser figure · Wang, Srikanth &amp; Ramamoorthi, CVPR 2016</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://doi.org/10.1109/CVPR.2016.403" target="_blank" rel="noopener">Depth from semi-calibrated stereo and defocus</a></h3>
+          <p class="paper-meta">2016 · CVPR<span class="cite-pill">25 citations</span></p>
+          <p class="paper-plain"><strong>In plain English.</strong> One great camera takes the photo; two cheap helper cameras figure out the depth. The helpers are precisely calibrated and produce rough depth maps, while the main camera — whose lens can be swapped — shoots beautiful high-resolution photos. The trick is transferring the helpers’ depth into the main camera’s viewpoint, using the main camera’s own focus blur as an extra depth cue: a full-resolution photo plus a complete depth map, with no bulky depth hardware.</p>
+          <p class="paper-why"><strong>Two depth cues are better than one.</strong> Fuses stereo disparity with defocus blur — depth that holds up exactly where each cue alone fails.</p>
+        </div>
+      </article>
 
 
     </div>
@@ -471,65 +481,59 @@
     <div class="paper-list">
 
               <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M24 12c-4-3-9-4-14-4v28c5 0 10 1 14 4 4-3 9-4 14-4V8c-5 0-10 1-14 4z"/>
-                  <path d="M24 12v28"/>
-                  <path d="M13 17c2.5 0 4.5.6 6 1.6M13 23c2.5 0 4.5.6 6 1.6" stroke="var(--teal)"/>          </svg>
-              </div>        <div class="paper-body">
-                <h3>Controlled manipulation using autonomous aerial systems</h3>
-                <p class="paper-meta">2012 · MIT PhD thesis</p>
-                <p class="paper-why"><strong>The doctoral foundation.</strong> His MIT PhD thesis on autonomous aerial manipulation — the control theory everything else stands on.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <img src="assets/pubfig/fig-thesis.jpg" alt="A quadrotor scribing on a board, simulation above and real experiment below" loading="lazy">
+          <figcaption>A quadrotor scribing on a board (Fig. 7.1) · MIT PhD thesis, 2012</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://dspace.mit.edu/handle/1721.1/79286" target="_blank" rel="noopener">Controlled manipulation using autonomous aerial systems</a></h3>
+          <p class="paper-meta">2012 · MIT PhD thesis</p>
+          <p class="paper-plain"><strong>In plain English.</strong> The doctoral thesis behind the drone papers: drones should graduate from “fly and sense” to jobs involving touch. It develops the full stack — how a quadrotor behaves the instant it touches something, a lightweight docking interface, controllers that switch from flying to pushing on contact, high-speed docking, teams of drones cooperating, a drone opening a door without knowing where the hinge is, and the bendable ParaFlex airframe — all validated in the STEVE simulator.</p>
+          <p class="paper-why"><strong>The doctoral foundation.</strong> His MIT PhD thesis on autonomous aerial manipulation — the control theory everything else stands on.</p>
+        </div>
+      </article>
 
 
       <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                  <path d="M8 10l10 10M18 10L8 20M30 10l10 10M40 10l-10 10"/>
-                  <path d="M13 28v5M35 28v5M7 38h34" stroke="var(--teal)"/>
-                </svg>
-              </div>
-              <div class="paper-body">
-                <h3>Controlled manipulation with multiple quadrotors</h3>
-                <p class="paper-meta">2011 · AIAA Guidance, Navigation &amp; Control<span class="cite-pill">25 citations</span></p>
-                <p class="paper-why"><strong>Aerial robotics as a crew, not a solo act.</strong> Teams of quadrotors cooperating to carry and manipulate objects — coordination as a control problem.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <img src="assets/pubfig/fig-quadteam.jpg" alt="Two quadrotors docked to a foam-core panel in the lab" loading="lazy">
+          <figcaption>Two-quadrotor manipulation setup · from the MIT PhD thesis (2012)</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://doi.org/10.2514/6.2011-6547" target="_blank" rel="noopener">Controlled manipulation with multiple quadrotors</a></h3>
+          <p class="paper-meta">2011 · AIAA Guidance, Navigation &amp; Control<span class="cite-pill">25 citations</span></p>
+          <p class="paper-plain"><strong>In plain English.</strong> Instead of using drones just to fly around and observe, this work puts them to physical work: fly to an object, dock onto it, and push it. The hard part is the moment of contact, so each drone’s flight controller hands off to a separate pushing controller the instant docking is detected. The paper shows teams cooperating — two drones docked to a 4 kg panel, pushing it along a commanded path — proven in simulation and lab experiments.</p>
+          <p class="paper-why"><strong>Aerial robotics as a crew, not a solo act.</strong> Teams of quadrotors cooperating to carry and manipulate objects — coordination as a control problem.</p>
+        </div>
+      </article>
 
 
       <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                  <rect x="8" y="7" width="32" height="22" rx="2"/>
-                  <path d="M18 38h12M24 29v9"/>
-                  <path d="M17 14l14 8M31 14l-14 8" stroke="var(--teal)"/>
-                </svg>
-              </div>
-              <div class="paper-body">
-                <h3>A robust environment for simulation and testing of adaptive control for mini-UAVs</h3>
-                <p class="paper-meta">2009 · American Control Conference<span class="cite-pill">25 citations</span></p>
-                <p class="paper-why"><strong>The flight simulator the lab trusted.</strong> A testbed for proving adaptive controllers in simulation before risking real hardware — infrastructure as research.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <img src="assets/pubfig/fig-uavsim.jpg" alt="Block diagram of the STEVE simulation architecture" loading="lazy">
+          <figcaption>The STEVE architecture (Fig. 3) · Srikanth et al., ACC 2009</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://doi.org/10.1109/ACC.2009.5160468" target="_blank" rel="noopener">A robust environment for simulation and testing of adaptive control for mini-UAVs</a></h3>
+          <p class="paper-meta">2009 · American Control Conference<span class="cite-pill">25 citations</span></p>
+          <p class="paper-plain"><strong>In plain English.</strong> Before trusting a self-adjusting flight controller on a real drone, you test it somewhere safe. The authors built STEVE, a modular simulation testbed for a four-rotor mini-helicopter in which software pieces can be swapped one by one for real hardware — gliding from pure simulation to real flight without rewriting everything. They prove it by flying a simulated quadrotor whose adaptive controller keeps working even as motors degrade or fail.</p>
+          <p class="paper-why"><strong>The flight simulator the lab trusted.</strong> A testbed for proving adaptive controllers in simulation before risking real hardware — infrastructure as research.</p>
+        </div>
+      </article>
 
 
       <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                  <path d="M14 18l20 14M34 18L14 32"/>
-                  <circle cx="14" cy="18" r="3"/><circle cx="34" cy="18" r="3"/>
-                  <circle cx="14" cy="32" r="3"/><circle cx="34" cy="32" r="3"/>
-                  <path d="M24 8q7 5 0 10" stroke="var(--teal)"/>
-                </svg>
-              </div>
-              <div class="paper-body">
-                <h3>Dynamic modeling and control of a flexible four-rotor UAV</h3>
-                <p class="paper-meta">2010 · AIAA Guidance, Navigation &amp; Control<span class="cite-pill">7 citations</span></p>
-                <p class="paper-why"><strong>A bending drone doesn&rsquo;t fly like a rigid one.</strong> Models flexibility in the airframe itself — control that accounts for the wobble instead of ignoring it.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <img src="assets/pubfig/fig-flexuav.jpg" alt="Design diagram of the ParaFlex flexible quadrotor" loading="lazy">
+          <figcaption>The ParaFlex flexible quadrotor · from the MIT PhD thesis (2012)</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://doi.org/10.2514/6.2010-8050" target="_blank" rel="noopener">Dynamic modeling and control of a flexible four-rotor UAV</a></h3>
+          <p class="paper-meta">2010 · AIAA Guidance, Navigation &amp; Control<span class="cite-pill">7 citations</span></p>
+          <p class="paper-plain"><strong>In plain English.</strong> Most drones are rigid — hit a wall and something breaks. This paper designs ParaFlex, a quadrotor whose arms join through spring-loaded joints, so the frame flexes on impact and springs back instead of shattering. It works out the math of how a bendy drone flies (the wobble changes the flight dynamics) and designs a controller that stays stable through collisions — experiments show far smaller impact forces than an equivalent rigid drone.</p>
+          <p class="paper-why"><strong>A bending drone doesn&rsquo;t fly like a rigid one.</strong> Models flexibility in the airframe itself — control that accounts for the wobble instead of ignoring it.</p>
+        </div>
+      </article>
 
 
     </div>
@@ -543,53 +547,45 @@
     <div class="paper-list">
 
       <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                  <path d="M14 12l20 20M34 12L14 32"/>
-                  <circle cx="14" cy="12" r="3"/><circle cx="34" cy="12" r="3"/>
-                  <circle cx="14" cy="32" r="3"/><circle cx="34" cy="32" r="3"/>
-                  <circle cx="24" cy="22" r="2.4" fill="currentColor" stroke="none"/>
-                  <path d="M18 38l6-9 6 9" stroke="var(--teal)"/>
-                </svg>
-              </div>
-              <div class="paper-body">
-                <h3>Computational rim illumination with aerial robots</h3>
-                <p class="paper-meta">2014 · Workshop on Computational Aesthetics<span class="cite-pill">24 citations</span></p>
-                <p class="paper-why"><strong>Drones as studio lights.</strong> Autonomous quadrotors that position themselves around a subject for perfect photographic rim lighting — robotics in service of the image.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <img src="assets/pubfig/drone-rim14.jpg" alt="The litrobot quadrotor carrying a flash and continuous light" loading="lazy">
+          <figcaption>The “litrobot” · Photo: MIT News</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://doi.org/10.1145/2630099.2630105" target="_blank" rel="noopener">Computational rim illumination with aerial robots</a></h3>
+          <p class="paper-meta">2014 · Workshop on Computational Aesthetics<span class="cite-pill">24 citations</span></p>
+          <p class="paper-plain"><strong>In plain English.</strong> Professional rim lighting — the glowing outline around a subject’s edge — is hard to get right because the light must sit in exactly the right spot. The authors mounted a flash and continuous light on a small quadrotor (nicknamed “litrobot”) that watches the photographer’s live camera feed, measures the rim width in the image twenty times a second, and flies itself to hold it steady. The photographer just dials in the rim width; the drone handles tracking the subject and staying out of frame.</p>
+          <p class="paper-why"><strong>Drones as studio lights.</strong> Autonomous quadrotors that position themselves around a subject for perfect photographic rim lighting — robotics in service of the image.</p>
+        </div>
+      </article>
 
 
               <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="24" cy="13" r="3"/>
-                  <path d="M24 16v3M19 11l-5-3M29 11l5-3M19 15l-5 3M29 15l5 3"/>
-                  <circle cx="13" cy="7" r="2.2"/><circle cx="35" cy="7" r="2.2"/>
-                  <circle cx="13" cy="19" r="2.2"/><circle cx="35" cy="19" r="2.2"/>
-                  <path d="M20 22l-5 13M28 22l5 13" stroke="var(--teal)" stroke-dasharray="3 3"/>
-                  <circle cx="24" cy="39" r="3" stroke="var(--teal)"/>          </svg>
-              </div>        <div class="paper-body">
-                <h3>Computational rim illumination of dynamic subjects using aerial robots</h3>
-                <p class="paper-meta">2015 · Computers &amp; Graphics 52</p>
-                <p class="paper-why"><strong>Light that chases the subject.</strong> Extends drone rim-lighting to moving subjects — the quadrotor re-plans in real time so the perfect highlight never slips.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <img src="assets/pubfig/drone-rim15.jpg" alt="The litrobot drone during a photo shoot" loading="lazy">
+          <figcaption>The “litrobot” in the field · Photo: MIT News</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://doi.org/10.1016/j.cag.2015.03.007" target="_blank" rel="noopener">Computational rim illumination of dynamic subjects using aerial robots</a></h3>
+          <p class="paper-meta">2015 · Computers &amp; Graphics 52</p>
+          <p class="paper-plain"><strong>In plain English.</strong> The journal extension of the drone-lighting work, with full indoor experiments proving the drone holds the desired rim width while subject and photographer move — plus outdoor photo-shoot trials studying the practical ergonomics of working with a flying light. The authors’ claim: the first demonstrated system for studio-quality lighting produced by an autonomous aerial robot.</p>
+          <p class="paper-why"><strong>Light that chases the subject.</strong> Extends drone rim-lighting to moving subjects — the quadrotor re-plans in real time so the perfect highlight never slips.</p>
+        </div>
+      </article>
 
 
               <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="8" y="10" width="32" height="28" rx="2"/>
-                  <path d="M8 17h32"/>
-                  <path d="M13 23h10M13 28h10M13 33h7"/>
-                  <rect x="28" y="23" width="7" height="10" stroke="var(--teal)"/>          </svg>
-              </div>        <div class="paper-body">
-                <h3>MIT Drone Lighting Project: autonomous vehicles could automatically assume the right positions for photographic lighting</h3>
-                <p class="paper-meta">2014 · MIT News</p>
-                <p class="paper-why"><strong>The work, in the wild.</strong> MIT News covered the drone-lighting project — the moment the lab&rsquo;s flying studio lights stepped into public view.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <img src="assets/pubfig/drone-news.jpg" alt="The drone-lighting quadrotor in flight" loading="lazy">
+          <figcaption>Photo: MIT News</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://news.mit.edu/2014/drone-lighting-0711" target="_blank" rel="noopener">MIT Drone Lighting Project: autonomous vehicles could automatically assume the right positions for photographic lighting</a></h3>
+          <p class="paper-meta">2014 · MIT News</p>
+          <p class="paper-plain"><strong>In plain English.</strong> MIT News covered the project: researchers at MIT and Cornell built a small autonomous helicopter that positions itself to create rim lighting — the tricky effect where only the subject’s edge is strongly lit. The photographer picks the light direction and rim width through a simple interface; the drone maintains it automatically, compensating as the subject turns or the photographer moves.</p>
+          <p class="paper-why"><strong>The work, in the wild.</strong> MIT News covered the drone-lighting project — the moment the lab&rsquo;s flying studio lights stepped into public view.</p>
+        </div>
+      </article>
 
 
     </div>
@@ -623,49 +619,108 @@
     <div class="paper-list">
 
       <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                  <circle cx="24" cy="19" r="9"/>
-                  <circle cx="24" cy="19" r="2.5" fill="currentColor" stroke="none"/>
-                  <path d="M9 40q4-7 8 0t8 0 8 0" stroke="var(--teal)"/>
-                </svg>
-              </div>
-              <div class="paper-body">
-                <h3>DC motor damping: a strategy to increase passive stiffness of haptic devices</h3>
-                <p class="paper-meta">2008 · EuroHaptics<span class="cite-pill">26 citations</span></p>
-                <p class="paper-why"><strong>Stiffer virtual walls, calmer motors.</strong> Damping the motor instead of fighting it — haptic devices that feel more solid with less energy.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <svg aria-hidden="false" viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="H-bridge circuit with motor terminals shorted for physical damping">
+  <rect x="35" y="18" width="105" height="100" rx="10" opacity="0.55"/>
+  <circle cx="55" cy="47" r="3" fill="var(--teal)" stroke="none"/><path d="M55 47 L77 47" stroke="var(--teal)" stroke-width="3"/><circle cx="77" cy="47" r="3" fill="var(--teal)" stroke="none"/>
+  <circle cx="105" cy="47" r="3" fill="currentColor" stroke="none"/><path d="M105 47 L127 29" stroke="currentColor"/><circle cx="127" cy="47" r="3" fill="currentColor" stroke="none"/>
+  <circle cx="55" cy="97" r="3" fill="currentColor" stroke="none"/><path d="M55 97 L77 79" stroke="currentColor"/><circle cx="77" cy="97" r="3" fill="currentColor" stroke="none"/>
+  <circle cx="105" cy="97" r="3" fill="var(--teal)" stroke="none"/><path d="M105 97 L127 97" stroke="var(--teal)" stroke-width="3"/><circle cx="127" cy="97" r="3" fill="var(--teal)" stroke="none"/>
+  <text x="87" y="140" text-anchor="middle" font-size="11" style="fill:var(--muted)" stroke="none">H-bridge</text>
+  <circle cx="225" cy="68" r="30"/>
+  <text x="225" y="77" text-anchor="middle" font-size="22" style="fill:var(--ink)" stroke="none">M</text>
+  <path d="M195 68 H172 M255 68 h22" />
+  <path d="M172 68 C172 128 277 128 277 68" stroke="var(--teal)" stroke-dasharray="6 5"/>
+  <path d="M270 74 l9 2 -6 7" stroke="var(--teal)"/>
+  <text x="225" y="112" text-anchor="middle" font-size="11" style="fill:var(--muted)" stroke="none">DC motor</text>
+  <text x="160" y="168" text-anchor="middle" font-size="12" style="fill:var(--teal)" stroke="none">terminals shorted → vibration soaked up as heat</text>
+  <text x="160" y="188" text-anchor="middle" font-size="11" style="fill:var(--muted)" stroke="none">physical damping, no extra hardware</text>
+</svg>
+
+          <figcaption>How it works · H-bridge damping schematic</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://doi.org/10.1007/978-3-540-69057-3" target="_blank" rel="noopener">DC motor damping: a strategy to increase passive stiffness of haptic devices</a></h3>
+          <p class="paper-meta">2008 · EuroHaptics<span class="cite-pill">26 citations</span></p>
+          <p class="paper-plain"><strong>In plain English.</strong> A force-feedback device can only push back so hard before it starts buzzing — that ceiling is its “passive stiffness.” This paper raises the ceiling with real, physical damping instead of simulated damping: short the DC motor’s terminals through clever H-bridge wiring and the motor itself soaks up the jitter without injecting noise into the control loop. On their test device the virtual wall felt about 33% stiffer — with no extra hardware.</p>
+          <p class="paper-why"><strong>Stiffer virtual walls, calmer motors.</strong> Damping the motor instead of fighting it — haptic devices that feel more solid with less energy.</p>
+        </div>
+      </article>
 
 
       <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                  <path d="M31 5v38"/>
-                  <path d="M31 24L15 30"/>
-                  <circle cx="31" cy="24" r="2.2" fill="var(--teal)" stroke="none"/>
-                </svg>
-              </div>
-              <div class="paper-body">
-                <h3>Rendering stiffer walls: a hybrid haptic system using continuous and discrete time feedback</h3>
-                <p class="paper-meta">2007 · Advanced Robotics<span class="cite-pill">11 citations</span></p>
-                <p class="paper-why"><strong>Touch you can believe.</strong> Hybrid continuous–discrete control that renders a virtual wall as genuinely solid — the haptics behind believable contact.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <svg aria-hidden="false" viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="Hybrid haptic control loop on an FPGA rendering a stiff virtual wall">
+  <rect x="22" y="62" width="82" height="66" rx="8"/>
+  <text x="63" y="92" text-anchor="middle" font-size="13" style="fill:var(--ink)" stroke="none">CPU</text>
+  <text x="63" y="110" text-anchor="middle" font-size="10" style="fill:var(--muted)" stroke="none">slow loop</text>
+  <rect x="216" y="62" width="82" height="66" rx="8" stroke="var(--teal)"/>
+  <text x="257" y="92" text-anchor="middle" font-size="13" style="fill:var(--teal)" stroke="none">FPGA</text>
+  <text x="257" y="110" text-anchor="middle" font-size="10" style="fill:var(--muted)" stroke="none">fast hybrid loop</text>
+  <path d="M104 95 H136" stroke-dasharray="5 4" opacity="0.6"/>
+  <path d="M216 88 H184" stroke="var(--teal)" stroke-width="2.5"/>
+  <path d="M216 102 H184" stroke="var(--teal)" stroke-width="2.5"/>
+  <path d="M190 82 l-8 6 8 6 M190 96 l-8 6 8 6" stroke="var(--teal)"/>
+  <rect x="138" y="86" width="22" height="26" rx="5"/>
+  <path d="M160 28 V172" stroke-width="5"/>
+  <path d="M160 30 h16" opacity="0.6"/>
+  <path d="M160 42 h16" opacity="0.6"/>
+  <path d="M160 54 h16" opacity="0.6"/>
+  <path d="M160 66 h16" opacity="0.6"/>
+  <path d="M160 78 h16" opacity="0.6"/>
+  <path d="M160 90 h16" opacity="0.6"/>
+  <path d="M160 102 h16" opacity="0.6"/>
+  <path d="M160 114 h16" opacity="0.6"/>
+  <path d="M160 126 h16" opacity="0.6"/>
+  <path d="M160 138 h16" opacity="0.6"/>
+  <path d="M160 150 h16" opacity="0.6"/>
+  <path d="M160 162 h16" opacity="0.6"/>
+  <text x="160" y="192" text-anchor="middle" font-size="12" style="fill:var(--teal)" stroke="none">wall feels solid — forces update on-chip</text>
+</svg>
+
+          <figcaption>How it works · hybrid-loop diagram</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://exaly.com/article/41360119" target="_blank" rel="noopener">Rendering stiffer walls: a hybrid haptic system using continuous and discrete time feedback</a></h3>
+          <p class="paper-meta">2007 · Advanced Robotics<span class="cite-pill">11 citations</span></p>
+          <p class="paper-plain"><strong>In plain English.</strong> Virtual walls feel mushy because the digital control loop can only update so fast before going unstable — capping how stiff a virtual surface can feel. The authors moved the haptic control loop off the CPU onto a dedicated chip (an FPGA) running hybrid continuous/discrete-time feedback, so forces update far faster. Tested head-to-head on the same device, the hybrid loop rendered much stiffer walls — and freed the main CPU for graphics and physics.</p>
+          <p class="paper-why"><strong>Touch you can believe.</strong> Hybrid continuous–discrete control that renders a virtual wall as genuinely solid — the haptics behind believable contact.</p>
+        </div>
+      </article>
 
 
               <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="19" y="19" width="10" height="10" rx="1"/>
-                  <path d="M24 24L6 36M24 24l18 12"/>
-                  <path d="M11 41a17 17 0 0 0 26 0" stroke="var(--teal)" stroke-dasharray="3 3"/>          </svg>
-              </div>        <div class="paper-body">
-                <h3>Sensing angular change through a small optical window</h3>
-                <p class="paper-meta">2006 · MIT Tech Report</p>
-                <p class="paper-why"><strong>Tiny window, precise angle.</strong> Sensing angular change through a small optical window — early work on compact optical sensing, with T.&nbsp;Poston.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <svg aria-hidden="false" viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="Mouse sensing twist through a tiny optical window">
+  <ellipse cx="105" cy="108" rx="58" ry="40"/>
+  <path d="M105 68 V108" opacity="0.5"/>
+  <circle cx="105" cy="108" r="4" fill="var(--teal)" stroke="none"/>
+  <path d="M168 108 a66 66 0 1 1 -14 -44" stroke="var(--teal)" stroke-width="2.5"/>
+  <path d="M148 58 l8 8 6 -10" stroke="var(--teal)" stroke-width="2.5"/>
+  <rect x="228" y="58" width="66" height="66"/>
+  <path d="M228 58 V124 M228 58 H294"/>
+  <path d="M239 58 V124 M228 69 H294"/>
+  <path d="M250 58 V124 M228 80 H294"/>
+  <path d="M261 58 V124 M228 91 H294"/>
+  <path d="M272 58 V124 M228 102 H294"/>
+  <path d="M283 58 V124 M228 113 H294"/>
+  <path d="M294 58 V124 M228 124 H294"/>
+  <rect x="228" y="58" width="11" height="11" fill="var(--teal)" opacity="0.35" stroke="var(--teal)"/>
+  <path d="M196 120 C210 118 220 112 228 100" stroke-dasharray="4 3" opacity="0.6"/>
+  <text x="105" y="172" text-anchor="middle" font-size="11" style="fill:var(--teal)" stroke="none">twist detected</text>
+  <text x="261" y="142" text-anchor="middle" font-size="11" style="fill:var(--muted)" stroke="none">18×18 px sensor</text>
+  <text x="160" y="30" text-anchor="middle" font-size="11" style="fill:var(--muted)" stroke="none">rotation from a 1 mm optical window</text>
+</svg>
+
+          <figcaption>How it works · rotation-sensing diagram</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://www.academia.edu/601874/Sensing_angular_change_through_a_small_optical_window" target="_blank" rel="noopener">Sensing angular change through a small optical window</a></h3>
+          <p class="paper-meta">2006 · MIT Tech Report</p>
+          <p class="paper-plain"><strong>In plain English.</strong> A regular mouse tracks side-to-side movement but is blind to rotation — twist it and the cursor never knows. The authors’ “mushaca” (Sanskrit for “mouse”) adds that missing degree of freedom using the same tiny 1 mm optical window and cheap camera chip already in every mouse. The trick is mathematical, not hardware: fit the whole 18×18-pixel image sequence with a least-squares method across frames, squeezing out rotation estimates a hundred times finer than a pixel — twist-sensing with no new molds, lenses, or cost.</p>
+          <p class="paper-why"><strong>Tiny window, precise angle.</strong> Sensing angular change through a small optical window — early work on compact optical sensing, with T.&nbsp;Poston.</p>
+        </div>
+      </article>
 
 
     </div>
@@ -679,51 +734,83 @@
     <div class="paper-list">
 
       <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round">
-                  <path d="M14 30V14l10-5 10 5v16l-10 5z"/>
-                  <path d="M14 14l10 5 10-5M24 19v16"/>
-                  <path d="M8 42c6-1 8-6 14-6" stroke="var(--teal)" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="paper-body">
-                <h3>Visibility volumes for interactive path optimization</h3>
-                <p class="paper-meta">2008 · The Visual Computer<span class="cite-pill">11 citations</span></p>
-                <p class="paper-why"><strong>Planning through what can be seen.</strong> Treats visibility as a first-class citizen in motion planning — paths optimized inside the volume of the observable.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <svg aria-hidden="false" viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="Visibility volume above a terrain target">
+  <polygon points="170,105 70,25 300,25" fill="var(--teal)" opacity="0.13" stroke="var(--teal)" stroke-dasharray="6 5"/>
+  <path d="M5 175 L60 130 L110 150 L170 105 L230 145 L280 120 L315 150 L315 200 L5 200 Z" style="fill:var(--soft)" stroke="none"/>
+  <path d="M5 175 L60 130 L110 150 L170 105 L230 145 L280 120 L315 150"/>
+  <circle cx="170" cy="105" r="6" fill="var(--burgundy)" stroke="none"/>
+  <circle cx="170" cy="105" r="11" stroke="var(--burgundy)" opacity="0.5"/>
+  <circle cx="245" cy="58" r="4"/>
+  <path d="M245 54 L233 46 M245 54 L257 46 M245 62 L233 70 M245 62 L257 70"/>
+  <circle cx="233" cy="44" r="2.5"/><circle cx="257" cy="44" r="2.5"/><circle cx="233" cy="72" r="2.5"/><circle cx="257" cy="72" r="2.5"/>
+  <text x="185" y="42" font-size="11" style="fill:var(--teal)" stroke="none">visibility volume</text>
+  <text x="170" y="192" text-anchor="middle" font-size="11" style="fill:var(--muted)" stroke="none">every point in the volume can see the target</text>
+</svg>
+
+          <figcaption>How it works · visibility-volume diagram</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://doi.org/10.1007/s00371-008-0244-x" target="_blank" rel="noopener">Visibility volumes for interactive path optimization</a></h3>
+          <p class="paper-meta">2008 · The Visual Computer<span class="cite-pill">11 citations</span></p>
+          <p class="paper-plain"><strong>In plain English.</strong> Given a 3D terrain, a “visibility volume” is the region of space from which a chosen target can be seen — the flip side of the familiar viewshed idea. The paper shows how to compute these volumes and use them to optimize paths against visibility criteria: routes that keep watch over an area, or stay out of sight.</p>
+          <p class="paper-why"><strong>Planning through what can be seen.</strong> Treats visibility as a first-class citizen in motion planning — paths optimized inside the volume of the observable.</p>
+        </div>
+      </article>
 
 
               <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M6 34l10-14 7 9 6-7 13 12"/>
-                  <path d="M8 41h32" stroke="var(--teal)"/>
-                  <path d="M15 22a9 9 0 0 1 18 0" stroke-dasharray="3 3"/>
-                  <circle cx="15" cy="22" r="2" fill="currentColor" stroke="none"/>
-                  <circle cx="33" cy="22" r="2" fill="currentColor" stroke="none"/>          </svg>
-              </div>        <div class="paper-body">
-                <h3>Covering hostile terrains with partial and complete visibilities: on minimum distance paths</h3>
-                <p class="paper-meta">2008 · IEEE/RSJ IROS</p>
-                <p class="paper-why"><strong>Shortest safe paths.</strong> Minimum-distance routes through hostile terrain under partial and complete visibility — planning where being seen is the cost.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <svg aria-hidden="false" viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="Drone path staying below the exposure ceiling over hostile terrain">
+  <path d="M5 170 L80 120 L150 155 L220 110 L315 160 L315 200 L5 200 Z" style="fill:var(--soft)" stroke="none"/>
+  <path d="M5 170 L80 120 L150 155 L220 110 L315 160"/>
+  <path d="M5 92 Q80 58 150 84 T315 76" stroke="var(--burgundy)" stroke-dasharray="7 5"/>
+  <ellipse cx="80" cy="112" rx="10" ry="6" stroke="var(--burgundy)"/><circle cx="80" cy="112" r="2.5" fill="var(--burgundy)" stroke="none"/>
+  <ellipse cx="220" cy="102" rx="10" ry="6" stroke="var(--burgundy)"/><circle cx="220" cy="102" r="2.5" fill="var(--burgundy)" stroke="none"/>
+  <path d="M18 152 Q90 132 150 146 T292 128" stroke="var(--teal)" stroke-width="2.5"/>
+  <circle cx="292" cy="128" r="4"/>
+  <path d="M292 124 L282 118 M292 124 L302 118 M292 132 L282 138 M292 132 L302 138"/>
+  <text x="252" y="62" font-size="11" style="fill:var(--burgundy)" stroke="none">exposure ceiling</text>
+  <text x="120" y="192" font-size="11" style="fill:var(--teal)" stroke="none">shortest path that stays unseen</text>
+</svg>
+
+          <figcaption>How it works · exposure-ceiling diagram</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://doi.org/10.1109/iros.2008.4651077" target="_blank" rel="noopener">Covering hostile terrains with partial and complete visibilities: on minimum distance paths</a></h3>
+          <p class="paper-meta">2008 · IEEE/RSJ IROS</p>
+          <p class="paper-plain"><strong>In plain English.</strong> How do you send drones to observe every inch of hostile terrain while staying hidden from outposts — and flying the shortest total distance? The authors compute an “exposure surface” (a ceiling the drones must stay beneath to remain unseen), then group terrain points so each drone’s cluster yields the most coverage per mile flown. Key finding: grouping by visibility first and distance second beats the reverse — cutting total path length by over 25%.</p>
+          <p class="paper-why"><strong>Shortest safe paths.</strong> Minimum-distance routes through hostile terrain under partial and complete visibility — planning where being seen is the cost.</p>
+        </div>
+      </article>
 
 
               <article class="paper-row reveal">
-              <div class="paper-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M6 38h36"/>
-                  <path d="M10 38l6-9 5 5 6-7 9 11"/>
-                  <path d="M15 15s5-3.5 9-3.5S33 15 33 15s-5 3.5-9 3.5S15 15 15 15z"/>
-                  <circle cx="24" cy="15" r="2.2"/>
-                  <path d="M15 22l18-14" stroke="var(--teal)"/>          </svg>
-              </div>        <div class="paper-body">
-                <h3>Increasing coverage and preserving covertness for UAV moving in undulated terrains</h3>
-                <p class="paper-meta">2007 · IICAI</p>
-                <p class="paper-why"><strong>Seen, but not seen.</strong> UAV coverage planning that maximizes area covered while preserving covertness over undulating terrain.</p>
-              </div>
-            </article>
+        <figure class="paper-fig">
+          <svg aria-hidden="false" viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="Drone covering terrain while staying hidden behind a ridge">
+  <path d="M5 175 L70 140 L120 160 L180 118 L240 155 L315 135 L315 200 L5 200 Z" style="fill:var(--soft)" stroke="none"/>
+  <path d="M5 175 L70 140 L120 160 L180 118 L240 155 L315 135"/>
+  <polygon points="100,82 58,162 142,162" fill="var(--teal)" opacity="0.12"/>
+  <path d="M58 162 H142" stroke="var(--teal)" stroke-width="5" opacity="0.55"/>
+  <circle cx="100" cy="82" r="4"/>
+  <path d="M100 78 L90 72 M100 78 L110 72 M100 86 L90 92 M100 86 L110 92"/>
+  <path d="M100 82 C130 88 155 95 178 108" stroke-dasharray="5 4" opacity="0.55"/>
+  <path d="M178 108 C200 118 220 128 244 138" stroke-dasharray="5 4" stroke="var(--teal)"/>
+  <ellipse cx="262" cy="128" rx="10" ry="6"/><circle cx="262" cy="128" r="2.5" fill="currentColor" stroke="none"/>
+  <text x="100" y="188" text-anchor="middle" font-size="11" style="fill:var(--teal)" stroke="none">ground covered</text>
+  <text x="245" y="112" text-anchor="middle" font-size="11" style="fill:var(--muted)" stroke="none">observer</text>
+  <text x="160" y="30" text-anchor="middle" font-size="11" style="fill:var(--muted)" stroke="none">maximum coverage, minimum exposure</text>
+</svg>
+
+          <figcaption>How it works · covert-coverage diagram</figcaption>
+        </figure>
+        <div class="paper-body">
+          <h3><a href="https://www.bibsonomy.org/person/17e7a2a796b67a1a35d20972236690451/author/3" target="_blank" rel="noopener">Increasing coverage and preserving covertness for UAV moving in undulated terrains</a></h3>
+          <p class="paper-meta">2007 · IICAI</p>
+          <p class="paper-plain"><strong>In plain English.</strong> Picture a surveillance drone that must photograph every hill and valley of rugged terrain while staying hidden from eyes below. This paper takes on that trade-off directly: planning flight paths that maximize the ground the camera actually sees while minimizing exposure to hostile observers — coverage planning with stealth as a first-class constraint, in the team’s early line of work on UAVs over hostile 3D terrain.</p>
+          <p class="paper-why"><strong>Seen, but not seen.</strong> UAV coverage planning that maximizes area covered while preserving covertness over undulating terrain.</p>
+        </div>
+      </article>
 
 
     </div>

@@ -1,0 +1,12 @@
+<svg viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="Drone path staying below the exposure ceiling over hostile terrain">
+  <path d="M5 170 L80 120 L150 155 L220 110 L315 160 L315 200 L5 200 Z" style="fill:var(--soft)" stroke="none"/>
+  <path d="M5 170 L80 120 L150 155 L220 110 L315 160"/>
+  <path d="M5 92 Q80 58 150 84 T315 76" stroke="var(--burgundy)" stroke-dasharray="7 5"/>
+  <ellipse cx="80" cy="112" rx="10" ry="6" stroke="var(--burgundy)"/><circle cx="80" cy="112" r="2.5" fill="var(--burgundy)" stroke="none"/>
+  <ellipse cx="220" cy="102" rx="10" ry="6" stroke="var(--burgundy)"/><circle cx="220" cy="102" r="2.5" fill="var(--burgundy)" stroke="none"/>
+  <path d="M18 152 Q90 132 150 146 T292 128" stroke="var(--teal)" stroke-width="2.5"/>
+  <circle cx="292" cy="128" r="4"/>
+  <path d="M292 124 L282 118 M292 124 L302 118 M292 132 L282 138 M292 132 L302 138"/>
+  <text x="252" y="62" font-size="11" style="fill:var(--burgundy)" stroke="none">exposure ceiling</text>
+  <text x="120" y="192" font-size="11" style="fill:var(--teal)" stroke="none">shortest path that stays unseen</text>
+</svg>

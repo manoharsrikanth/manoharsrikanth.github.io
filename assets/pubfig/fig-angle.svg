@@ -1,0 +1,20 @@
+<svg viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="Mouse sensing twist through a tiny optical window">
+  <ellipse cx="105" cy="108" rx="58" ry="40"/>
+  <path d="M105 68 V108" opacity="0.5"/>
+  <circle cx="105" cy="108" r="4" fill="var(--teal)" stroke="none"/>
+  <path d="M168 108 a66 66 0 1 1 -14 -44" stroke="var(--teal)" stroke-width="2.5"/>
+  <path d="M148 58 l8 8 6 -10" stroke="var(--teal)" stroke-width="2.5"/>
+  <rect x="228" y="58" width="66" height="66"/>
+  <path d="M228 58 V124 M228 58 H294"/>
+  <path d="M239 58 V124 M228 69 H294"/>
+  <path d="M250 58 V124 M228 80 H294"/>
+  <path d="M261 58 V124 M228 91 H294"/>
+  <path d="M272 58 V124 M228 102 H294"/>
+  <path d="M283 58 V124 M228 113 H294"/>
+  <path d="M294 58 V124 M228 124 H294"/>
+  <rect x="228" y="58" width="11" height="11" fill="var(--teal)" opacity="0.35" stroke="var(--teal)"/>
+  <path d="M196 120 C210 118 220 112 228 100" stroke-dasharray="4 3" opacity="0.6"/>
+  <text x="105" y="172" text-anchor="middle" font-size="11" style="fill:var(--teal)" stroke="none">twist detected</text>
+  <text x="261" y="142" text-anchor="middle" font-size="11" style="fill:var(--muted)" stroke="none">18×18 px sensor</text>
+  <text x="160" y="30" text-anchor="middle" font-size="11" style="fill:var(--muted)" stroke="none">rotation from a 1 mm optical window</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="Hybrid haptic control loop on an FPGA rendering a stiff virtual wall">
+  <rect x="22" y="62" width="82" height="66" rx="8"/>
+  <text x="63" y="92" text-anchor="middle" font-size="13" style="fill:var(--ink)" stroke="none">CPU</text>
+  <text x="63" y="110" text-anchor="middle" font-size="10" style="fill:var(--muted)" stroke="none">slow loop</text>
+  <rect x="216" y="62" width="82" height="66" rx="8" stroke="var(--teal)"/>
+  <text x="257" y="92" text-anchor="middle" font-size="13" style="fill:var(--teal)" stroke="none">FPGA</text>
+  <text x="257" y="110" text-anchor="middle" font-size="10" style="fill:var(--muted)" stroke="none">fast hybrid loop</text>
+  <path d="M104 95 H136" stroke-dasharray="5 4" opacity="0.6"/>
+  <path d="M216 88 H184" stroke="var(--teal)" stroke-width="2.5"/>
+  <path d="M216 102 H184" stroke="var(--teal)" stroke-width="2.5"/>
+  <path d="M190 82 l-8 6 8 6 M190 96 l-8 6 8 6" stroke="var(--teal)"/>
+  <rect x="138" y="86" width="22" height="26" rx="5"/>
+  <path d="M160 28 V172" stroke-width="5"/>
+  <path d="M160 30 h16" opacity="0.6"/>
+  <path d="M160 42 h16" opacity="0.6"/>
+  <path d="M160 54 h16" opacity="0.6"/>
+  <path d="M160 66 h16" opacity="0.6"/>
+  <path d="M160 78 h16" opacity="0.6"/>
+  <path d="M160 90 h16" opacity="0.6"/>
+  <path d="M160 102 h16" opacity="0.6"/>
+  <path d="M160 114 h16" opacity="0.6"/>
+  <path d="M160 126 h16" opacity="0.6"/>
+  <path d="M160 138 h16" opacity="0.6"/>
+  <path d="M160 150 h16" opacity="0.6"/>
+  <path d="M160 162 h16" opacity="0.6"/>
+  <text x="160" y="192" text-anchor="middle" font-size="12" style="fill:var(--teal)" stroke="none">wall feels solid — forces update on-chip</text>
+</svg>

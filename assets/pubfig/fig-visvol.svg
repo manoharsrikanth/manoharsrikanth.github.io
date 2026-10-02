@@ -1,0 +1,12 @@
+<svg viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="Visibility volume above a terrain target">
+  <polygon points="170,105 70,25 300,25" fill="var(--teal)" opacity="0.13" stroke="var(--teal)" stroke-dasharray="6 5"/>
+  <path d="M5 175 L60 130 L110 150 L170 105 L230 145 L280 120 L315 150 L315 200 L5 200 Z" style="fill:var(--soft)" stroke="none"/>
+  <path d="M5 175 L60 130 L110 150 L170 105 L230 145 L280 120 L315 150"/>
+  <circle cx="170" cy="105" r="6" fill="var(--burgundy)" stroke="none"/>
+  <circle cx="170" cy="105" r="11" stroke="var(--burgundy)" opacity="0.5"/>
+  <circle cx="245" cy="58" r="4"/>
+  <path d="M245 54 L233 46 M245 54 L257 46 M245 62 L233 70 M245 62 L257 70"/>
+  <circle cx="233" cy="44" r="2.5"/><circle cx="257" cy="44" r="2.5"/><circle cx="233" cy="72" r="2.5"/><circle cx="257" cy="72" r="2.5"/>
+  <text x="185" y="42" font-size="11" style="fill:var(--teal)" stroke="none">visibility volume</text>
+  <text x="170" y="192" text-anchor="middle" font-size="11" style="fill:var(--muted)" stroke="none">every point in the volume can see the target</text>
+</svg>
