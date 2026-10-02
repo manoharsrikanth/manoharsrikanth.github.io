@@ -9,6 +9,8 @@
   <title>Publications &amp; Patents · Manohar Srikanth</title>
   <style>
     :root{
+      --glass-bar:rgba(247,242,233,.84);--nav-dim:rgba(122,106,90,.7);
+      --card-bg:#FBF8F3;
       color-scheme:light dark;
       --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
       --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
@@ -20,6 +22,8 @@
     }
     @media(prefers-color-scheme:dark){
       :root{
+      --glass-bar:rgba(25,16,9,.84);--nav-dim:rgba(171,152,127,.7);
+      --card-bg:rgba(37,26,18,.55);
         --bg:#191009; --soft:#251A12; --ink:#F2E9D8; --muted:#AB987F; --line:#3A2B20;
         --burgundy:#C96474; --deepred:#D44A52; --sienna:#C98A5E; --teal:#5BB8B0;
         --ink-dark:#F2E9D8; --muted-dark:#AB987F;
@@ -42,13 +46,13 @@
 
     /* ---------- Sticky top bar: centered brand masthead (shared with landing) ---------- */
     .topbar{position:sticky;top:0;z-index:50;text-align:center;padding:14px 24px 0;
-      background:color-mix(in srgb, var(--bg) 84%, transparent);
+      background:var(--glass-bar);
       -webkit-backdrop-filter:saturate(180%) blur(20px);
       backdrop-filter:saturate(180%) blur(20px)}
     .topnav{display:flex;gap:24px;justify-content:center;overflow-x:auto;scrollbar-width:none}
     .topnav::-webkit-scrollbar{display:none}
     .topnav a{font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
-      color:color-mix(in srgb, var(--muted) 70%, transparent);text-decoration:none;white-space:nowrap}
+      color:var(--nav-dim);text-decoration:none;white-space:nowrap}
     .topnav a:hover{color:var(--ink)}
     .topnav a[aria-current="page"]{color:var(--ink)}
     .topbar .brand{display:block;margin-top:10px;line-height:1.25;
@@ -85,12 +89,12 @@
     /* ---------- Patent cards ---------- */
     .pat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px;
       max-width:var(--wide);margin:48px auto 0}
-    .pat-card{background:color-mix(in srgb, var(--bg) 55%, #fff 45%);
+    .pat-card{background:var(--card-bg);
       border:1px solid var(--line);border-radius:16px;padding:26px 24px;
       display:flex;flex-direction:column;gap:10px;
       box-shadow:0 10px 30px -18px rgba(60,30,10,.25)}
     @media(prefers-color-scheme:dark){
-      .pat-card{background:color-mix(in srgb, var(--soft) 55%, transparent)}
+      .pat-card{background:var(--card-bg)}
     }
     .pat-icon{width:58px;height:58px;border-radius:15px;background:var(--soft);
       display:flex;align-items:center;justify-content:center;flex:0 0 auto}
@@ -116,10 +120,10 @@
     /* ---------- Paper rows ---------- */
     .paper-list{max-width:var(--col);margin:48px auto 0;display:flex;flex-direction:column;gap:14px}
     .paper-row{display:flex;gap:20px;align-items:flex-start;
-      background:color-mix(in srgb, var(--bg) 55%, #fff 45%);
+      background:var(--card-bg);
       border:1px solid var(--line);border-radius:16px;padding:20px 22px}
     @media(prefers-color-scheme:dark){
-      .paper-row{background:color-mix(in srgb, var(--soft) 55%, transparent)}
+      .paper-row{background:var(--card-bg)}
     }
     .paper-icon{flex:0 0 64px;width:64px;height:64px;border-radius:14px;background:var(--soft);
       display:flex;align-items:center;justify-content:center}
@@ -168,10 +172,10 @@
     .topic-index{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
       max-width:var(--wide);margin:40px auto 0;padding:0 24px}
     .topic-index a{padding:9px 18px;border:1px solid var(--line);border-radius:999px;
-      font-size:13px;font-weight:600;color:var(--muted);background:color-mix(in srgb, var(--bg) 55%, #fff 45%)}
+      font-size:13px;font-weight:600;color:var(--muted);background:var(--card-bg)}
     .topic-index a:hover{color:var(--ink);border-color:var(--burgundy)}
     @media(prefers-color-scheme:dark){
-      .topic-index a{background:color-mix(in srgb, var(--soft) 55%, transparent)}
+      .topic-index a{background:var(--card-bg)}
     }
   </style>
 </head>
