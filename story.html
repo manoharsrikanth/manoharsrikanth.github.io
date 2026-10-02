@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="light" />
   <meta name="description" content="The full story behind the disappearing camera — the iFixit teardown, the eleven-year invention arc, and Manohar Srikanth." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F7F2E9'/%3E%3Ccircle cx='32' cy='32' r='19' fill='%232B2118'/%3E%3C/svg%3E" />
   <title>The full story · Manohar Srikanth</title>
@@ -11,7 +11,7 @@
     :root{
       --glass-bar:rgba(247,242,233,.84);--nav-dim:rgba(122,106,90,.7);
       --panel-soft-bg:rgba(236,227,210,.78);
-      color-scheme:light dark;
+      color-scheme:light;
       --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
       --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
       --bg:#F7F2E9; --soft:#ECE3D2; --ink:#2B2118; --muted:#7A6A5A; --line:#D9CEB9;
@@ -20,17 +20,7 @@
       --link:#0E6B6B; --btn:#6E1423; --btn-hover:#A31621; --btn-text:#F7F2E9;
       --col:880px; --wide:1180px;
     }
-    @media(prefers-color-scheme:dark){
-      :root{
-      --glass-bar:rgba(25,16,9,.84);--nav-dim:rgba(171,152,127,.7);
-      --panel-soft-bg:rgba(37,26,18,.78);
-        --bg:#191009; --soft:#251A12; --ink:#F2E9D8; --muted:#AB987F; --line:#3A2B20;
-        --burgundy:#C96474; --deepred:#D44A52; --sienna:#C98A5E; --teal:#5BB8B0;
-        --ink-dark:#F2E9D8; --muted-dark:#AB987F;
-        --link:#5BB8B0; --btn:#93304A; --btn-hover:#A31621;
-      }
-      body{background:linear-gradient(180deg,#1E140C 0%,#181008 55%,#110B06 100%)}
-    }
+    
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;color:var(--ink);font-family:var(--font);
