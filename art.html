@@ -56,6 +56,19 @@
     .hero h1{font-size:clamp(40px,6vw,64px);color:var(--ink)}
     .lede{max-width:620px;margin:18px auto 0;font-size:18px;color:var(--muted)}
     .lede a{color:var(--link);font-weight:600;border-bottom:1px solid var(--link)}
+    .bio{max-width:var(--wide);margin:0 auto;padding:64px 24px 12px}
+    .bio-grid{display:grid;grid-template-columns:148px 1fr;gap:36px;align-items:start}
+    .bio-portrait{width:148px;height:148px;object-fit:cover;border-radius:50%;
+      border:2px solid rgba(217,164,65,.55);box-shadow:0 12px 40px -12px rgba(0,0,0,.8)}
+    .bio h1{font-size:clamp(34px,4.6vw,54px);color:var(--ink);margin:6px 0 16px}
+    .bio-text{max-width:720px;margin:0 0 14px;font-size:17.5px;color:#CFC6B4}
+    .bio-text strong{color:var(--ink);font-weight:600}
+    .bio-text em{color:var(--gold);font-style:normal}
+    .highlights{list-style:none;display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:20px 0 0}
+    .highlights li{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--gold);
+      border:1px solid #3a2f1e;padding:8px 14px;border-radius:999px;background:rgba(217,164,65,.07)}
+    .scroll-hint{margin:26px 0 0;font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;
+      text-transform:uppercase;color:var(--muted)}
     .spot{max-width:var(--wide);margin:40px auto 0;padding:0 24px}
     .spot-card{display:grid;grid-template-columns:1.2fr 1fr;border:1px solid var(--line);
       border-radius:24px;overflow:hidden;background:var(--card);
@@ -96,6 +109,9 @@
     .foot-nav a{color:var(--muted);font-weight:400}
     .foot-nav a:hover{color:var(--ink);text-decoration:underline}
     @media (max-width:760px){
+      .bio-grid{grid-template-columns:1fr;gap:22px}
+      .bio-portrait{width:112px;height:112px}
+      .bio{padding-top:48px}
       .spot-card{grid-template-columns:1fr}
       .spot-card img{min-height:240px}
       .spot-body{padding:28px 24px}
@@ -127,10 +143,24 @@
   <div class="ribbon" aria-hidden="true"></div>
 </nav>
 <main>
-  <header class="hero">
-    <p class="kicker">Art &amp; Photography</p>
-    <h1>Photography.</h1>
-    <p class="lede">A selection of the work &mdash; drone-lit portraits, monochrome studies, deserts, and travel, 2010&ndash;2016. Keep scrolling. The full archive lives on <a href="https://mit.smugmug.com/" target="_blank" rel="noopener">SmugMug</a>.</p>
+  <header class="bio">
+    <p class="kicker">The photographer</p>
+    <div class="bio-grid">
+      <img class="bio-portrait" src="assets/photography/manohar.jpg" alt="Manohar Srikanth holding a camera">
+      <div>
+        <h1>Manohar Srikanth</h1>
+        <p class="bio-text">Manohar Srikanth photographs at the intersection of <strong>art and engineering</strong>.</p>
+        <p class="bio-text">At MIT, his <em>drone-lighting research</em> &mdash; portraits lit by autonomous flying robots &mdash; was published, exhibited, and covered by the press. He shot for <strong>MIT magazines</strong> and <strong>MIT Technology Review</strong>, covered the <em>Dalai Lama&rsquo;s 2012 visit</em> to MIT, and taught photography at the Institute.</p>
+        <p class="bio-text">His <strong>portraits</strong>, desert and infrared <strong>landscapes</strong>, and high-speed experiments have been <strong>commissioned</strong> by magazines and outlets, hung in <strong>solo exhibitions</strong> including <em>Tales From India</em>, and sold as large prints.</p>
+        <ul class="highlights">
+          <li>Drone lighting &middot; published research</li>
+          <li>MIT Technology Review &middot; credited</li>
+          <li>Dalai Lama 2012 &middot; official coverage</li>
+          <li>Solo shows &middot; Tales From India</li>
+        </ul>
+        <p class="scroll-hint">Keep scrolling &mdash; the work unfolds below</p>
+      </div>
+    </div>
   </header>
 
   <section class="spot" aria-label="Featured">
