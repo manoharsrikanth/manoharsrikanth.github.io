@@ -465,10 +465,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> One great camera takes the photo; two cheap helper cameras figure out the depth. The helpers are precisely calibrated and produce rough depth maps, while the main camera — whose lens can be swapped — shoots beautiful high-resolution photos. The trick is transferring the helpers’ depth into the main camera’s viewpoint, using the main camera’s own focus blur as an extra depth cue: a full-resolution photo plus a complete depth map, with no bulky depth hardware.</p>
           <p class="paper-why"><strong>Two depth cues are better than one.</strong> Fuses stereo disparity with defocus blur — depth that holds up exactly where each cue alone fails.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://doi.org/10.1109/CVPR.2016.403" target="_blank" rel="noopener">Depth from semi-calibrated stereo and defocus</a></h3>
             <p class="paper-meta">2016 · CVPR<span class="cite-pill">25 citations</span></p>
-          </footer>
+          </div>
         </div>
       </article>
 
@@ -512,10 +512,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> The doctoral thesis behind the drone papers: drones should graduate from “fly and sense” to jobs involving touch. It develops the full stack — how a quadrotor behaves the instant it touches something, a lightweight docking interface, controllers that switch from flying to pushing on contact, high-speed docking, teams of drones cooperating, a drone opening a door without knowing where the hinge is, and the bendable ParaFlex airframe — all validated in the STEVE simulator.</p>
           <p class="paper-why"><strong>The doctoral foundation.</strong> His MIT PhD thesis on autonomous aerial manipulation — the control theory everything else stands on.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://dspace.mit.edu/handle/1721.1/79286" target="_blank" rel="noopener">Controlled manipulation using autonomous aerial systems</a></h3>
             <p class="paper-meta">2012 · MIT PhD thesis</p>
-          </footer>
+          </div>
         </div>
       </article>
 
@@ -530,10 +530,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> Instead of using drones just to fly around and observe, this work puts them to physical work: fly to an object, dock onto it, and push it. The hard part is the moment of contact, so each drone’s flight controller hands off to a separate pushing controller the instant docking is detected. The paper shows teams cooperating — two drones docked to a 4 kg panel, pushing it along a commanded path — proven in simulation and lab experiments.</p>
           <p class="paper-why"><strong>Aerial robotics as a crew, not a solo act.</strong> Teams of quadrotors cooperating to carry and manipulate objects — coordination as a control problem.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://doi.org/10.2514/6.2011-6547" target="_blank" rel="noopener">Controlled manipulation with multiple quadrotors</a></h3>
             <p class="paper-meta">2011 · AIAA Guidance, Navigation &amp; Control<span class="cite-pill">25 citations</span></p>
-          </footer>
+          </div>
         </div>
       </article>
 
@@ -548,10 +548,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> Before trusting a self-adjusting flight controller on a real drone, you test it somewhere safe. The authors built STEVE, a modular simulation testbed for a four-rotor mini-helicopter in which software pieces can be swapped one by one for real hardware — gliding from pure simulation to real flight without rewriting everything. They prove it by flying a simulated quadrotor whose adaptive controller keeps working even as motors degrade or fail.</p>
           <p class="paper-why"><strong>The flight simulator the lab trusted.</strong> A testbed for proving adaptive controllers in simulation before risking real hardware — infrastructure as research.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://doi.org/10.1109/ACC.2009.5160468" target="_blank" rel="noopener">A robust environment for simulation and testing of adaptive control for mini-UAVs</a></h3>
             <p class="paper-meta">2009 · American Control Conference<span class="cite-pill">25 citations</span></p>
-          </footer>
+          </div>
         </div>
       </article>
 
@@ -566,10 +566,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> Most drones are rigid — hit a wall and something breaks. This paper designs ParaFlex, a quadrotor whose arms join through spring-loaded joints, so the frame flexes on impact and springs back instead of shattering. It works out the math of how a bendy drone flies (the wobble changes the flight dynamics) and designs a controller that stays stable through collisions — experiments show far smaller impact forces than an equivalent rigid drone.</p>
           <p class="paper-why"><strong>A bending drone doesn&rsquo;t fly like a rigid one.</strong> Models flexibility in the airframe itself — control that accounts for the wobble instead of ignoring it.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://doi.org/10.2514/6.2010-8050" target="_blank" rel="noopener">Dynamic modeling and control of a flexible four-rotor UAV</a></h3>
             <p class="paper-meta">2010 · AIAA Guidance, Navigation &amp; Control<span class="cite-pill">7 citations</span></p>
-          </footer>
+          </div>
         </div>
       </article>
 
@@ -594,10 +594,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> Professional rim lighting — the glowing outline around a subject’s edge — is hard to get right because the light must sit in exactly the right spot. The authors mounted a flash and continuous light on a small quadrotor (nicknamed “litrobot”) that watches the photographer’s live camera feed, measures the rim width in the image twenty times a second, and flies itself to hold it steady. The photographer just dials in the rim width; the drone handles tracking the subject and staying out of frame.</p>
           <p class="paper-why"><strong>Drones as studio lights.</strong> Autonomous quadrotors that position themselves around a subject for perfect photographic rim lighting — robotics in service of the image.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://doi.org/10.1145/2630099.2630105" target="_blank" rel="noopener">Computational rim illumination with aerial robots</a></h3>
             <p class="paper-meta">2014 · Workshop on Computational Aesthetics<span class="cite-pill">24 citations</span></p>
-          </footer>
+          </div>
         </div>
       </article>
 
@@ -612,10 +612,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> The journal extension of the drone-lighting work, with full indoor experiments proving the drone holds the desired rim width while subject and photographer move — plus outdoor photo-shoot trials studying the practical ergonomics of working with a flying light. The authors’ claim: the first demonstrated system for studio-quality lighting produced by an autonomous aerial robot.</p>
           <p class="paper-why"><strong>Light that chases the subject.</strong> Extends drone rim-lighting to moving subjects — the quadrotor re-plans in real time so the perfect highlight never slips.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://doi.org/10.1016/j.cag.2015.03.007" target="_blank" rel="noopener">Computational rim illumination of dynamic subjects using aerial robots</a></h3>
             <p class="paper-meta">2015 · Computers &amp; Graphics 52</p>
-          </footer>
+          </div>
         </div>
       </article>
 
@@ -629,10 +629,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> MIT News covered the project: researchers at MIT and Cornell built a small autonomous helicopter that positions itself to create rim lighting — the tricky effect where only the subject’s edge is strongly lit. The photographer picks the light direction and rim width through a simple interface; the drone maintains it automatically, compensating as the subject turns or the photographer moves.</p>
           <p class="paper-why"><strong>The work, in the wild.</strong> MIT News covered the drone-lighting project — the moment the lab&rsquo;s flying studio lights stepped into public view.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://news.mit.edu/2014/drone-lighting-0711" target="_blank" rel="noopener">MIT Drone Lighting Project: autonomous vehicles could automatically assume the right positions for photographic lighting</a></h3>
             <p class="paper-meta">2014 · MIT News</p>
-          </footer>
+          </div>
         </div>
       </article>
 
@@ -693,10 +693,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> A force-feedback device can only push back so hard before it starts buzzing — that ceiling is its “passive stiffness.” This paper raises the ceiling with real, physical damping instead of simulated damping: short the DC motor’s terminals through clever H-bridge wiring and the motor itself soaks up the jitter without injecting noise into the control loop. On their test device the virtual wall felt about 33% stiffer — with no extra hardware.</p>
           <p class="paper-why"><strong>Stiffer virtual walls, calmer motors.</strong> Damping the motor instead of fighting it — haptic devices that feel more solid with less energy.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://doi.org/10.1007/978-3-540-69057-3" target="_blank" rel="noopener">DC motor damping: a strategy to increase passive stiffness of haptic devices</a></h3>
             <p class="paper-meta">2008 · EuroHaptics<span class="cite-pill">26 citations</span></p>
-          </footer>
+          </div>
         </div>
       </article>
 
@@ -738,10 +738,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> Virtual walls feel mushy because the digital control loop can only update so fast before going unstable — capping how stiff a virtual surface can feel. The authors moved the haptic control loop off the CPU onto a dedicated chip (an FPGA) running hybrid continuous/discrete-time feedback, so forces update far faster. Tested head-to-head on the same device, the hybrid loop rendered much stiffer walls — and freed the main CPU for graphics and physics.</p>
           <p class="paper-why"><strong>Touch you can believe.</strong> Hybrid continuous–discrete control that renders a virtual wall as genuinely solid — the haptics behind believable contact.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://exaly.com/article/41360119" target="_blank" rel="noopener">Rendering stiffer walls: a hybrid haptic system using continuous and discrete time feedback</a></h3>
             <p class="paper-meta">2007 · Advanced Robotics<span class="cite-pill">11 citations</span></p>
-          </footer>
+          </div>
         </div>
       </article>
 
@@ -776,10 +776,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> A regular mouse tracks side-to-side movement but is blind to rotation — twist it and the cursor never knows. The authors’ “mushaca” (Sanskrit for “mouse”) adds that missing degree of freedom using the same tiny 1 mm optical window and cheap camera chip already in every mouse. The trick is mathematical, not hardware: fit the whole 18×18-pixel image sequence with a least-squares method across frames, squeezing out rotation estimates a hundred times finer than a pixel — twist-sensing with no new molds, lenses, or cost.</p>
           <p class="paper-why"><strong>Tiny window, precise angle.</strong> Sensing angular change through a small optical window — early work on compact optical sensing, with T.&nbsp;Poston.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://www.academia.edu/601874/Sensing_angular_change_through_a_small_optical_window" target="_blank" rel="noopener">Sensing angular change through a small optical window</a></h3>
             <p class="paper-meta">2006 · MIT Tech Report</p>
-          </footer>
+          </div>
         </div>
       </article>
 
@@ -816,10 +816,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> Given a 3D terrain, a “visibility volume” is the region of space from which a chosen target can be seen — the flip side of the familiar viewshed idea. The paper shows how to compute these volumes and use them to optimize paths against visibility criteria: routes that keep watch over an area, or stay out of sight.</p>
           <p class="paper-why"><strong>Planning through what can be seen.</strong> Treats visibility as a first-class citizen in motion planning — paths optimized inside the volume of the observable.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://doi.org/10.1007/s00371-008-0244-x" target="_blank" rel="noopener">Visibility volumes for interactive path optimization</a></h3>
             <p class="paper-meta">2008 · The Visual Computer<span class="cite-pill">11 citations</span></p>
-          </footer>
+          </div>
         </div>
       </article>
 
@@ -846,10 +846,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> How do you send drones to observe every inch of hostile terrain while staying hidden from outposts — and flying the shortest total distance? The authors compute an “exposure surface” (a ceiling the drones must stay beneath to remain unseen), then group terrain points so each drone’s cluster yields the most coverage per mile flown. Key finding: grouping by visibility first and distance second beats the reverse — cutting total path length by over 25%.</p>
           <p class="paper-why"><strong>Shortest safe paths.</strong> Minimum-distance routes through hostile terrain under partial and complete visibility — planning where being seen is the cost.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://doi.org/10.1109/iros.2008.4651077" target="_blank" rel="noopener">Covering hostile terrains with partial and complete visibilities: on minimum distance paths</a></h3>
             <p class="paper-meta">2008 · IEEE/RSJ IROS</p>
-          </footer>
+          </div>
         </div>
       </article>
 
@@ -878,10 +878,10 @@
 
           <p class="paper-plain"><strong>In plain English.</strong> Picture a surveillance drone that must photograph every hill and valley of rugged terrain while staying hidden from eyes below. This paper takes on that trade-off directly: planning flight paths that maximize the ground the camera actually sees while minimizing exposure to hostile observers — coverage planning with stealth as a first-class constraint, in the team’s early line of work on UAVs over hostile 3D terrain.</p>
           <p class="paper-why"><strong>Seen, but not seen.</strong> UAV coverage planning that maximizes area covered while preserving covertness over undulating terrain.</p>
-          <footer class="paper-proof">
+          <div class="paper-proof">
             <h3><a href="https://www.bibsonomy.org/person/17e7a2a796b67a1a35d20972236690451/author/3" target="_blank" rel="noopener">Increasing coverage and preserving covertness for UAV moving in undulated terrains</a></h3>
             <p class="paper-meta">2007 · IICAI</p>
-          </footer>
+          </div>
         </div>
       </article>
 
