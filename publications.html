@@ -156,6 +156,14 @@
     .cite-pill{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;
       background:var(--soft);font-size:11.5px;font-weight:600;color:var(--muted);white-space:nowrap}
 
+    .talk-list{max-width:var(--col);margin:36px auto 0;display:flex;flex-direction:column;gap:12px}
+    .talk-row{display:flex;gap:18px;align-items:baseline;background:var(--card-bg);
+      border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+    .talk-year{font-family:var(--mono);font-weight:700;color:var(--burgundy);flex:0 0 48px}
+    .talk-what strong{display:block;font-size:15.5px;line-height:1.35}
+    .talk-where{font-size:13.5px;color:var(--muted)}
+    .talk-note{max-width:var(--col);margin:18px auto 0;font-size:13px;color:var(--muted);
+      font-style:italic;line-height:1.7}
     .scholar-note{max-width:var(--col);margin:56px auto 0;text-align:center;
       font-size:15px;color:var(--muted);line-height:1.7}
     .scholar-note a{color:var(--link);font-weight:600;border-bottom:1px dotted var(--link)}
@@ -889,6 +897,31 @@
 
     </div>
   </section>
+
+  <!-- ============ TALKS ============ -->
+  <section class="inv-sec" aria-labelledby="talks-title" style="padding-top:8px">
+    <div class="sec-head">
+      <p class="kicker reveal">Talks &amp; presentations</p>
+      <h2 id="talks-title" class="reveal" data-delay="60">From the podium.</h2>
+      <p class="lede reveal" data-delay="120">First-author presentations, confirmed — the award ceremony included.</p>
+    </div>
+    <div class="talk-list">
+      <div class="talk-row reveal">
+        <span class="talk-year">2014</span>
+        <div class="talk-what"><strong>Computational rim illumination with aerial robots</strong><span class="talk-where">Workshop on Computational Aesthetics, Vancouver — presented live; &#9733; Best Paper Award ceremony</span></div>
+      </div>
+      <div class="talk-row reveal">
+        <span class="talk-year">2011</span>
+        <div class="talk-what"><strong>Controlled manipulation with multiple quadrotors</strong><span class="talk-where">AIAA Guidance, Navigation &amp; Control, Portland</span></div>
+      </div>
+      <div class="talk-row reveal">
+        <span class="talk-year">2010</span>
+        <div class="talk-what"><strong>Dynamic modeling and control of a flexible four-rotor UAV</strong><span class="talk-where">AIAA Guidance, Navigation &amp; Control, Toronto</span></div>
+      </div>
+    </div>
+    <p class="talk-note reveal">Earlier first-author papers (SIGIR 2005, EuroHaptics 2008, ACC 2009) were likely presented by co-authors — not claimed here.</p>
+  </section>
+
   <p class="scholar-note reveal" style="max-width:var(--col);margin:0 auto;padding:0 24px 72px;text-align:center;font-size:15px;color:var(--muted);line-height:1.7">The full citation record — 1,100+ citations, h-index 16 — lives on the <a href="https://scholar.google.com/citations?user=doL8ArEAAAAJ" target="_blank" rel="noopener" style="color:var(--link);font-weight:600">Google Scholar profile</a>. This page is the curated record, grouped by topic; the old Scholar mirror has been retired.</p>
 </main>
 
