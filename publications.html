@@ -73,7 +73,7 @@
 
     /* ---------- Page hero ---------- */
     .inv-hero{padding:88px 24px 72px;text-align:center}
-    .inv-hero h1{font-size:clamp(42px,7vw,72px)}
+    .inv-hero h1{font-size:clamp(44px,7vw,76px)}
     .inv-hero .lede{margin:22px auto 0;max-width:640px;font-size:clamp(16.5px,2vw,20px);
       color:var(--muted);line-height:1.65}
 
@@ -81,7 +81,7 @@
     .inv-sec{padding:72px 24px;scroll-margin-top:150px}
     .inv-sec + .inv-sec{border-top:1px solid var(--line)}
     .sec-head{max-width:var(--col);margin:0 auto;text-align:center}
-    .sec-head h2{font-size:clamp(32px,5vw,52px);margin-bottom:16px}
+    .sec-head h2{font-size:clamp(32px,5vw,54px);margin-bottom:16px}
     .sec-head .lede{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:660px;
       margin:0 auto;line-height:1.65}
 
@@ -214,6 +214,12 @@
     .paper-plain strong{font-weight:650}
     .paper-body h3 a{border-bottom:1px dotted var(--teal)}
     .paper-body h3 a:hover{color:var(--teal);border-bottom-color:var(--teal)}
+  
+    /* ---------- Polish pass Oct 2026: mobile nav wraps instead of clipping ---------- */
+    @media(max-width:640px){
+      .topnav{flex-wrap:wrap;overflow-x:visible;row-gap:10px;column-gap:20px;justify-content:center}
+      .topnav a{font-size:12px;letter-spacing:.12em}
+    }
   </style>
 </head>
 <body>
@@ -222,8 +228,8 @@
     <a href="story.html">Story</a>
     <a href="inventions.html">Inventions</a>
     <a href="art.html">Art</a>
-    <a href="projects.html">Projects</a>
-    <a href="publications.html" aria-current="page">Publications</a>
+          <a href="projects.html">Projects</a>
+          <a href="publications.html" aria-current="page">Publications</a>
     <a href="resume.html">Resume</a>
     <a href="kids/index.html">Kids Version</a>
   </div>
@@ -466,7 +472,7 @@
 
       <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
-          <img src="assets/pubfig/fig-stereo.jpg" alt="Teaser: camera rig, inputs and full-resolution depth output" loading="lazy">
+          <img width="638" height="412" src="assets/pubfig/fig-stereo.jpg" alt="Teaser: camera rig, inputs and full-resolution depth output" loading="lazy">
           <figcaption>Teaser figure · Wang, Srikanth &amp; Ramamoorthi, CVPR 2016</figcaption>
         </figure>
         <div class="paper-body">
@@ -513,7 +519,7 @@
 
               <article class="paper-row reveal">
         <figure class="paper-fig">
-          <img src="assets/pubfig/fig-thesis.jpg" alt="A quadrotor scribing on a board, simulation above and real experiment below" loading="lazy">
+          <img width="475" height="560" src="assets/pubfig/fig-thesis.jpg" alt="A quadrotor scribing on a board, simulation above and real experiment below" loading="lazy">
           <figcaption>A quadrotor scribing on a board (Fig. 7.1) · MIT PhD thesis, 2012</figcaption>
         </figure>
         <div class="paper-body">
@@ -531,7 +537,7 @@
 
       <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
-          <img src="assets/pubfig/fig-quadteam.jpg" alt="Two quadrotors docked to a foam-core panel in the lab" loading="lazy">
+          <img width="720" height="358" src="assets/pubfig/fig-quadteam.jpg" alt="Two quadrotors docked to a foam-core panel in the lab" loading="lazy">
           <figcaption>Two-quadrotor manipulation setup · from the MIT PhD thesis (2012)</figcaption>
         </figure>
         <div class="paper-body">
@@ -549,7 +555,7 @@
 
       <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
-          <img src="assets/pubfig/fig-uavsim.jpg" alt="Block diagram of the STEVE simulation architecture" loading="lazy">
+          <img width="510" height="362" src="assets/pubfig/fig-uavsim.jpg" alt="Block diagram of the STEVE simulation architecture" loading="lazy">
           <figcaption>The STEVE architecture (Fig. 3) · Srikanth et al., ACC 2009</figcaption>
         </figure>
         <div class="paper-body">
@@ -567,7 +573,7 @@
 
       <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
-          <img src="assets/pubfig/fig-flexuav.jpg" alt="Design diagram of the ParaFlex flexible quadrotor" loading="lazy">
+          <img width="565" height="335" src="assets/pubfig/fig-flexuav.jpg" alt="Design diagram of the ParaFlex flexible quadrotor" loading="lazy">
           <figcaption>The ParaFlex flexible quadrotor · from the MIT PhD thesis (2012)</figcaption>
         </figure>
         <div class="paper-body">
@@ -595,7 +601,7 @@
 
       <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span> <span class="stamp award">★ Best Paper Award</span>
         <figure class="paper-fig">
-          <img src="assets/pubfig/drone-rim14.jpg" alt="The litrobot quadrotor carrying a flash and continuous light" loading="lazy">
+          <img width="609" height="624" src="assets/pubfig/drone-rim14.jpg" alt="The litrobot quadrotor carrying a flash and continuous light" loading="lazy">
           <figcaption>The “litrobot” · Photo: MIT News</figcaption>
         </figure>
         <div class="paper-body">
@@ -613,7 +619,7 @@
 
               <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
-          <img src="assets/pubfig/drone-rim15.jpg" alt="The litrobot drone during a photo shoot" loading="lazy">
+          <img width="656" height="561" src="assets/pubfig/drone-rim15.jpg" alt="The litrobot drone during a photo shoot" loading="lazy">
           <figcaption>The “litrobot” in the field · Photo: MIT News</figcaption>
         </figure>
         <div class="paper-body">
@@ -631,7 +637,7 @@
 
               <article class="paper-row reveal"><span class="stamp press">Press</span>
         <figure class="paper-fig">
-          <img src="assets/pubfig/drone-news.jpg" alt="The drone-lighting quadrotor in flight" loading="lazy">
+          <img width="936" height="624" src="assets/pubfig/drone-news.jpg" alt="The drone-lighting quadrotor in flight" loading="lazy">
           <figcaption>Photo: MIT News</figcaption>
         </figure>
         <div class="paper-body">

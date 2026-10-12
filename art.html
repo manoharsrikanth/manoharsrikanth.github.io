@@ -138,6 +138,12 @@
       .sentinel .pulse{animation:none}
       html{scroll-behavior:auto}
     }
+  
+    /* ---------- Polish pass Oct 2026: mobile nav wraps instead of clipping ---------- */
+    @media(max-width:640px){
+      .topnav{flex-wrap:wrap;overflow-x:visible;row-gap:10px;column-gap:20px;justify-content:center}
+      .topnav a{font-size:12px;letter-spacing:.12em}
+    }
   </style>
 </head>
 <body>
@@ -145,9 +151,7 @@
   <div class="topnav">
     <a href="story.html">Story</a>
     <a href="inventions.html">Inventions</a>
-    <a href="art.html" aria-current="page">Art</a>
-    <a href="projects.html">Projects</a>
-    <a href="publications.html">Publications</a>
+    <a href="art.html" aria-current="page">Art</a>    <a href="publications.html">Publications</a>
     <a href="resume.html">Resume</a>
     <a href="kids/index.html">Kids Version</a>
   </div>
@@ -162,7 +166,7 @@
   <header class="bio">
     <p class="kicker">The photographer</p>
     <div class="bio-grid">
-      <img class="bio-portrait" src="assets/photography/manohar.jpg" alt="Manohar Srikanth holding a camera">
+      <img width="150" height="150" class="bio-portrait" src="assets/photography/manohar.jpg" alt="Manohar Srikanth holding a camera">
       <div>
         <h1>Manohar Srikanth</h1>
         <p class="bio-text">Manohar Srikanth photographs at the intersection of <strong>art and engineering</strong>.</p>
@@ -184,7 +188,7 @@
 
   <section class="spot" aria-label="Featured">
     <div class="spot-card">
-      <img src="assets/photography/robotic-lighting.jpg" alt="Portrait lit by a drone, from the Robotic Lighting research" loading="eager">
+      <img width="777" height="600" src="assets/photography/robotic-lighting.jpg" alt="Portrait lit by a drone, from the Robotic Lighting research" loading="eager">
       <div class="spot-body">
         <p class="kicker">Featured &mdash; the signature work</p>
         <h2>Drone Lighting</h2>
@@ -217,8 +221,8 @@
       <nav class="foot-nav" aria-label="Site">
         <a href="index.html">Home</a>
         <a href="art.html">Art</a>
-        <a href="projects.html">Projects</a>
-        <a href="inventions.html">Inventions</a>
+          <a href="projects.html">Projects</a>
+          <a href="inventions.html">Inventions</a>
         <a href="publications.html">Publications &amp; Patents</a>
         <a href="resume.html">Resume</a>
         <a href="https://www.linkedin.com/in/srimano" target="_blank" rel="noopener">LinkedIn →</a>
