@@ -90,8 +90,25 @@
       max-width:var(--wide);margin:48px auto 0}
     .pat-card{background:var(--card-bg);
       border:1px solid var(--line);border-radius:16px;padding:26px 24px;
-      display:flex;flex-direction:column;gap:10px;
+      display:flex;flex-direction:column;gap:10px;position:relative;
       box-shadow:0 10px 30px -18px rgba(60,30,10,.25)}
+    .stamps{position:absolute;top:14px;right:12px;display:flex;flex-direction:column;
+      gap:6px;align-items:flex-end;z-index:2}
+    .stamp{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.09em;
+      text-transform:uppercase;padding:4px 10px;border:2px solid;border-radius:4px;
+      transform:rotate(7deg);background:rgba(251,248,243,.95);
+      box-shadow:0 2px 6px rgba(60,30,10,.14);white-space:nowrap}
+    .stamp.granted{color:var(--burgundy);border-color:var(--burgundy)}
+    .stamp.pending{color:var(--muted);border-color:var(--muted)}
+    .stamp.pct{color:var(--teal);border-color:var(--teal)}
+    .stamp.hc{color:#8a6d1a;border-color:#a8842c;background:rgba(255,252,240,.96)}
+    .co-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+      gap:9px 22px;max-width:var(--wide);margin:28px auto 0;text-align:left}
+    .co-grid div{font-size:13.5px;color:var(--muted)}
+    .co-grid strong{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+    .co-grid div.hot strong{color:var(--burgundy)}
+    .co-note{max-width:760px;margin:22px auto 0;font-size:13px;color:var(--muted);
+      font-style:italic;text-align:left;line-height:1.7}
     
     .pat-icon{width:58px;height:58px;border-radius:15px;background:var(--soft);
       display:flex;align-items:center;justify-content:center;flex:0 0 auto}
@@ -125,6 +142,8 @@
     .paper-icon svg{width:44px;height:44px}
     .paper-body{min-width:0;flex:1}
     .paper-body h3{font-size:17.5px;line-height:1.3;font-weight:650}
+    .paper-body h3 a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--teal)}
+    .paper-body h3 a:hover{color:var(--teal);border-bottom-color:var(--teal)}
     .paper-meta{font-size:13px;color:var(--muted);margin-top:6px}
     .paper-why{font-size:14.5px;color:var(--muted);line-height:1.6;margin:8px 0 0}
     .paper-why strong{color:var(--ink);font-weight:600}
@@ -200,7 +219,7 @@
     </div>
     <div class="pat-grid">
 
-      <article class="pat-card featured reveal">
+      <article class="pat-card featured reveal"><div class="stamps"><span class="stamp granted">Granted</span><span class="stamp hc">Highly cited · 38</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <rect x="8" y="6" width="32" height="36" rx="3"/>
@@ -210,14 +229,14 @@
           </svg>
         </div>
         <div class="pat-body">
-          <p class="pat-num"><a href="https://patents.google.com/patent/US11294422B1/en" target="_blank" rel="noopener">US 11,294,422 B1</a> · US 11,592,864 · US 11,853,117 · US 12,124,291</p>
+          <p class="pat-num"><a href="https://patents.google.com/patent/US11294422B1/en" target="_blank" rel="noopener">US 11,294,422 B1</a> · <a href="https://patents.google.com/patent/US11592864B2/en" target="_blank" rel="noopener">US 11,592,864</a> · <a href="https://patents.google.com/patent/US11853117B2/en" target="_blank" rel="noopener">US 11,853,117</a> · <a href="https://patents.google.com/patent/US12124291B2/en" target="_blank" rel="noopener">US 12,124,291</a></p>
           <h3>Electronic device including a camera disposed behind a display</h3>
           <p class="pat-meta">Apple Inc. · Granted 2022–2024 · Priority September 27, 2018<br><span class="role-tag">First-listed inventor</span></p>
-          <p class="pat-val"><strong>The disappearing camera.</strong> The 0-to-1 architecture — apertured display, behind-display sensor, computational restoration. In the fall of 2026, flagships shipped the disappearing camera: the iPhone Duo&rsquo;s hidden FaceTime camera, the iPhone 18 Pro Max&rsquo;s under-display Face ID camera — the physical arrangement this patent family has claimed since 2018. Cited as prior art by 27 later publications across the industry.</p>
+          <p class="pat-val"><strong>The disappearing camera.</strong> The 0-to-1 architecture — apertured display, behind-display sensor, computational restoration. In the fall of 2026, flagships shipped the disappearing camera: the iPhone Duo&rsquo;s hidden FaceTime camera, the iPhone 18 Pro Max&rsquo;s under-display Face ID camera — the physical arrangement this patent family has claimed since 2018. Cited as prior art by 38 later publications across the industry.</p>
         </div>
       </article>
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <rect x="10" y="20" width="28" height="12" rx="6"/>
@@ -225,13 +244,13 @@
             <path d="M24 32v6M21 35l3 3 3-3" stroke="var(--teal)"/>
           </svg>
         </div>
-        <p class="pat-num"><a href="https://patents.google.com/patent/US20180082482A1/en" target="_blank" rel="noopener">US 2018/0082482 A1</a> · EP 3,488,315 B1 (granted 2021)</p>
+        <p class="pat-num"><a href="https://patents.google.com/patent/US20180082482A1/en" target="_blank" rel="noopener">US 2018/0082482 A1</a> · <a href="https://patents.google.com/patent/EP3488315B1/en" target="_blank" rel="noopener">EP 3,488,315 B1</a> (granted 2021)</p>
         <h3>Display system having world and user sensors</h3>
         <p class="pat-meta">Apple Inc. · Published March 22, 2018 · with Ricardo Motta, Brett Miller, Tobias Rick</p>
         <p class="pat-val"><strong>The sensing behind passthrough AR.</strong> World-facing and user-facing sensors unified in one display system — the architecture that lets a headset see the room and the wearer at once.</p>
       </article>
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span><span class="stamp hc">Highly cited · 79</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <rect x="8" y="10" width="32" height="22" rx="2"/>
@@ -247,7 +266,7 @@
         <p class="pat-val"><strong>Sensors living inside the screen.</strong> Integrating cameras and sensors into the display stack itself — the display stops being just an output and becomes an input.</p>
       </article>
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span><span class="stamp hc">Highly cited · 33</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <rect x="16" y="8" width="16" height="32" rx="8"/>
@@ -262,7 +281,7 @@
         <p class="pat-val"><strong>Your wrist is the password.</strong> A light-field camera on a wearable that authenticates from the dorsal forearm — biometrics with no fingerprint sensor and nothing to touch.</p>
       </article>
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span><span class="stamp hc">Highly cited · 30</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <circle cx="12" cy="14" r="2.5"/>
@@ -278,7 +297,7 @@
         <p class="pat-val"><strong>The whole light field, in one shot.</strong> Captures ray direction as well as intensity — the raw material for refocus-after-capture and single-shot depth.</p>
       </article>
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 36L30 18l6 6-18 18-8 2z"/>
@@ -293,7 +312,7 @@
         <p class="pat-val"><strong>A stylus that truly sees color.</strong> Multi-channel optical sensing samples real-world surfaces — point at anything and capture its exact color, not an approximation.</p>
       </article>
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp pending">Pending</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <path d="M8 24a16 12 0 0 1 32 0"/>
@@ -307,7 +326,7 @@
         <p class="pat-val"><strong>Building the headset, piece by piece.</strong> Head-mounted display systems from the founding years of the Vision Products Group.</p>
       </article>
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp pending">Pending</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <path d="M6 24q9-10 18-10t18 10q-9 10-18 10T6 24z"/>
@@ -321,7 +340,7 @@
         <p class="pat-val"><strong>Gaze tracking with no camera.</strong> The sensor disappears entirely — eye tracking that leaves only the signal.</p>
       </article>
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp pending">Pending</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <path d="M6 24q9-10 18-10t18 10q-9 10-18 10T6 24z"/>
@@ -337,7 +356,7 @@
         <p class="pat-val"><strong>The display becomes the sensor.</strong> Photodiodes woven into the screen image the eye from inside it — sensing without a visible sensor.</p>
       </article>
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp pct">PCT filing</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <circle cx="18" cy="24" r="9"/>
@@ -353,7 +372,7 @@
         <p class="pat-val"><strong>Bokeh before Portrait mode.</strong> A main high-quality camera paired with auxiliary stereo cameras producing depth for defocus effects — filed two years before the iPhone 7 Plus made computational bokeh mainstream.</p>
       </article>
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span><span class="stamp hc">Highly cited · 92</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <path d="M10 38V24M19 38V15M28 38V28M37 38V19"/>
@@ -361,13 +380,13 @@
             <circle cx="19" cy="15" r="2.2" fill="var(--teal)" stroke="none"/>
           </svg>
         </div>
-        <p class="pat-num"><a href="https://patents.google.com/patent/US10574905B2/en" target="_blank" rel="noopener">US 10,574,905 B2</a> · US 10,089,740 · <a href="https://patents.google.com/patent/WO2015134996A1/en" target="_blank" rel="noopener">WO 2015/134996 A1</a></p>
+        <p class="pat-num"><a href="https://patents.google.com/patent/US10574905B2/en" target="_blank" rel="noopener">US 10,574,905 B2</a> · <a href="https://patents.google.com/patent/US10089740B2/en" target="_blank" rel="noopener">US 10,089,740</a> · <a href="https://patents.google.com/patent/WO2015134996A1/en" target="_blank" rel="noopener">WO 2015/134996 A1</a></p>
         <h3>System and methods for depth regularization and semiautomatic interactive matting using RGB-D images</h3>
         <p class="pat-meta">Pelican Imaging / Fotonation · US granted 2018 &amp; 2020<br><span class="role-tag">First-listed inventor</span></p>
         <p class="pat-val"><strong>Making light-field depth trustworthy.</strong> Depth regularization that cleaned up noisy light-field depth — the foundation of the startup&rsquo;s product demos (shown to Apple and Amazon, in Manohar&rsquo;s account).</p>
       </article>
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span><span class="stamp hc">Highly cited · 60</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 14h13l-2.5 20H8z"/>
@@ -375,13 +394,13 @@
             <rect x="32" y="14" width="10" height="20"/>
           </svg>
         </div>
-        <p class="pat-num">US 9,898,856 (2018) · <a href="https://patents.google.com/patent/US10540806B2/en" target="_blank" rel="noopener">US 10,540,806 B2</a> · <a href="https://patents.google.com/patent/WO2015048694A2/en" target="_blank" rel="noopener">WO 2015/048694 A2</a></p>
+        <p class="pat-num"><a href="https://patents.google.com/patent/US9898856B2/en" target="_blank" rel="noopener">US 9,898,856</a> (2018) · <a href="https://patents.google.com/patent/US10540806B2/en" target="_blank" rel="noopener">US 10,540,806 B2</a> · <a href="https://patents.google.com/patent/WO2015048694A2/en" target="_blank" rel="noopener">WO 2015/048694 A2</a></p>
         <h3>Systems and methods for depth-assisted perspective distortion correction</h3>
         <p class="pat-meta">Pelican Imaging / Fotonation · US granted 2018 &amp; 2020 · 183 Scholar citations</p>
         <p class="pat-val"><strong>His most-cited work.</strong> Uses depth to undo wide-angle perspective distortion — the reason faces stop looking warped at the edge of the frame.</p>
       </article>
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <path d="M8 37C15 37 13 11 24 11s9 26 16 26"/>
@@ -396,7 +415,7 @@
         <p class="pat-val"><strong>The control theory under the drones.</strong> Optimal trajectories for redundant actuators — from his Mitsubishi research-lab years, feeding the aerial-robotics work.</p>
       </article>
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span></div>
         <div class="pat-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <circle cx="24" cy="24" r="9"/>
@@ -413,6 +432,104 @@
       </article>
 
     </div>
+  </section>
+
+
+  <!-- ============ CITED AS PRIOR ART BY ============ -->
+  <section class="inv-sec" aria-labelledby="citedby-title">
+    <div class="sec-head">
+      <p class="kicker reveal">Prior art</p>
+      <h2 id="citedby-title" class="reveal" data-delay="60">Cited as prior art by.</h2>
+      <p class="lede reveal" data-delay="120">292 later patent publications from 85 companies and institutions cite these inventions as prior art — examiner-recorded, across the industry. Each count is deduplicated by publication.</p>
+    </div>
+    <div class="co-grid reveal">
+        <div class="hot">Tesla · <strong>43</strong></div>
+        <div class="hot">Apple · <strong>20</strong></div>
+        <div class="hot">Intrinsic Innovation · <strong>19</strong></div>
+        <div class="hot">Google · <strong>17</strong></div>
+        <div class="hot">Adeia · <strong>14</strong></div>
+        <div class="hot">Samsung Electronics · <strong>14</strong></div>
+        <div class="hot">Microsoft · <strong>12</strong></div>
+        <div class="hot">Biolinq · <strong>10</strong></div>
+        <div>Movano · <strong>9</strong></div>
+        <div>Samsung Display · <strong>9</strong></div>
+        <div>Fotonation · <strong>8</strong></div>
+        <div>Agnetix · <strong>6</strong></div>
+        <div>Meta · <strong>5</strong></div>
+        <div>GoPro · <strong>4</strong></div>
+        <div>Sony · <strong>4</strong></div>
+        <div>AUMOVIO · <strong>3</strong></div>
+        <div>Boston Polarimetrics · <strong>3</strong></div>
+        <div>Disney · <strong>3</strong></div>
+        <div>GlaiveRF · <strong>3</strong></div>
+        <div>Leica · <strong>3</strong></div>
+        <div>NewSight Reality · <strong>3</strong></div>
+        <div>Tissot · <strong>3</strong></div>
+        <div>Acer · <strong>2</strong></div>
+        <div>Adela Imaging · <strong>2</strong></div>
+        <div>BOE · <strong>2</strong></div>
+        <div>Fraunhofer · <strong>2</strong></div>
+        <div>HP · <strong>2</strong></div>
+        <div>HTC · <strong>2</strong></div>
+        <div>Himax · <strong>2</strong></div>
+        <div>Hunan Normal University · <strong>2</strong></div>
+        <div>Magic Leap · <strong>2</strong></div>
+        <div>Megvii · <strong>2</strong></div>
+        <div>Pico · <strong>2</strong></div>
+        <div>Proprio · <strong>2</strong></div>
+        <div>Qualcomm · <strong>2</strong></div>
+        <div>Snap · <strong>2</strong></div>
+        <div>Audi · <strong>1</strong></div>
+        <div>Bank of America · <strong>1</strong></div>
+        <div>Beijing Dajia · <strong>1</strong></div>
+        <div>Beijing Liangliang · <strong>1</strong></div>
+        <div>Beijing Shengweite · <strong>1</strong></div>
+        <div>ByteDance · <strong>1</strong></div>
+        <div>Canon · <strong>1</strong></div>
+        <div>Catalyst Entertainment · <strong>1</strong></div>
+        <div>Continental · <strong>1</strong></div>
+        <div>Dell · <strong>1</strong></div>
+        <div>Duke University · <strong>1</strong></div>
+        <div>Eloupes · <strong>1</strong></div>
+        <div>Eyeware Tech · <strong>1</strong></div>
+        <div>F. Torrealba Villasana · <strong>1</strong></div>
+        <div>Ford · <strong>1</strong></div>
+        <div>Fujifilm · <strong>1</strong></div>
+        <div>H2VR · <strong>1</strong></div>
+        <div>Hins · <strong>1</strong></div>
+        <div>Huawei · <strong>1</strong></div>
+        <div>Ihor Lys · <strong>1</strong></div>
+        <div>Intel · <strong>1</strong></div>
+        <div>Japan Display · <strong>1</strong></div>
+        <div>Jiangsu Ruike · <strong>1</strong></div>
+        <div>Jochen Ohligs · <strong>1</strong></div>
+        <div>KAIST · <strong>1</strong></div>
+        <div>KT · <strong>1</strong></div>
+        <div>Kwangwoon University · <strong>1</strong></div>
+        <div>LG Display · <strong>1</strong></div>
+        <div>LG Electronics · <strong>1</strong></div>
+        <div>NYU Shanghai · <strong>1</strong></div>
+        <div>North · <strong>1</strong></div>
+        <div>Optoma · <strong>1</strong></div>
+        <div>Peloton · <strong>1</strong></div>
+        <div>Razer · <strong>1</strong></div>
+        <div>Richard Murrell · <strong>1</strong></div>
+        <div>Rockwell Collins · <strong>1</strong></div>
+        <div>Sandipan Chaudhuri · <strong>1</strong></div>
+        <div>Shandong University · <strong>1</strong></div>
+        <div>Shanghai Jiao Tong University · <strong>1</strong></div>
+        <div>Shenzhen Xianxun · <strong>1</strong></div>
+        <div>Synaptics · <strong>1</strong></div>
+        <div>Tencent · <strong>1</strong></div>
+        <div>Tiff's Treats · <strong>1</strong></div>
+        <div>US Dept. of Health & Human Services · <strong>1</strong></div>
+        <div>University of Washington · <strong>1</strong></div>
+        <div>Visbit · <strong>1</strong></div>
+        <div>VisionVera · <strong>1</strong></div>
+        <div>ZTE · <strong>1</strong></div>
+        <div>Zejing Auto Electronics · <strong>1</strong></div>
+    </div>
+    <p class="co-note reveal">Patent-office citations are prior-art references, not licenses or endorsements — the industry recognizing the work as foundational and citing it in its own filings. Counts from Google Patents, deduplicated by publication number, October 2026.</p>
   </section>
 
   <!-- ============ RESEARCH PAPERS ============ -->
@@ -432,7 +549,7 @@
           </svg>
         </div>
         <div class="paper-body">
-          <h3>Depth from semi-calibrated stereo and defocus</h3>
+          <h3><a href="https://doi.org/10.1109/CVPR.2016.403" target="_blank" rel="noopener">Depth from semi-calibrated stereo and defocus</a></h3>
           <p class="paper-meta">2016<span class="cite-pill">25 citations</span></p>
           <p class="paper-why"><strong>Two depth cues are better than one.</strong> Fuses stereo disparity with defocus blur — depth that holds up exactly where each cue alone fails.</p>
         </div>
@@ -449,7 +566,7 @@
           </svg>
         </div>
         <div class="paper-body">
-          <h3>Computational rim illumination with aerial robots</h3>
+          <h3><a href="https://doi.org/10.1145/2630099.2630105" target="_blank" rel="noopener">Computational rim illumination with aerial robots</a></h3>
           <p class="paper-meta">2014<span class="cite-pill">24 citations</span></p>
           <p class="paper-why"><strong>Drones as studio lights.</strong> Autonomous quadrotors that position themselves around a subject for perfect photographic rim lighting — robotics in service of the image.</p>
         </div>
@@ -463,7 +580,7 @@
           </svg>
         </div>
         <div class="paper-body">
-          <h3>Controlled manipulation with multiple quadrotors</h3>
+          <h3><a href="https://doi.org/10.2514/6.2011-6547" target="_blank" rel="noopener">Controlled manipulation with multiple quadrotors</a></h3>
           <p class="paper-meta">2011<span class="cite-pill">25 citations</span></p>
           <p class="paper-why"><strong>Aerial robotics as a crew, not a solo act.</strong> Teams of quadrotors cooperating to carry and manipulate objects — coordination as a control problem.</p>
         </div>
@@ -478,7 +595,7 @@
           </svg>
         </div>
         <div class="paper-body">
-          <h3>A robust environment for simulation and testing of adaptive control for mini-UAVs</h3>
+          <h3><a href="https://doi.org/10.1109/ACC.2009.5160468" target="_blank" rel="noopener">A robust environment for simulation and testing of adaptive control for mini-UAVs</a></h3>
           <p class="paper-meta">2009<span class="cite-pill">25 citations</span></p>
           <p class="paper-why"><strong>The flight simulator the lab trusted.</strong> A testbed for proving adaptive controllers in simulation before risking real hardware — infrastructure as research.</p>
         </div>
@@ -493,7 +610,7 @@
           </svg>
         </div>
         <div class="paper-body">
-          <h3>DC motor damping: a strategy to increase passive stiffness of haptic devices</h3>
+          <h3><a href="https://doi.org/10.1007/978-3-540-69057-3" target="_blank" rel="noopener">DC motor damping: a strategy to increase passive stiffness of haptic devices</a></h3>
           <p class="paper-meta">2008<span class="cite-pill">26 citations</span></p>
           <p class="paper-why"><strong>Stiffer virtual walls, calmer motors.</strong> Damping the motor instead of fighting it — haptic devices that feel more solid with less energy.</p>
         </div>
@@ -508,7 +625,7 @@
           </svg>
         </div>
         <div class="paper-body">
-          <h3>Rendering stiffer walls: a hybrid haptic system using continuous and discrete time feedback</h3>
+          <h3><a href="https://exaly.com/article/41360119" target="_blank" rel="noopener">Rendering stiffer walls: a hybrid haptic system using continuous and discrete time feedback</a></h3>
           <p class="paper-meta">2007<span class="cite-pill">11 citations</span></p>
           <p class="paper-why"><strong>Touch you can believe.</strong> Hybrid continuous–discrete control that renders a virtual wall as genuinely solid — the haptics behind believable contact.</p>
         </div>
@@ -523,7 +640,7 @@
           </svg>
         </div>
         <div class="paper-body">
-          <h3>Visibility volumes for interactive path optimization</h3>
+          <h3><a href="https://doi.org/10.1007/s00371-008-0244-x" target="_blank" rel="noopener">Visibility volumes for interactive path optimization</a></h3>
           <p class="paper-meta">2008<span class="cite-pill">11 citations</span></p>
           <p class="paper-why"><strong>Planning through what can be seen.</strong> Treats visibility as a first-class citizen in motion planning — paths optimized inside the volume of the observable.</p>
         </div>
@@ -539,7 +656,7 @@
           </svg>
         </div>
         <div class="paper-body">
-          <h3>Dynamic modeling and control of a flexible four-rotor UAV</h3>
+          <h3><a href="https://doi.org/10.2514/6.2010-8050" target="_blank" rel="noopener">Dynamic modeling and control of a flexible four-rotor UAV</a></h3>
           <p class="paper-meta">2010<span class="cite-pill">7 citations</span></p>
           <p class="paper-why"><strong>A bending drone doesn&rsquo;t fly like a rigid one.</strong> Models flexibility in the airframe itself — control that accounts for the wobble instead of ignoring it.</p>
         </div>
