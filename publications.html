@@ -90,8 +90,20 @@
       max-width:var(--wide);margin:48px auto 0}
     .pat-card{background:var(--card-bg);
       border:1px solid var(--line);border-radius:16px;padding:26px 24px;
-      display:flex;flex-direction:column;gap:10px;
+      display:flex;flex-direction:column;gap:10px;position:relative;
       box-shadow:0 10px 30px -18px rgba(60,30,10,.25)}
+    .stamps{position:absolute;top:14px;right:12px;display:flex;flex-direction:column;
+      gap:6px;align-items:flex-end;z-index:2}
+    .stamp{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.09em;
+      text-transform:uppercase;padding:4px 10px;border:2px solid;border-radius:4px;
+      transform:rotate(7deg);background:rgba(251,248,243,.95);
+      box-shadow:0 2px 6px rgba(60,30,10,.14);white-space:nowrap}
+    .stamp.granted{color:var(--burgundy);border-color:var(--burgundy)}
+    .stamp.pending{color:var(--muted);border-color:var(--muted)}
+    .stamp.pct{color:var(--teal);border-color:var(--teal)}
+    .stamp.hc{color:#8a6d1a;border-color:#a8842c;background:rgba(255,252,240,.96)}
+    .stamp.peer{color:var(--teal);border-color:var(--teal);transform:rotate(-6deg)}
+    .stamp.press{color:var(--burgundy);border-color:var(--burgundy);transform:rotate(-6deg)}
     
     .pat-icon{width:58px;height:58px;border-radius:15px;background:var(--soft);
       display:flex;align-items:center;justify-content:center;flex:0 0 auto}
@@ -116,9 +128,10 @@
 
     /* ---------- Paper rows ---------- */
     .paper-list{max-width:var(--col);margin:48px auto 0;display:flex;flex-direction:column;gap:14px}
-    .paper-row{display:flex;gap:20px;align-items:flex-start;
+    .paper-row{display:flex;gap:30px;align-items:flex-start;position:relative;
       background:var(--card-bg);
-      border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+      border:1px solid var(--line);border-radius:20px;padding:32px 34px;
+      box-shadow:0 14px 34px -20px rgba(60,30,10,.28)}
     
     .paper-icon{flex:0 0 64px;width:64px;height:64px;border-radius:14px;background:var(--soft);
       display:flex;align-items:center;justify-content:center}
@@ -128,10 +141,17 @@
     .paper-meta{font-size:13px;color:var(--muted);margin-top:6px}
     .paper-why{font-size:14.5px;color:var(--muted);line-height:1.6;margin:8px 0 0}
     .paper-why strong{color:var(--ink);font-weight:600}
-    .paper-sowhat{font-size:14px;color:var(--muted);line-height:1.65;margin:10px 0 0;
-      padding:9px 14px;border-left:3px solid var(--teal);background:var(--soft);
-      border-radius:0 10px 10px 0}
+    .paper-sowhat{font-size:15.5px;color:var(--ink);line-height:1.7;margin:0 0 4px;
+      padding:14px 18px;border-left:4px solid var(--teal);background:var(--soft);
+      border-radius:0 12px 12px 0}
     .paper-sowhat strong{color:var(--teal);font-weight:700}
+    .paper-proof{margin-top:20px;padding-top:16px;border-top:1px dashed var(--line)}
+    .paper-proof h3{font-size:14.5px;font-weight:600;line-height:1.4}
+    .paper-proof h3 a{color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--teal)}
+    .paper-proof h3 a:hover{color:var(--teal)}
+    .paper-proof .paper-meta{margin-top:5px;font-size:12.5px}
+    .paper-proof .cite-pill{font-size:11px}
+    .paper-proof .cite-pill strong{font-variant-numeric:tabular-nums}
     .cite-pill{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;
       background:var(--soft);font-size:11.5px;font-weight:600;color:var(--muted);white-space:nowrap}
 
@@ -159,7 +179,7 @@
       .inv-hero{padding:64px 20px 52px}
       .inv-sec{padding:56px 20px}
       .pat-card.featured{grid-template-columns:1fr}
-      .paper-row{gap:14px;padding:16px;flex-direction:column}
+      .paper-row{gap:18px;padding:22px 20px;flex-direction:column}
       .paper-fig{flex:0 0 auto;width:100%;max-width:360px}
       .paper-icon{flex-basis:52px;width:52px;height:52px}
       .paper-icon svg{width:36px;height:36px}
@@ -177,7 +197,7 @@
     
 
     /* ---------- Paper figures ---------- */
-    .paper-fig{flex:0 0 250px;width:250px;margin:0}
+    .paper-fig{flex:0 0 290px;width:290px;margin:0}
     .paper-fig img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line)}
     .paper-fig svg{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line);background:var(--card-bg)}
     .paper-fig figcaption{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.5}
@@ -229,7 +249,7 @@
     </div>
     <div class="pat-grid">
 
-      <article class="pat-card featured reveal">
+      <article class="pat-card featured reveal"><div class="stamps"><span class="stamp granted">Granted</span><span class="stamp hc">Highly cited · 38</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
                   <rect x="8" y="6" width="32" height="36" rx="3"/>
@@ -239,15 +259,15 @@
                 </svg>
               </div>
               <div class="pat-body">
-                <p class="pat-num"><a href="https://patents.google.com/patent/US11294422B1/en" target="_blank" rel="noopener">US 11,294,422 B1</a> · US 11,592,864 · US 11,853,117 · US 12,124,291</p>
+                <p class="pat-num"><a href="https://patents.google.com/patent/US11294422B1/en" target="_blank" rel="noopener">US 11,294,422 B1</a> · <a href="https://patents.google.com/patent/US11592864B2/en" target="_blank" rel="noopener">US 11,592,864</a> · <a href="https://patents.google.com/patent/US11853117B2/en" target="_blank" rel="noopener">US 11,853,117</a> · <a href="https://patents.google.com/patent/US12124291B2/en" target="_blank" rel="noopener">US 12,124,291</a></p>
                 <h3>Electronic device including a camera disposed behind a display</h3>
                 <p class="pat-meta">Apple Inc. · Granted 2022–2024 · Priority September 27, 2018<br><span class="role-tag">First-listed inventor</span></p>
-                <p class="pat-val"><strong>The disappearing camera.</strong> The 0-to-1 architecture — apertured display, behind-display sensor, computational restoration — that shipped in the iPhone Duo&rsquo;s hidden FaceTime camera and the iPhone 18 Pro Max&rsquo;s under-display Face ID camera. Cited as prior art by 27 later publications across the industry.</p>
+                <p class="pat-val"><strong>The disappearing camera.</strong> The 0-to-1 architecture — apertured display, behind-display sensor, computational restoration — that shipped in the iPhone Duo&rsquo;s hidden FaceTime camera and the iPhone 18 Pro Max&rsquo;s under-display Face ID camera. Cited as prior art by 38 later publications across the industry.</p>
               </div>
             </article>
 
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="10" y="20" width="28" height="12" rx="6"/>
@@ -255,14 +275,14 @@
                   <path d="M24 32v6M21 35l3 3 3-3" stroke="var(--teal)"/>
                 </svg>
               </div>
-              <p class="pat-num"><a href="https://patents.google.com/patent/US20180082482A1/en" target="_blank" rel="noopener">US 2018/0082482 A1</a> · EP 3,488,315 B1 (granted 2021)</p>
+              <p class="pat-num"><a href="https://patents.google.com/patent/US20180082482A1/en" target="_blank" rel="noopener">US 2018/0082482 A1</a> · <a href="https://patents.google.com/patent/EP3488315B1/en" target="_blank" rel="noopener">EP 3,488,315 B1</a> (granted 2021)</p>
               <h3>Display system having world and user sensors</h3>
               <p class="pat-meta">Apple Inc. · Published March 22, 2018 · with Ricardo Motta, Brett Miller, Tobias Rick</p>
               <p class="pat-val"><strong>The sensing behind passthrough AR.</strong> World-facing and user-facing sensors unified in one display system — the architecture that lets a headset see the room and the wearer at once.</p>
             </article>
 
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span><span class="stamp hc">Highly cited · 79</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
                   <rect x="8" y="10" width="32" height="22" rx="2"/>
@@ -272,14 +292,14 @@
                   <circle cx="24" cy="26" r="1.6" fill="var(--teal)" stroke="none"/>
                 </svg>
               </div>
-              <p class="pat-num"><a href="https://patents.google.com/patent/US20190221044A1/en" target="_blank" rel="noopener">US 2019/0221044 A1</a> · US 11,217,021 B2 (granted 2022)</p>
+              <p class="pat-num"><a href="https://patents.google.com/patent/US20190221044A1/en" target="_blank" rel="noopener">US 2019/0221044 A1</a> · <a href="https://patents.google.com/patent/US11217021B2/en" target="_blank" rel="noopener">US 11,217,021 B2</a> (granted 2022)</p>
               <h3>Display system having sensors</h3>
               <p class="pat-meta">Apple Inc. · Published July 18, 2019</p>
               <p class="pat-val"><strong>Sensors living inside the screen.</strong> Integrating cameras and sensors into the display stack itself — the display stops being just an output and becomes an input.</p>
             </article>
 
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 36L30 18l6 6-18 18-8 2z"/>
@@ -288,14 +308,14 @@
                   <circle cx="37" cy="24" r="2.4" stroke="var(--sienna)"/>
                 </svg>
               </div>
-              <p class="pat-num"><a href="https://patents.google.com/patent/US11550408B1/en" target="_blank" rel="noopener">US 11,550,408 B1</a> · US 12,105,897 B2</p>
+              <p class="pat-num"><a href="https://patents.google.com/patent/US11550408B1/en" target="_blank" rel="noopener">US 11,550,408 B1</a> · <a href="https://patents.google.com/patent/US12105897B2/en" target="_blank" rel="noopener">US 12,105,897 B2</a></p>
               <h3>Electronic device with optical sensor for sampling surfaces</h3>
               <p class="pat-meta">Apple Inc. · Granted January 10, 2023</p>
               <p class="pat-val"><strong>A stylus that truly sees color.</strong> Multi-channel optical sensing samples real-world surfaces — point at anything and capture its exact color, not an approximation.</p>
             </article>
 
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp pending">Pending</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
                   <path d="M6 24q9-10 18-10t18 10q-9 10-18 10T6 24z"/>
@@ -310,7 +330,7 @@
             </article>
 
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp pending">Pending</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
                   <path d="M6 24q9-10 18-10t18 10q-9 10-18 10T6 24z"/>
@@ -327,7 +347,7 @@
             </article>
 
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span><span class="stamp hc">Highly cited · 33</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
                   <rect x="16" y="8" width="16" height="32" rx="8"/>
@@ -336,14 +356,14 @@
                   <path d="M16 15H9M16 33H9M32 15h7M32 33h7" stroke="var(--teal)"/>
                 </svg>
               </div>
-              <p class="pat-num"><a href="https://patents.google.com/patent/US10817594B2/en" target="_blank" rel="noopener">US 10,817,594 B2</a> · US 11,036,844 B2</p>
+              <p class="pat-num"><a href="https://patents.google.com/patent/US10817594B2/en" target="_blank" rel="noopener">US 10,817,594 B2</a> · <a href="https://patents.google.com/patent/US11036844B2/en" target="_blank" rel="noopener">US 11,036,844 B2</a></p>
               <h3>Wearable electronic device having a light field camera usable to perform bioauthentication from a dorsal side of a forearm near a wrist</h3>
               <p class="pat-meta">Apple Inc. · Granted October 27, 2020 · 51 Scholar citations</p>
               <p class="pat-val"><strong>Your wrist is the password.</strong> A light-field camera on a wearable that authenticates from the dorsal forearm — biometrics with no fingerprint sensor and nothing to touch.</p>
             </article>
 
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span><span class="stamp hc">Highly cited · 30</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
                   <circle cx="12" cy="14" r="2.5"/>
@@ -360,7 +380,7 @@
             </article>
 
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp pending">Pending</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
                   <path d="M8 24a16 12 0 0 1 32 0"/>
@@ -385,7 +405,7 @@
     </div>
     <div class="pat-grid">
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span><span class="stamp hc">Highly cited · 60</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 14h13l-2.5 20H8z"/>
@@ -393,14 +413,14 @@
                   <rect x="32" y="14" width="10" height="20"/>
                 </svg>
               </div>
-              <p class="pat-num">US 9,898,856 (2018) · <a href="https://patents.google.com/patent/US10540806B2/en" target="_blank" rel="noopener">US 10,540,806 B2</a> · <a href="https://patents.google.com/patent/WO2015048694A2/en" target="_blank" rel="noopener">WO 2015/048694 A2</a></p>
+              <p class="pat-num"><a href="https://patents.google.com/patent/US9898856B2/en" target="_blank" rel="noopener">US 9,898,856</a> (2018) · <a href="https://patents.google.com/patent/US10540806B2/en" target="_blank" rel="noopener">US 10,540,806 B2</a> · <a href="https://patents.google.com/patent/WO2015048694A2/en" target="_blank" rel="noopener">WO 2015/048694 A2</a></p>
               <h3>Systems and methods for depth-assisted perspective distortion correction</h3>
               <p class="pat-meta">Pelican Imaging / Fotonation · US granted 2018 &amp; 2020 · 183 Scholar citations</p>
               <p class="pat-val"><strong>His most-cited work.</strong> Uses depth to undo wide-angle perspective distortion — the reason faces stop looking warped at the edge of the frame.</p>
             </article>
 
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span><span class="stamp hc">Highly cited · 92</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
                   <path d="M10 38V24M19 38V15M28 38V28M37 38V19"/>
@@ -408,14 +428,14 @@
                   <circle cx="19" cy="15" r="2.2" fill="var(--teal)" stroke="none"/>
                 </svg>
               </div>
-              <p class="pat-num"><a href="https://patents.google.com/patent/US10574905B2/en" target="_blank" rel="noopener">US 10,574,905 B2</a> · US 10,089,740 · <a href="https://patents.google.com/patent/WO2015134996A1/en" target="_blank" rel="noopener">WO 2015/134996 A1</a></p>
+              <p class="pat-num"><a href="https://patents.google.com/patent/US10574905B2/en" target="_blank" rel="noopener">US 10,574,905 B2</a> · <a href="https://patents.google.com/patent/US10089740B2/en" target="_blank" rel="noopener">US 10,089,740</a> · <a href="https://patents.google.com/patent/WO2015134996A1/en" target="_blank" rel="noopener">WO 2015/134996 A1</a></p>
               <h3>System and methods for depth regularization and semiautomatic interactive matting using RGB-D images</h3>
               <p class="pat-meta">Pelican Imaging / Fotonation · US granted 2018 &amp; 2020<br><span class="role-tag">First-listed inventor</span></p>
               <p class="pat-val"><strong>Making light-field depth trustworthy.</strong> Depth regularization that cleaned up noisy light-field depth — the foundation of the startup&rsquo;s product demos (shown to Apple and Amazon, in Manohar&rsquo;s account).</p>
             </article>
 
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp pct">PCT filing</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
                   <circle cx="18" cy="24" r="9"/>
@@ -435,17 +455,20 @@
     </div>
     <div class="paper-list">
 
-      <article class="paper-row reveal">
+      <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
           <img src="assets/pubfig/fig-stereo.jpg" alt="Teaser: camera rig, inputs and full-resolution depth output" loading="lazy">
           <figcaption>Teaser figure · Wang, Srikanth &amp; Ramamoorthi, CVPR 2016</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://doi.org/10.1109/CVPR.2016.403" target="_blank" rel="noopener">Depth from semi-calibrated stereo and defocus</a></h3>
-          <p class="paper-meta">2016 · CVPR<span class="cite-pill">25 citations</span></p>
+          <p class="paper-sowhat reveal"><strong>So what?</strong> Your phone&rsquo;s Portrait mode has to know exactly how far everything is before it can blur a background &mdash; this is the kind of math that makes those depth maps trustworthy enough to cut a person out of a photo cleanly.</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> One great camera takes the photo; two cheap helper cameras figure out the depth. The helpers are precisely calibrated and produce rough depth maps, while the main camera — whose lens can be swapped — shoots beautiful high-resolution photos. The trick is transferring the helpers’ depth into the main camera’s viewpoint, using the main camera’s own focus blur as an extra depth cue: a full-resolution photo plus a complete depth map, with no bulky depth hardware.</p>
           <p class="paper-why"><strong>Two depth cues are better than one.</strong> Fuses stereo disparity with defocus blur — depth that holds up exactly where each cue alone fails.</p>
-          <p class="paper-sowhat reveal"><strong>So what?</strong> Your phone&rsquo;s Portrait mode has to know exactly how far everything is before it can blur a background &mdash; this is the kind of math that makes those depth maps trustworthy enough to cut a person out of a photo cleanly.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://doi.org/10.1109/CVPR.2016.403" target="_blank" rel="noopener">Depth from semi-calibrated stereo and defocus</a></h3>
+            <p class="paper-meta">2016 · CVPR<span class="cite-pill">25 citations</span></p>
+          </footer>
         </div>
       </article>
 
@@ -460,7 +483,7 @@
     </div>
     <div class="pat-grid">
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
                   <path d="M8 37C15 37 13 11 24 11s9 26 16 26"/>
@@ -485,56 +508,68 @@
           <figcaption>A quadrotor scribing on a board (Fig. 7.1) · MIT PhD thesis, 2012</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://dspace.mit.edu/handle/1721.1/79286" target="_blank" rel="noopener">Controlled manipulation using autonomous aerial systems</a></h3>
-          <p class="paper-meta">2012 · MIT PhD thesis</p>
+          <p class="paper-sowhat reveal"><strong>So what?</strong> The playbook for drones that don&rsquo;t just watch the world but push on it &mdash; the ancestor of today&rsquo;s inspection drones that press sensors against bridges and wind turbines.</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> The doctoral thesis behind the drone papers: drones should graduate from “fly and sense” to jobs involving touch. It develops the full stack — how a quadrotor behaves the instant it touches something, a lightweight docking interface, controllers that switch from flying to pushing on contact, high-speed docking, teams of drones cooperating, a drone opening a door without knowing where the hinge is, and the bendable ParaFlex airframe — all validated in the STEVE simulator.</p>
           <p class="paper-why"><strong>The doctoral foundation.</strong> His MIT PhD thesis on autonomous aerial manipulation — the control theory everything else stands on.</p>
-          <p class="paper-sowhat reveal"><strong>So what?</strong> The playbook for drones that don&rsquo;t just watch the world but push on it &mdash; the ancestor of today&rsquo;s inspection drones that press sensors against bridges and wind turbines.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://dspace.mit.edu/handle/1721.1/79286" target="_blank" rel="noopener">Controlled manipulation using autonomous aerial systems</a></h3>
+            <p class="paper-meta">2012 · MIT PhD thesis</p>
+          </footer>
         </div>
       </article>
 
 
-      <article class="paper-row reveal">
+      <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
           <img src="assets/pubfig/fig-quadteam.jpg" alt="Two quadrotors docked to a foam-core panel in the lab" loading="lazy">
           <figcaption>Two-quadrotor manipulation setup · from the MIT PhD thesis (2012)</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://doi.org/10.2514/6.2011-6547" target="_blank" rel="noopener">Controlled manipulation with multiple quadrotors</a></h3>
-          <p class="paper-meta">2011 · AIAA Guidance, Navigation &amp; Control<span class="cite-pill">25 citations</span></p>
+          <p class="paper-sowhat reveal"><strong>So what?</strong> Drone teamwork &mdash; the idea behind delivery and warehouse drones that carry things in crews instead of flying solo.</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> Instead of using drones just to fly around and observe, this work puts them to physical work: fly to an object, dock onto it, and push it. The hard part is the moment of contact, so each drone’s flight controller hands off to a separate pushing controller the instant docking is detected. The paper shows teams cooperating — two drones docked to a 4 kg panel, pushing it along a commanded path — proven in simulation and lab experiments.</p>
           <p class="paper-why"><strong>Aerial robotics as a crew, not a solo act.</strong> Teams of quadrotors cooperating to carry and manipulate objects — coordination as a control problem.</p>
-          <p class="paper-sowhat reveal"><strong>So what?</strong> Drone teamwork &mdash; the idea behind delivery and warehouse drones that carry things in crews instead of flying solo.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://doi.org/10.2514/6.2011-6547" target="_blank" rel="noopener">Controlled manipulation with multiple quadrotors</a></h3>
+            <p class="paper-meta">2011 · AIAA Guidance, Navigation &amp; Control<span class="cite-pill">25 citations</span></p>
+          </footer>
         </div>
       </article>
 
 
-      <article class="paper-row reveal">
+      <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
           <img src="assets/pubfig/fig-uavsim.jpg" alt="Block diagram of the STEVE simulation architecture" loading="lazy">
           <figcaption>The STEVE architecture (Fig. 3) · Srikanth et al., ACC 2009</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://doi.org/10.1109/ACC.2009.5160468" target="_blank" rel="noopener">A robust environment for simulation and testing of adaptive control for mini-UAVs</a></h3>
-          <p class="paper-meta">2009 · American Control Conference<span class="cite-pill">25 citations</span></p>
+          <p class="paper-sowhat reveal"><strong>So what?</strong> Every drone you see was debugged in a simulator before real propellers ever spun &mdash; this was an early recipe for testing risky flight code safely.</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> Before trusting a self-adjusting flight controller on a real drone, you test it somewhere safe. The authors built STEVE, a modular simulation testbed for a four-rotor mini-helicopter in which software pieces can be swapped one by one for real hardware — gliding from pure simulation to real flight without rewriting everything. They prove it by flying a simulated quadrotor whose adaptive controller keeps working even as motors degrade or fail.</p>
           <p class="paper-why"><strong>The flight simulator the lab trusted.</strong> A testbed for proving adaptive controllers in simulation before risking real hardware — infrastructure as research.</p>
-          <p class="paper-sowhat reveal"><strong>So what?</strong> Every drone you see was debugged in a simulator before real propellers ever spun &mdash; this was an early recipe for testing risky flight code safely.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://doi.org/10.1109/ACC.2009.5160468" target="_blank" rel="noopener">A robust environment for simulation and testing of adaptive control for mini-UAVs</a></h3>
+            <p class="paper-meta">2009 · American Control Conference<span class="cite-pill">25 citations</span></p>
+          </footer>
         </div>
       </article>
 
 
-      <article class="paper-row reveal">
+      <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
           <img src="assets/pubfig/fig-flexuav.jpg" alt="Design diagram of the ParaFlex flexible quadrotor" loading="lazy">
           <figcaption>The ParaFlex flexible quadrotor · from the MIT PhD thesis (2012)</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://doi.org/10.2514/6.2010-8050" target="_blank" rel="noopener">Dynamic modeling and control of a flexible four-rotor UAV</a></h3>
-          <p class="paper-meta">2010 · AIAA Guidance, Navigation &amp; Control<span class="cite-pill">7 citations</span></p>
+          <p class="paper-sowhat reveal"><strong>So what?</strong> Drones that bounce instead of break &mdash; the reason modern inspection drones can bump a wall and keep flying.</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> Most drones are rigid — hit a wall and something breaks. This paper designs ParaFlex, a quadrotor whose arms join through spring-loaded joints, so the frame flexes on impact and springs back instead of shattering. It works out the math of how a bendy drone flies (the wobble changes the flight dynamics) and designs a controller that stays stable through collisions — experiments show far smaller impact forces than an equivalent rigid drone.</p>
           <p class="paper-why"><strong>A bending drone doesn&rsquo;t fly like a rigid one.</strong> Models flexibility in the airframe itself — control that accounts for the wobble instead of ignoring it.</p>
-          <p class="paper-sowhat reveal"><strong>So what?</strong> Drones that bounce instead of break &mdash; the reason modern inspection drones can bump a wall and keep flying.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://doi.org/10.2514/6.2010-8050" target="_blank" rel="noopener">Dynamic modeling and control of a flexible four-rotor UAV</a></h3>
+            <p class="paper-meta">2010 · AIAA Guidance, Navigation &amp; Control<span class="cite-pill">7 citations</span></p>
+          </footer>
         </div>
       </article>
 
@@ -549,46 +584,55 @@
     </div>
     <div class="paper-list">
 
-      <article class="paper-row reveal">
+      <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
           <img src="assets/pubfig/drone-rim14.jpg" alt="The litrobot quadrotor carrying a flash and continuous light" loading="lazy">
           <figcaption>The “litrobot” · Photo: MIT News</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://doi.org/10.1145/2630099.2630105" target="_blank" rel="noopener">Computational rim illumination with aerial robots</a></h3>
-          <p class="paper-meta">2014 · Workshop on Computational Aesthetics<span class="cite-pill">24 citations</span></p>
+          <p class="paper-sowhat reveal"><strong>So what?</strong> A flying studio light &mdash; photographers got perfect rim lighting with no assistant holding a lamp, and dozens of news outlets covered it.</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> Professional rim lighting — the glowing outline around a subject’s edge — is hard to get right because the light must sit in exactly the right spot. The authors mounted a flash and continuous light on a small quadrotor (nicknamed “litrobot”) that watches the photographer’s live camera feed, measures the rim width in the image twenty times a second, and flies itself to hold it steady. The photographer just dials in the rim width; the drone handles tracking the subject and staying out of frame.</p>
           <p class="paper-why"><strong>Drones as studio lights.</strong> Autonomous quadrotors that position themselves around a subject for perfect photographic rim lighting — robotics in service of the image.</p>
-          <p class="paper-sowhat reveal"><strong>So what?</strong> A flying studio light &mdash; photographers got perfect rim lighting with no assistant holding a lamp, and dozens of news outlets covered it.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://doi.org/10.1145/2630099.2630105" target="_blank" rel="noopener">Computational rim illumination with aerial robots</a></h3>
+            <p class="paper-meta">2014 · Workshop on Computational Aesthetics<span class="cite-pill">24 citations</span></p>
+          </footer>
         </div>
       </article>
 
 
-              <article class="paper-row reveal">
+              <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
           <img src="assets/pubfig/drone-rim15.jpg" alt="The litrobot drone during a photo shoot" loading="lazy">
           <figcaption>The “litrobot” in the field · Photo: MIT News</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://doi.org/10.1016/j.cag.2015.03.007" target="_blank" rel="noopener">Computational rim illumination of dynamic subjects using aerial robots</a></h3>
-          <p class="paper-meta">2015 · Computers &amp; Graphics 52</p>
+          <p class="paper-sowhat reveal"><strong>So what?</strong> Proof it worked on moving people outdoors, not just in the lab &mdash; lighting as a robot&rsquo;s job, not a human&rsquo;s.</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> The journal extension of the drone-lighting work, with full indoor experiments proving the drone holds the desired rim width while subject and photographer move — plus outdoor photo-shoot trials studying the practical ergonomics of working with a flying light. The authors’ claim: the first demonstrated system for studio-quality lighting produced by an autonomous aerial robot.</p>
           <p class="paper-why"><strong>Light that chases the subject.</strong> Extends drone rim-lighting to moving subjects — the quadrotor re-plans in real time so the perfect highlight never slips.</p>
-          <p class="paper-sowhat reveal"><strong>So what?</strong> Proof it worked on moving people outdoors, not just in the lab &mdash; lighting as a robot&rsquo;s job, not a human&rsquo;s.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://doi.org/10.1016/j.cag.2015.03.007" target="_blank" rel="noopener">Computational rim illumination of dynamic subjects using aerial robots</a></h3>
+            <p class="paper-meta">2015 · Computers &amp; Graphics 52</p>
+          </footer>
         </div>
       </article>
 
 
-              <article class="paper-row reveal">
+              <article class="paper-row reveal"><span class="stamp press">Press</span>
         <figure class="paper-fig">
           <img src="assets/pubfig/drone-news.jpg" alt="The drone-lighting quadrotor in flight" loading="lazy">
           <figcaption>Photo: MIT News</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://news.mit.edu/2014/drone-lighting-0711" target="_blank" rel="noopener">MIT Drone Lighting Project: autonomous vehicles could automatically assume the right positions for photographic lighting</a></h3>
-          <p class="paper-meta">2014 · MIT News</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> MIT News covered the project: researchers at MIT and Cornell built a small autonomous helicopter that positions itself to create rim lighting — the tricky effect where only the subject’s edge is strongly lit. The photographer picks the light direction and rim width through a simple interface; the drone maintains it automatically, compensating as the subject turns or the photographer moves.</p>
           <p class="paper-why"><strong>The work, in the wild.</strong> MIT News covered the drone-lighting project — the moment the lab&rsquo;s flying studio lights stepped into public view.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://news.mit.edu/2014/drone-lighting-0711" target="_blank" rel="noopener">MIT Drone Lighting Project: autonomous vehicles could automatically assume the right positions for photographic lighting</a></h3>
+            <p class="paper-meta">2014 · MIT News</p>
+          </footer>
         </div>
       </article>
 
@@ -603,7 +647,7 @@
     </div>
     <div class="pat-grid">
 
-      <article class="pat-card reveal">
+      <article class="pat-card reveal"><div class="stamps"><span class="stamp granted">Granted</span></div>
               <div class="pat-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
                   <circle cx="24" cy="24" r="9"/>
@@ -623,7 +667,7 @@
     </div>
     <div class="paper-list">
 
-      <article class="paper-row reveal">
+      <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
           <svg aria-hidden="false" viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="H-bridge circuit with motor terminals shorted for physical damping">
   <rect x="35" y="18" width="105" height="100" rx="10" opacity="0.55"/>
@@ -645,16 +689,19 @@
           <figcaption>How it works · H-bridge damping schematic</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://doi.org/10.1007/978-3-540-69057-3" target="_blank" rel="noopener">DC motor damping: a strategy to increase passive stiffness of haptic devices</a></h3>
-          <p class="paper-meta">2008 · EuroHaptics<span class="cite-pill">26 citations</span></p>
+          <p class="paper-sowhat reveal"><strong>So what?</strong> Touch you can trust &mdash; calmer, more solid-feeling haptics, the kind a surgeon needs to feel tissue through a robotic instrument.</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> A force-feedback device can only push back so hard before it starts buzzing — that ceiling is its “passive stiffness.” This paper raises the ceiling with real, physical damping instead of simulated damping: short the DC motor’s terminals through clever H-bridge wiring and the motor itself soaks up the jitter without injecting noise into the control loop. On their test device the virtual wall felt about 33% stiffer — with no extra hardware.</p>
           <p class="paper-why"><strong>Stiffer virtual walls, calmer motors.</strong> Damping the motor instead of fighting it — haptic devices that feel more solid with less energy.</p>
-          <p class="paper-sowhat reveal"><strong>So what?</strong> Touch you can trust &mdash; calmer, more solid-feeling haptics, the kind a surgeon needs to feel tissue through a robotic instrument.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://doi.org/10.1007/978-3-540-69057-3" target="_blank" rel="noopener">DC motor damping: a strategy to increase passive stiffness of haptic devices</a></h3>
+            <p class="paper-meta">2008 · EuroHaptics<span class="cite-pill">26 citations</span></p>
+          </footer>
         </div>
       </article>
 
 
-      <article class="paper-row reveal">
+      <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
           <svg aria-hidden="false" viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="Hybrid haptic control loop on an FPGA rendering a stiff virtual wall">
   <rect x="22" y="62" width="82" height="66" rx="8"/>
@@ -687,11 +734,14 @@
           <figcaption>How it works · hybrid-loop diagram</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://exaly.com/article/41360119" target="_blank" rel="noopener">Rendering stiffer walls: a hybrid haptic system using continuous and discrete time feedback</a></h3>
-          <p class="paper-meta">2007 · Advanced Robotics<span class="cite-pill">11 citations</span></p>
+          <p class="paper-sowhat reveal"><strong>So what?</strong> Virtual walls you can lean on &mdash; a step toward VR you can actually touch, and training simulators where what you feel is what you&rsquo;d feel.</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> Virtual walls feel mushy because the digital control loop can only update so fast before going unstable — capping how stiff a virtual surface can feel. The authors moved the haptic control loop off the CPU onto a dedicated chip (an FPGA) running hybrid continuous/discrete-time feedback, so forces update far faster. Tested head-to-head on the same device, the hybrid loop rendered much stiffer walls — and freed the main CPU for graphics and physics.</p>
           <p class="paper-why"><strong>Touch you can believe.</strong> Hybrid continuous–discrete control that renders a virtual wall as genuinely solid — the haptics behind believable contact.</p>
-          <p class="paper-sowhat reveal"><strong>So what?</strong> Virtual walls you can lean on &mdash; a step toward VR you can actually touch, and training simulators where what you feel is what you&rsquo;d feel.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://exaly.com/article/41360119" target="_blank" rel="noopener">Rendering stiffer walls: a hybrid haptic system using continuous and discrete time feedback</a></h3>
+            <p class="paper-meta">2007 · Advanced Robotics<span class="cite-pill">11 citations</span></p>
+          </footer>
         </div>
       </article>
 
@@ -722,11 +772,14 @@
           <figcaption>How it works · rotation-sensing diagram</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://www.academia.edu/601874/Sensing_angular_change_through_a_small_optical_window" target="_blank" rel="noopener">Sensing angular change through a small optical window</a></h3>
-          <p class="paper-meta">2006 · MIT Tech Report</p>
+          <p class="paper-sowhat reveal"><strong>So what?</strong> Your mouse could have learned to sense twisting for free &mdash; no new parts, just smarter math. Doing more with the hardware already in your hand.</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> A regular mouse tracks side-to-side movement but is blind to rotation — twist it and the cursor never knows. The authors’ “mushaca” (Sanskrit for “mouse”) adds that missing degree of freedom using the same tiny 1 mm optical window and cheap camera chip already in every mouse. The trick is mathematical, not hardware: fit the whole 18×18-pixel image sequence with a least-squares method across frames, squeezing out rotation estimates a hundred times finer than a pixel — twist-sensing with no new molds, lenses, or cost.</p>
           <p class="paper-why"><strong>Tiny window, precise angle.</strong> Sensing angular change through a small optical window — early work on compact optical sensing, with T.&nbsp;Poston.</p>
-          <p class="paper-sowhat reveal"><strong>So what?</strong> Your mouse could have learned to sense twisting for free &mdash; no new parts, just smarter math. Doing more with the hardware already in your hand.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://www.academia.edu/601874/Sensing_angular_change_through_a_small_optical_window" target="_blank" rel="noopener">Sensing angular change through a small optical window</a></h3>
+            <p class="paper-meta">2006 · MIT Tech Report</p>
+          </footer>
         </div>
       </article>
 
@@ -741,7 +794,7 @@
     </div>
     <div class="paper-list">
 
-      <article class="paper-row reveal">
+      <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
           <svg aria-hidden="false" viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="Visibility volume above a terrain target">
   <polygon points="170,105 70,25 300,25" fill="var(--teal)" opacity="0.13" stroke="var(--teal)" stroke-dasharray="6 5"/>
@@ -759,16 +812,19 @@
           <figcaption>How it works · visibility-volume diagram</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://doi.org/10.1007/s00371-008-0244-x" target="_blank" rel="noopener">Visibility volumes for interactive path optimization</a></h3>
-          <p class="paper-meta">2008 · The Visual Computer<span class="cite-pill">11 citations</span></p>
+          <p class="paper-sowhat reveal"><strong>So what?</strong> The math behind routes that stay hidden &mdash; or keep watch. Wherever a drone needs to see without being seen.</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> Given a 3D terrain, a “visibility volume” is the region of space from which a chosen target can be seen — the flip side of the familiar viewshed idea. The paper shows how to compute these volumes and use them to optimize paths against visibility criteria: routes that keep watch over an area, or stay out of sight.</p>
           <p class="paper-why"><strong>Planning through what can be seen.</strong> Treats visibility as a first-class citizen in motion planning — paths optimized inside the volume of the observable.</p>
-          <p class="paper-sowhat reveal"><strong>So what?</strong> The math behind routes that stay hidden &mdash; or keep watch. Wherever a drone needs to see without being seen.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://doi.org/10.1007/s00371-008-0244-x" target="_blank" rel="noopener">Visibility volumes for interactive path optimization</a></h3>
+            <p class="paper-meta">2008 · The Visual Computer<span class="cite-pill">11 citations</span></p>
+          </footer>
         </div>
       </article>
 
 
-              <article class="paper-row reveal">
+              <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
           <svg aria-hidden="false" viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="Drone path staying below the exposure ceiling over hostile terrain">
   <path d="M5 170 L80 120 L150 155 L220 110 L315 160 L315 200 L5 200 Z" style="fill:var(--soft)" stroke="none"/>
@@ -786,16 +842,19 @@
           <figcaption>How it works · exposure-ceiling diagram</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://doi.org/10.1109/iros.2008.4651077" target="_blank" rel="noopener">Covering hostile terrains with partial and complete visibilities: on minimum distance paths</a></h3>
-          <p class="paper-meta">2008 · IEEE/RSJ IROS</p>
+          <p class="paper-sowhat reveal"><strong>So what?</strong> Search-and-rescue drones that photograph every inch of ground while staying out of harm&rsquo;s way &mdash; more area covered, shorter flights.</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> How do you send drones to observe every inch of hostile terrain while staying hidden from outposts — and flying the shortest total distance? The authors compute an “exposure surface” (a ceiling the drones must stay beneath to remain unseen), then group terrain points so each drone’s cluster yields the most coverage per mile flown. Key finding: grouping by visibility first and distance second beats the reverse — cutting total path length by over 25%.</p>
           <p class="paper-why"><strong>Shortest safe paths.</strong> Minimum-distance routes through hostile terrain under partial and complete visibility — planning where being seen is the cost.</p>
-          <p class="paper-sowhat reveal"><strong>So what?</strong> Search-and-rescue drones that photograph every inch of ground while staying out of harm&rsquo;s way &mdash; more area covered, shorter flights.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://doi.org/10.1109/iros.2008.4651077" target="_blank" rel="noopener">Covering hostile terrains with partial and complete visibilities: on minimum distance paths</a></h3>
+            <p class="paper-meta">2008 · IEEE/RSJ IROS</p>
+          </footer>
         </div>
       </article>
 
 
-              <article class="paper-row reveal">
+              <article class="paper-row reveal"><span class="stamp peer">Peer-reviewed</span>
         <figure class="paper-fig">
           <svg aria-hidden="false" viewBox="0 0 320 200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" role="img" aria-label="Drone covering terrain while staying hidden behind a ridge">
   <path d="M5 175 L70 140 L120 160 L180 118 L240 155 L315 135 L315 200 L5 200 Z" style="fill:var(--soft)" stroke="none"/>
@@ -815,11 +874,14 @@
           <figcaption>How it works · covert-coverage diagram</figcaption>
         </figure>
         <div class="paper-body">
-          <h3><a href="https://www.bibsonomy.org/person/17e7a2a796b67a1a35d20972236690451/author/3" target="_blank" rel="noopener">Increasing coverage and preserving covertness for UAV moving in undulated terrains</a></h3>
-          <p class="paper-meta">2007 · IICAI</p>
+          <p class="paper-sowhat reveal"><strong>So what?</strong> The same trade-off &mdash; see everything, be seen by nothing &mdash; behind patrol and survey drones that observe without disturbing.</p>
+
           <p class="paper-plain"><strong>In plain English.</strong> Picture a surveillance drone that must photograph every hill and valley of rugged terrain while staying hidden from eyes below. This paper takes on that trade-off directly: planning flight paths that maximize the ground the camera actually sees while minimizing exposure to hostile observers — coverage planning with stealth as a first-class constraint, in the team’s early line of work on UAVs over hostile 3D terrain.</p>
           <p class="paper-why"><strong>Seen, but not seen.</strong> UAV coverage planning that maximizes area covered while preserving covertness over undulating terrain.</p>
-          <p class="paper-sowhat reveal"><strong>So what?</strong> The same trade-off &mdash; see everything, be seen by nothing &mdash; behind patrol and survey drones that observe without disturbing.</p>
+          <footer class="paper-proof">
+            <h3><a href="https://www.bibsonomy.org/person/17e7a2a796b67a1a35d20972236690451/author/3" target="_blank" rel="noopener">Increasing coverage and preserving covertness for UAV moving in undulated terrains</a></h3>
+            <p class="paper-meta">2007 · IICAI</p>
+          </footer>
         </div>
       </article>
 
